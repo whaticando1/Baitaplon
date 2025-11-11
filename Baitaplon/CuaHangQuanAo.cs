@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Baitaplon
 {
-    public partial class Form1 : Form
+    public partial class CuaHangQuanAo : Form
     {
-        public Form1()
+        public CuaHangQuanAo()
         {
             InitializeComponent();
         }
