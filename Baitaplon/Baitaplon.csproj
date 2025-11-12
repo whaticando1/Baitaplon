@@ -163,16 +163,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-<<<<<<< HEAD
-    <Content Include="Images\Fau.png" />
-=======
-    <Content Include="Images\chân váy ngắn hồng nơ.jpg" />
-    <Content Include="Images\croptop nỉ nơ đen.jpg" />
-    <Content Include="Images\croptop nỉ nơ.jpg" />
-    <Content Include="Images\quần trắng hồng.jpg" />
-    <Content Include="Images\sc ngắn nơ hồng.jpg" />
-    <Content Include="Images\áo trắng nơ.jpg" />
->>>>>>> 8dee32b994b136ec27e2e3e0fecf6515f1ac90d9
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
