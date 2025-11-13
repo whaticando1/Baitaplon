@@ -124,6 +124,9 @@
     <EmbeddedResource Include="CuaHangQuanAo.resx">
       <DependentUpon>CuaHangQuanAo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCTHoaDonBan.resx">
+      <DependentUpon>frmCTHoaDonBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNhanVien.resx">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSanPham.resx">
       <DependentUpon>frmSanPham.cs</DependentUpon>
