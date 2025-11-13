@@ -167,14 +167,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Images\chân váy ngắn hồng nơ.jpg" />
-    <Content Include="Images\croptop nỉ nơ đen.jpg" />
-    <Content Include="Images\croptop nỉ nơ.jpg" />
-    <Content Include="Images\quần trắng hồng.jpg" />
-    <Content Include="Images\sc ngắn nơ hồng.jpg" />
-    <Content Include="Images\áo trắng nơ.jpg" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
