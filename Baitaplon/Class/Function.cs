@@ -16,11 +16,10 @@ namespace Baitaplon.Class
 
         public static void Connect()
         {
-            connString = "Data Source=.\\SQLEXPRESS; Initial Catalog=QLBH; Integrated Security=True; Connect Timeout=30";
+            connString = "Data Source=.\\SQLEXPRESS; Initial Catalog=QuanLyBanHang; Integrated Security=True; Connect Timeout=30";
             Conn = new SqlConnection();
             Conn.ConnectionString = connString;
             Conn.Open();
-            MessageBox.Show("Kết nối thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public static void Disconnect()
         {
