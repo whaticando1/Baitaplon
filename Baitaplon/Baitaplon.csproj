@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CongViecBLL.cs" />
+    <Compile Include="BLL\CTHoaDonBanBLL.cs" />
+    <Compile Include="BLL\CTHoaDonNhapBLL.cs" />
+    <Compile Include="BLL\DangNhapBLL.cs" />
+    <Compile Include="BLL\HoaDonBanBLL.cs" />
+    <Compile Include="BLL\HoaDonNhapBLL.cs" />
+    <Compile Include="BLL\KhachHangBLL.cs" />
+    <Compile Include="BLL\NhaCungCapBLL.cs" />
+    <Compile Include="BLL\NhanVienBLL.cs" />
+    <Compile Include="BLL\SanPhamBLL.cs" />
     <Compile Include="BLL\TheloaiBLL.cs" />
     <Compile Include="Class\Function.cs" />
     <Compile Include="CuaHangQuanAo.cs">
@@ -54,6 +64,16 @@
     <Compile Include="CuaHangQuanAo.Designer.cs">
       <DependentUpon>CuaHangQuanAo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\CongviecDAL.cs" />
+    <Compile Include="DAL\CTHoaDonBanDAL.cs" />
+    <Compile Include="DAL\CTHoaDonNhapDAL.cs" />
+    <Compile Include="DAL\DangNhapDAL.cs" />
+    <Compile Include="DAL\HoaDonBanDAL.cs" />
+    <Compile Include="DAL\HoaDonNhapDAL.cs" />
+    <Compile Include="DAL\KhachHangDAL.cs" />
+    <Compile Include="DAL\NhaCungCapDAL.cs" />
+    <Compile Include="DAL\NhanVienDAL.cs" />
+    <Compile Include="DAL\SanPhamDAL.cs" />
     <Compile Include="DAL\TheloaiDAL.cs" />
     <Compile Include="Forms\frmCTHoaDonNhap.cs">
       <SubType>Form</SubType>
