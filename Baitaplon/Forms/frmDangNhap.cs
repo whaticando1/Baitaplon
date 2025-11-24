@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Baitaplon.BLL;
 
 namespace Baitaplon.Forms
 {
     public partial class frmDangNhap : Form
     {
+        DangNhapBLL bll = new DangNhapBLL();
         public frmDangNhap()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Baitaplon.Forms
                 txtTen.Focus();
                 return;
             }
+
             if (txtMatkhau.Text == "")
             {
                 lblThongbao.Text = "Bạn chưa nhập mật khẩu!";
@@ -39,8 +42,9 @@ namespace Baitaplon.Forms
                 txtMatkhau.Focus();
                 return;
             }
-            string sql = "SELECT * FROM DangNhap WHERE tendangnhap = N'" + txtTen.Text + "' AND matkhau = N'" + txtMatkhau.Text + "'";
-            if (Class.Function.CheckKey(sql))
+
+            bool ketQua = bll.DangNhap(txtTen.Text, txtMatkhau.Text);
+            if (ketQua)
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
@@ -49,16 +53,19 @@ namespace Baitaplon.Forms
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Optionally, you can set DialogResult to Cancel or leave it unset to allow retry
-                // this.DialogResult = DialogResult.Cancel;
             }
-            
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Class.Function.Disconnect();
             Application.Exit();
+        }
+
+        private void txtTen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
