@@ -40,7 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 125);
+            this.label1.Location = new System.Drawing.Point(128, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 25);
             this.label1.TabIndex = 0;
@@ -57,14 +57,14 @@
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(301, 125);
+            this.txtTen.Location = new System.Drawing.Point(302, 125);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(380, 31);
             this.txtTen.TabIndex = 2;
             // 
             // txtMatkhau
             // 
-            this.txtMatkhau.Location = new System.Drawing.Point(301, 202);
+            this.txtMatkhau.Location = new System.Drawing.Point(302, 202);
             this.txtMatkhau.Name = "txtMatkhau";
             this.txtMatkhau.Size = new System.Drawing.Size(380, 31);
             this.txtMatkhau.TabIndex = 3;
@@ -79,9 +79,9 @@
             // 
             // btnDangnhap
             // 
-            this.btnDangnhap.Location = new System.Drawing.Point(743, 102);
+            this.btnDangnhap.Location = new System.Drawing.Point(742, 102);
             this.btnDangnhap.Name = "btnDangnhap";
-            this.btnDangnhap.Size = new System.Drawing.Size(135, 54);
+            this.btnDangnhap.Size = new System.Drawing.Size(135, 55);
             this.btnDangnhap.TabIndex = 5;
             this.btnDangnhap.Text = "Đăng nhập";
             this.btnDangnhap.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(743, 202);
+            this.btnThoat.Location = new System.Drawing.Point(742, 202);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(135, 54);
+            this.btnThoat.Size = new System.Drawing.Size(135, 55);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(974, 407);
+            this.ClientSize = new System.Drawing.Size(974, 406);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangnhap);
             this.Controls.Add(this.lblThongbao);

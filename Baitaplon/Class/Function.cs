@@ -17,7 +17,7 @@ namespace Baitaplon.Class
 
         public static void Connect()
         {
-            connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False;Connect Timeout = 30";
+            connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
             Conn = new SqlConnection();
             Conn.ConnectionString = connString;
             Conn.Open();

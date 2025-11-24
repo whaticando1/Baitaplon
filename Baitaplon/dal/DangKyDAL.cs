@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Baitaplon.DAL
 {
-    internal class TheLoaiDAL
+    internal class DangKyDAL
     {
     }
 }

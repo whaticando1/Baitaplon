@@ -501,7 +501,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(715, 518);
+            this.ClientSize = new System.Drawing.Size(1025, 518);
             this.Controls.Add(this.cboMaHDBan);
             this.Controls.Add(this.btnTimkiem);
             this.Controls.Add(this.label16);
