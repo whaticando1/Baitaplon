@@ -62,11 +62,6 @@ namespace Baitaplon.Forms
             Class.Function.Disconnect();
             Application.Exit();
         }
-
-        private void txtTen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
