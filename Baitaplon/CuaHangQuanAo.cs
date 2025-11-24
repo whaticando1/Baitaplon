@@ -76,5 +76,10 @@ namespace Baitaplon
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
