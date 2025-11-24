@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Baitaplon.DAL
+namespace Baitaplon.BLL
 {
-    internal class TheLoaiDAL
+    internal class DangKyBLL
     {
     }
 }

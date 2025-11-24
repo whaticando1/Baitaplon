@@ -77,9 +77,25 @@ namespace Baitaplon
             f.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            using (var loginForm = new Forms.frmDangNhap())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show(); 
+                }
+                else
+                {
+                    Application.Exit(); 
+                }
+            }
         }
     }
 }

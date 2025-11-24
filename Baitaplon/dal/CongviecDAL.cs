@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Baitaplon.DAL
 {
-    internal class CongviecDAL
+    internal class CongViecDAL
     {
     }
 }
