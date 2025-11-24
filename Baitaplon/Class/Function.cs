@@ -105,5 +105,14 @@ namespace Baitaplon.Class
             else
                 return false;
         }
+        public static bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
     }
 }

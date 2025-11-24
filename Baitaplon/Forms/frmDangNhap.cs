@@ -53,6 +53,10 @@ namespace Baitaplon.Forms
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblThongbao.Text = "Kiểm tra lại tên tài khoản và mật khẩu";
+                lblThongbao.ForeColor = Color.Red;
+                txtTen.Focus();
+                return;
             }
 
         }
