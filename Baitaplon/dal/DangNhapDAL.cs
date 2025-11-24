@@ -17,7 +17,7 @@ namespace Baitaplon.DAL
             cmd.Parameters.AddWithValue("@ten", ten);
             cmd.Parameters.AddWithValue("@matkhau", matkhau);
 
-            Class.Function.Conn.Open();
+            
             SqlDataReader dr = cmd.ExecuteReader();
             bool exists = dr.HasRows;
             Class.Function.Conn.Close();
