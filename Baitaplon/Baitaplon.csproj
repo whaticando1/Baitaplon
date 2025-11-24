@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\TheloaiBLL.cs" />
     <Compile Include="Class\Function.cs" />
     <Compile Include="CuaHangQuanAo.cs">
       <SubType>Form</SubType>
@@ -53,6 +54,7 @@
     <Compile Include="CuaHangQuanAo.Designer.cs">
       <DependentUpon>CuaHangQuanAo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\TheloaiDAL.cs" />
     <Compile Include="Forms\frmCTHoaDonNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,8 +173,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
