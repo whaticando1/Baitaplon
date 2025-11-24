@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace Baitaplon.Class
 
         public static void Connect()
         {
-            connString = "Data Source=DESKTOP-BQHAF2N;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False";
+            connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False;Connect Timeout = 30";
             Conn = new SqlConnection();
             Conn.ConnectionString = connString;
             Conn.Open();
