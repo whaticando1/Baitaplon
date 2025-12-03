@@ -20,7 +20,7 @@ namespace Baitaplon.DAL
             
             SqlDataReader dr = cmd.ExecuteReader();
             bool exists = dr.HasRows;
-            Class.Function.Conn.Close();
+
 
             return exists;
         }

@@ -19,5 +19,6 @@ namespace Baitaplon.BLL
 
             return dal.KiemTraDangNhap(ten, matkhau);
         }
+
     }
 }

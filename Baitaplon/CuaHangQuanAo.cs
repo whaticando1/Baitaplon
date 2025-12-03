@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Baitaplon.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,9 @@ namespace Baitaplon
         private void CuaHangQuanAo_Load(object sender, EventArgs e)
         {
             Class.Function.Connect();
+
+           
+
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
