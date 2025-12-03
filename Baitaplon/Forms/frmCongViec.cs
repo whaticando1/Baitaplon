@@ -65,7 +65,7 @@ namespace Baitaplon.Forms
 
         private void dataGridViewCV_Click(object sender, EventArgs e)
         {
-            if (txtIDCongViec.Enabled == true)
+            if (btnThem.Enabled == false)
             {
                 MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtIDCongViec.Focus();
