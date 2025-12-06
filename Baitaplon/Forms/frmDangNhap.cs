@@ -1,5 +1,6 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
+using Baitaplon.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,14 @@ namespace Baitaplon.Forms
 {
     public partial class frmDangNhap : Form
     {
+        public static string role;
+
         DangNhapBLL bll = new DangNhapBLL();
         public frmDangNhap()
         {
             InitializeComponent();
+
+            
         }
 
         private void frmDangNhap_Load(object sender, EventArgs e)
@@ -47,7 +52,7 @@ namespace Baitaplon.Forms
             bool ketQua = bll.DangNhap(txtTen.Text, txtMatkhau.Text);
             if (ketQua)
             {
-
+                role = DAL.DangNhapDAL.GetUserRole(txtTen.Text);
 
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

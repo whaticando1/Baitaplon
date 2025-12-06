@@ -13,16 +13,25 @@ namespace Baitaplon
 {
     public partial class CuaHangQuanAo : Form
     {
+        public string role;
+
         public CuaHangQuanAo()
         {
             InitializeComponent();
+
+            this.role = Forms.frmDangNhap.role;
         }
 
         private void CuaHangQuanAo_Load(object sender, EventArgs e)
         {
             Class.Function.Connect();
 
-           
+            if (role == "Employee")
+            {
+                nhânViênToolStripMenuItem1.Visible = false;
+                đăngKýToolStripMenuItem.Visible = false;
+            }
+
 
         }
 
