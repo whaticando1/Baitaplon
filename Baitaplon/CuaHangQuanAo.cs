@@ -17,9 +17,10 @@ namespace Baitaplon
 
         public CuaHangQuanAo()
         {
+            this.role = Forms.frmDangNhap.role;
             InitializeComponent();
 
-            this.role = Forms.frmDangNhap.role;
+           
         }
 
         private void CuaHangQuanAo_Load(object sender, EventArgs e)
@@ -31,6 +32,11 @@ namespace Baitaplon
                 nhânViênToolStripMenuItem1.Visible = false;
                 đăngKýToolStripMenuItem.Visible = false;
             }
+            else if (role == "Admin")
+            {
+                nhânViênToolStripMenuItem1.Visible = true;
+                đăngKýToolStripMenuItem.Visible = true;
+            }    
 
 
         }
@@ -92,17 +98,21 @@ namespace Baitaplon
 
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Forms.frmDangKy f = new Forms.frmDangKy();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
         }
 
         private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             using (var loginForm = new Forms.frmDangNhap())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    this.Show(); 
+                    this.role = Forms.frmDangNhap.role;
+                    this.Show();
+                    CuaHangQuanAo_Load(this, EventArgs.Empty);
                 }
                 else
                 {

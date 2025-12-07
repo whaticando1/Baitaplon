@@ -19,7 +19,7 @@ namespace Baitaplon.Forms
         }
 
         private void frmCongViec_Load(object sender, EventArgs e)
-        {
+        { 
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
             btnXoa.Enabled = false;
@@ -84,7 +84,6 @@ namespace Baitaplon.Forms
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnBoqua.Enabled = true;
-            btnThem.Enabled = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -177,6 +176,9 @@ namespace Baitaplon.Forms
                 Class.Function.RunSqlDel(sql);
                 Load_DataGridViewCV();
                 Resetvalues();
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                btnBoqua.Enabled = false;
             }
         }
 
@@ -226,7 +228,8 @@ namespace Baitaplon.Forms
             Load_DataGridViewCV();
             Resetvalues();
             btnBoqua.Enabled = false;
-           
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
     }
 }
