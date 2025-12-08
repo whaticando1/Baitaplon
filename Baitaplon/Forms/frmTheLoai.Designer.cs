@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblMota = new System.Windows.Forms.Label();
             this.txtMota = new System.Windows.Forms.TextBox();
-            this.txtTheloaiid = new System.Windows.Forms.TextBox();
+            this.txtIDTheloai = new System.Windows.Forms.TextBox();
             this.txtTentheloai = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.DataGridView.RowTemplate.Height = 24;
             this.DataGridView.Size = new System.Drawing.Size(814, 270);
             this.DataGridView.TabIndex = 0;
+            this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // label1
             // 
@@ -63,10 +64,9 @@
             this.label1.Location = new System.Drawing.Point(97, 141);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 25);
+            this.label1.Size = new System.Drawing.Size(124, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Thể loại id:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Mã thể loại:";
             // 
             // label2
             // 
@@ -87,7 +87,6 @@
             this.lblMota.Size = new System.Drawing.Size(72, 25);
             this.lblMota.TabIndex = 3;
             this.lblMota.Text = "Mô tả:";
-            this.lblMota.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtMota
             // 
@@ -97,15 +96,14 @@
             this.txtMota.Name = "txtMota";
             this.txtMota.Size = new System.Drawing.Size(298, 109);
             this.txtMota.TabIndex = 4;
-            this.txtMota.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // txtTheloaiid
+            // txtIDTheloai
             // 
-            this.txtTheloaiid.Location = new System.Drawing.Point(268, 141);
-            this.txtTheloaiid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTheloaiid.Name = "txtTheloaiid";
-            this.txtTheloaiid.Size = new System.Drawing.Size(276, 31);
-            this.txtTheloaiid.TabIndex = 5;
+            this.txtIDTheloai.Location = new System.Drawing.Point(268, 141);
+            this.txtIDTheloai.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIDTheloai.Name = "txtIDTheloai";
+            this.txtIDTheloai.Size = new System.Drawing.Size(276, 31);
+            this.txtIDTheloai.TabIndex = 5;
             // 
             // txtTentheloai
             // 
@@ -124,6 +122,7 @@
             this.btnThem.TabIndex = 8;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -134,6 +133,7 @@
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -144,6 +144,7 @@
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -154,6 +155,7 @@
             this.btnLuu.TabIndex = 11;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoqua
             // 
@@ -164,6 +166,7 @@
             this.btnBoqua.TabIndex = 12;
             this.btnBoqua.Text = "Bỏ Qua";
             this.btnBoqua.UseVisualStyleBackColor = true;
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnThoat
             // 
@@ -174,6 +177,7 @@
             this.btnThoat.TabIndex = 13;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // lblDMKH
             // 
@@ -186,7 +190,6 @@
             this.lblDMKH.Size = new System.Drawing.Size(225, 51);
             this.lblDMKH.TabIndex = 75;
             this.lblDMKH.Text = "THỂ LOẠI";
-            this.lblDMKH.Click += new System.EventHandler(this.lblDMKH_Click);
             // 
             // lblThongbao
             // 
@@ -212,7 +215,7 @@
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtTentheloai);
-            this.Controls.Add(this.txtTheloaiid);
+            this.Controls.Add(this.txtIDTheloai);
             this.Controls.Add(this.txtMota);
             this.Controls.Add(this.lblMota);
             this.Controls.Add(this.label2);
@@ -235,7 +238,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMota;
         private System.Windows.Forms.TextBox txtMota;
-        private System.Windows.Forms.TextBox txtTheloaiid;
+        private System.Windows.Forms.TextBox txtIDTheloai;
         private System.Windows.Forms.TextBox txtTentheloai;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;

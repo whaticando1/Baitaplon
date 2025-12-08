@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thểLoạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMasanpham = new System.Windows.Forms.TextBox();
             this.cboMatheloai = new System.Windows.Forms.ComboBox();
             this.mskNgaynhap = new System.Windows.Forms.MaskedTextBox();
@@ -80,11 +79,9 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thểLoạiToolStripMenuItem,
-            this.thoátToolStripMenuItem});
+            this.thểLoạiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1583, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -95,12 +92,6 @@
             this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
             this.thểLoạiToolStripMenuItem.Text = "Thể loại";
             this.thểLoạiToolStripMenuItem.Click += new System.EventHandler(this.thểLoạiToolStripMenuItem_Click);
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(95, 36);
-            this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // txtMasanpham
             // 
@@ -497,7 +488,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thểLoạiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.TextBox txtMasanpham;
         private System.Windows.Forms.ComboBox cboMatheloai;
         private System.Windows.Forms.MaskedTextBox mskNgaynhap;

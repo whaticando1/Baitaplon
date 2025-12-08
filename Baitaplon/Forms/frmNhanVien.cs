@@ -222,14 +222,7 @@ namespace Baitaplon.Forms
                 gt = "Nam";
             else
                 gt = "Nữ";
-            sql = "SELECT nhanvien_id FROM NhanVien WHERE nhanvien_id=N'" + txtManhanvien.Text.Trim() + "'";
-            if (Function.CheckKey(sql))
-            {
-                MessageBox.Show("Mã nhân viên này đã có, phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtManhanvien.Focus();
-                txtManhanvien.Text = "";
-                return;
-            }
+
             if (cboCongviec.SelectedValue.ToString() == "Aa1")
             {
                 string sql2 = "Select top 1 right(nhanvien_id,1) From NhanVien where congviec_id='Aa1' order by right(nhanvien_id,1) desc";

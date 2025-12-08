@@ -141,7 +141,7 @@
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(838, 454);
+            this.btnBoqua.Location = new System.Drawing.Point(838, 459);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(107, 49);
             this.btnBoqua.TabIndex = 41;
