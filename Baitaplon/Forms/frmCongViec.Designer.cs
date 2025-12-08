@@ -44,6 +44,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.lblDMKH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,12 +192,25 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // lblDMKH
+            // 
+            this.lblDMKH.AutoSize = true;
+            this.lblDMKH.BackColor = System.Drawing.Color.Transparent;
+            this.lblDMKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDMKH.ForeColor = System.Drawing.Color.Black;
+            this.lblDMKH.Location = new System.Drawing.Point(477, 19);
+            this.lblDMKH.Name = "lblDMKH";
+            this.lblDMKH.Size = new System.Drawing.Size(271, 51);
+            this.lblDMKH.TabIndex = 75;
+            this.lblDMKH.Text = "CÔNG VIỆC";
+            // 
             // frmCongViec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1256, 742);
+            this.Controls.Add(this.lblDMKH);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnBoqua);
             this.Controls.Add(this.btnLuu);
@@ -240,5 +254,6 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label lblDMKH;
     }
 }

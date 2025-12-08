@@ -23,5 +23,10 @@ namespace Baitaplon.Forms
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
         }
+
+        private void frmSanPham_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

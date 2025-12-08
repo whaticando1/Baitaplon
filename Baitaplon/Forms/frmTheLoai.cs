@@ -41,5 +41,10 @@ namespace Baitaplon.Forms
         {
 
         }
+
+        private void lblDMKH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

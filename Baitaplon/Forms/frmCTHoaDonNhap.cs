@@ -16,5 +16,10 @@ namespace Baitaplon.Forms
         {
             InitializeComponent();
         }
+
+        private void frmCTHoaDonNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
