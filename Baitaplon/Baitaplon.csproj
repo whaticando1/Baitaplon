@@ -213,9 +213,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Folder Include="Images\DecoBackgr\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Products\Váy trắng cúp ngực đuôi chéo.jpg" />
+    <Content Include="Images\Products\váy xanh đậm ngắn dây nơ.jpg" />
+    <Content Include="Images\Products\Váy xòe tím 2 dây.jpg" />
+    <Content Include="Images\Products\Váy xòe đỏ cúp ngực.jpg" />
+    <Content Include="Images\Products\Váy đen dài tay nơ.jpg" />
+    <Content Include="Images\Products\Váy đen xám ren cúp ngực.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
