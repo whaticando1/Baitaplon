@@ -196,9 +196,8 @@
             this.lblThongbao.AutoSize = true;
             this.lblThongbao.Location = new System.Drawing.Point(263, 246);
             this.lblThongbao.Name = "lblThongbao";
-            this.lblThongbao.Size = new System.Drawing.Size(24, 25);
+            this.lblThongbao.Size = new System.Drawing.Size(0, 25);
             this.lblThongbao.TabIndex = 107;
-            this.lblThongbao.Text = "a";
             // 
             // frmTheLoai
             // 

@@ -378,8 +378,7 @@ namespace Baitaplon.Forms
             string sql1;
             if (tblNhanvien.Rows.Count == 0)
             {
-                lblThongbao.Text = "Không có dữ liệu!";
-                lblThongbao.ForeColor = Color.Red;
+               MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không? \n (Điều này sẽ xoá cả tài khoản đăng nhập của nhân viên này) ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

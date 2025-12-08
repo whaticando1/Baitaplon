@@ -44,10 +44,10 @@
             this.lblTenkhach = new System.Windows.Forms.Label();
             this.lblMakhach = new System.Windows.Forms.Label();
             this.lblDMKH = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskDangky = new System.Windows.Forms.MaskedTextBox();
             this.lblThongbao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             this.btnDong.TabIndex = 32;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = false;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnBoqua
             // 
@@ -77,6 +78,7 @@
             this.btnBoqua.TabIndex = 31;
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = false;
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnLuu
             // 
@@ -90,6 +92,7 @@
             this.btnLuu.TabIndex = 30;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -103,6 +106,7 @@
             this.btnSua.TabIndex = 29;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -116,6 +120,7 @@
             this.btnXoa.TabIndex = 28;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -128,6 +133,7 @@
             this.btnThem.TabIndex = 27;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // DataGridView
             // 
@@ -139,6 +145,7 @@
             this.DataGridView.RowTemplate.Height = 33;
             this.DataGridView.Size = new System.Drawing.Size(632, 374);
             this.DataGridView.TabIndex = 26;
+            this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // mskDienthoai
             // 
@@ -233,13 +240,13 @@
             this.lblDMKH.TabIndex = 17;
             this.lblDMKH.Text = "DANH MỤC KHÁCH HÀNG";
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(789, 281);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 31);
-            this.textBox1.TabIndex = 38;
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.Location = new System.Drawing.Point(789, 281);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(278, 31);
+            this.txtEmail.TabIndex = 38;
             // 
             // label1
             // 
@@ -265,24 +272,23 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "Ngày đăng ký:";
             // 
-            // maskedTextBox1
+            // mskDangky
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.White;
-            this.maskedTextBox1.Location = new System.Drawing.Point(789, 220);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(278, 31);
-            this.maskedTextBox1.TabIndex = 39;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.mskDangky.BackColor = System.Drawing.Color.White;
+            this.mskDangky.Location = new System.Drawing.Point(789, 220);
+            this.mskDangky.Mask = "00/00/0000";
+            this.mskDangky.Name = "mskDangky";
+            this.mskDangky.Size = new System.Drawing.Size(278, 31);
+            this.mskDangky.TabIndex = 39;
+            this.mskDangky.ValidatingType = typeof(System.DateTime);
             // 
             // lblThongbao
             // 
             this.lblThongbao.AutoSize = true;
             this.lblThongbao.Location = new System.Drawing.Point(201, 338);
             this.lblThongbao.Name = "lblThongbao";
-            this.lblThongbao.Size = new System.Drawing.Size(24, 25);
+            this.lblThongbao.Size = new System.Drawing.Size(0, 25);
             this.lblThongbao.TabIndex = 107;
-            this.lblThongbao.Text = "a";
             // 
             // frmKhachHang
             // 
@@ -291,8 +297,8 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1216, 858);
             this.Controls.Add(this.lblThongbao);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.mskDangky);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDong);
@@ -313,6 +319,7 @@
             this.Controls.Add(this.lblDMKH);
             this.Name = "frmKhachHang";
             this.Text = "KhachHang";
+            this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,10 +344,10 @@
         private System.Windows.Forms.Label lblTenkhach;
         private System.Windows.Forms.Label lblMakhach;
         private System.Windows.Forms.Label lblDMKH;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskDangky;
         private System.Windows.Forms.Label lblThongbao;
     }
 }
