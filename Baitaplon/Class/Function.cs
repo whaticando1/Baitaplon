@@ -12,16 +12,54 @@ namespace Baitaplon.Class
 {
     internal class Function
     {
+        private static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
+        private static string connectionString1 = "Data Source=DESKTOP-BQHAF2N;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False;Trust Server Certificate=True; Connect Timeout=30";
+
         public static SqlConnection Conn;
         public static string connString;
 
         public static void Connect()
         {
-            connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
-            Conn = new SqlConnection();
-            Conn.ConnectionString = connString;
-            Conn.Open();
+            try
+            {
+                if (Conn == null || Conn.State == ConnectionState.Closed)
+                {
+                    Conn = new SqlConnection(connectionString);
+
+                    try
+                    {
+                        Conn.Open();
+                        
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        Conn = new SqlConnection(connectionString1);
+
+                    try
+                    {
+                        Conn.Open();
+                        
+                    }
+                    catch (SqlException ex1)
+                    {
+
+                            Console.WriteLine($"SQL Exception: {ex1.Message}");
+                            MessageBox.Show("Error: " + ex1.Message);
+
+                            Application.Exit();
+                    }
+                }
+            }
         }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Exception: {ex.Message}");
+                MessageBox.Show("❌Error: " + ex.Message);
+        
+                Application.Exit();
+            }
+    }
         public static void Disconnect()
         {
             if (Conn.State == ConnectionState.Open)
