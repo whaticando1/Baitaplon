@@ -17,12 +17,6 @@ namespace Baitaplon.Forms
             InitializeComponent();
         }
 
-        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Forms.frmCTHoaDonNhap f = new Forms.frmCTHoaDonNhap();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
-        }
 
         private void frmHoaDonNhap_Load(object sender, EventArgs e)
         {

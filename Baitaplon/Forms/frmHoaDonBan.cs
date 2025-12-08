@@ -17,11 +17,10 @@ namespace Baitaplon.Forms
             InitializeComponent();
         }
 
-        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
-            Forms.frmCTHoaDonBan f = new Forms.frmCTHoaDonBan();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+
         }
     }
 }
