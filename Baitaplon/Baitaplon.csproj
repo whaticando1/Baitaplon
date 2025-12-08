@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CongViecBLL.cs" />
-    <Compile Include="BLL\CTHoaDonBanBLL.cs" />
-    <Compile Include="BLL\CTHoaDonNhapBLL.cs" />
     <Compile Include="BLL\DangKyBLL.cs" />
     <Compile Include="BLL\DangNhapBLL.cs" />
     <Compile Include="BLL\HoaDonBanBLL.cs" />
@@ -66,8 +64,6 @@
       <DependentUpon>CuaHangQuanAo.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\CongViecDAL.cs" />
-    <Compile Include="DAL\CTHoaDonBanDAL.cs" />
-    <Compile Include="DAL\CTHoaDonNhapDAL.cs" />
     <Compile Include="DAL\DangKyDAL.cs" />
     <Compile Include="DAL\DangNhapDAL.cs" />
     <Compile Include="DAL\HoaDonBanDAL.cs" />
@@ -77,18 +73,6 @@
     <Compile Include="DAL\NhanVienDAL.cs" />
     <Compile Include="DAL\SanPhamDAL.cs" />
     <Compile Include="DAL\TheLoaiDAL.cs" />
-    <Compile Include="Forms\frmCTHoaDonNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmCTHoaDonNhap.Designer.cs">
-      <DependentUpon>frmCTHoaDonNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmCTHoaDonBan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmCTHoaDonBan.Designer.cs">
-      <DependentUpon>frmCTHoaDonBan.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmCongViec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCongViec.resx">
       <DependentUpon>frmCongViec.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCTHoaDonBan.resx">
-      <DependentUpon>frmCTHoaDonBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCTHoaDonNhap.resx">
-      <DependentUpon>frmCTHoaDonNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
