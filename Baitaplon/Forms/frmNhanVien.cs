@@ -31,11 +31,13 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
             btnSua.Enabled = false;
+            cboCongviec.Enabled = false;
             Resetvalues();
             Load_DataGridView();
         }
        private void Resetvalues()
         {
+            lblwarning.Text = "";
             txtManhanvien.Text = "";
             txtTennhanvien.Text = "";
             txtDiachi.Text = "";
@@ -143,7 +145,7 @@ namespace Baitaplon.Forms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, gt;
+            string sql, gt, id="";
             if (txtTennhanvien.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên nhân viên!";
@@ -173,8 +175,8 @@ namespace Baitaplon.Forms
             }
             if (!Function.IsDate(mskNgaysinh.Text))
             {
-                lblThongbao.Text = "Phải nhập lại ngày sinh";
-                lblThongbao.ForeColor= Color.Red;
+                lblThongbao.Text = "Hãy ghi chính xác ngày sinh";
+                lblThongbao.ForeColor = Color.Red;
                 mskNgaysinh.Text = "";
                 mskNgaysinh.Focus();
                 return;
@@ -186,6 +188,14 @@ namespace Baitaplon.Forms
                 mskNgaytuyendung.Focus();
                 return;
             }
+            if (!Function.IsDate(mskNgaytuyendung.Text))
+            {
+                lblThongbao.Text = "Hãy ghi chính xác ngày tuyển dụng";
+                lblThongbao.ForeColor = Color.Red;
+                mskNgaytuyendung.Text = "";
+                mskNgaytuyendung.Focus();
+                return;
+            }
             if (txtDiachi.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập địa chỉ!";
@@ -193,13 +203,7 @@ namespace Baitaplon.Forms
                 txtDiachi.Focus();
                 return;
             }
-            if (txtManhanvien.Text.Trim().Length == 0)
-            {
-                lblThongbao.Text = "Phải nhập mã nhân viên!";
-                lblThongbao.ForeColor = Color.Red;
-                txtManhanvien.Focus();
-                return;
-            }
+
             if (mskDienthoai.Text == "(   )     -")
             {
                 lblThongbao.Text = "Phải nhập điện thoại!";
@@ -226,14 +230,34 @@ namespace Baitaplon.Forms
                 txtManhanvien.Text = "";
                 return;
             }
+            if (cboCongviec.SelectedValue.ToString() == "Aa1")
+            {
+                string sql2 = "Select top 1 right(nhanvien_id,1) From NhanVien where congviec_id='Aa1' order by right(nhanvien_id,1) desc";
+
+                float count = Function.FirstRowNumberSafe(sql2) + 1;
+
+                id = "A" + count;
+
+            }
+            else if(cboCongviec.SelectedValue.ToString() == "Aa2")
+            {
+                string sql2 = "Select top 1 right(nhanvien_id,1) From NhanVien where congviec_id='Aa2' order by right(nhanvien_id,1) desc";
+
+                float count = Function.FirstRowNumberSafe(sql2) + 1;
+
+                id = "E" + count;
+            }
+            string bdate = Class.Function.ConvertDateTime(mskNgaysinh.Text.Trim());
+            string edate = Class.Function.ConvertDateTime(mskNgaytuyendung.Text.Trim());
+
             sql = "INSERT INTO NhanVien(nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email) VALUES(" +
-                  "N'" + txtManhanvien.Text.Trim() + "', " +
+                  "N'" + id + "', " +
                   "N'" + txtTennhanvien.Text.Trim() + "', " +
                   "N'" + gt + "', " +
                   "N'" + txtDiachi.Text.Trim() + "', " +
                   "N'" + mskDienthoai.Text.Trim() + "', " +
-                  "N'" + mskNgaysinh.Text.Trim() + "', " +
-                  "N'" + mskNgaytuyendung.Text.Trim() + "', " +
+                  "N'" + bdate + "', " +
+                  "N'" + edate + "', " +
                   "N'" + cboCongviec.SelectedValue.ToString() + "', " +
                   "N'" + txtEmail.Text.Trim() + "')";
             Class.Function.RunSql(sql);
@@ -242,6 +266,7 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
             btnLuu.Enabled = false;
+            cboCongviec.Enabled = false;
 
         }
 
@@ -282,7 +307,7 @@ namespace Baitaplon.Forms
             }
             if (!Function.IsDate(mskNgaysinh.Text))
             {
-                lblThongbao.Text = "Phải nhập lại ngày sinh";
+                lblThongbao.Text = "Hãy ghi chính xác ngày sinh";
                 lblThongbao.ForeColor = Color.Red;
                 mskNgaysinh.Text = "";
                 mskNgaysinh.Focus();
@@ -292,6 +317,14 @@ namespace Baitaplon.Forms
             {
                 lblThongbao.Text = "Phải nhập ngày tuyển dụng!";
                 lblThongbao.ForeColor = Color.Red;
+                mskNgaytuyendung.Focus();
+                return;
+            }
+            if (!Function.IsDate(mskNgaytuyendung.Text))
+            {
+                lblThongbao.Text = "Hãy ghi chính xác ngày tuyển dụng";
+                lblThongbao.ForeColor = Color.Red;
+                mskNgaytuyendung.Text = "";
                 mskNgaytuyendung.Focus();
                 return;
             }
@@ -327,13 +360,17 @@ namespace Baitaplon.Forms
                 gt = "Nam";
             else
                 gt = "Nữ";
+
+            string bdate1 = Class.Function.ConvertDateTime(mskNgaysinh.Text.Trim());
+            string edate1 = Class.Function.ConvertDateTime(mskNgaytuyendung.Text.Trim());
+
             sql = "UPDATE NhanVien SET " +
                   "tennhanvien=N'" + txtTennhanvien.Text.Trim() + "', " +
                   "gioitinh=N'" + gt + "', " +
                   "diachi=N'" + txtDiachi.Text.Trim() + "', " +
                   "dienthoai=N'" + mskDienthoai.Text.Trim() + "', " +
-                  "ngaysinh=N'" + mskNgaysinh.Text.Trim() + "', " +
-                  "ngaytuyendung=N'" + mskNgaytuyendung.Text.Trim() + "', " +
+                  "ngaysinh=N'" + bdate1 + "', " +
+                  "ngaytuyendung=N'" + edate1 + "', " +
                   "congviec_id=N'" + cboCongviec.SelectedValue.ToString() + "', " +
                   "email=N'" + txtEmail.Text.Trim() + "' " +
                   "WHERE nhanvien_id=N'" + txtManhanvien.Text.Trim() + "'";
@@ -342,12 +379,14 @@ namespace Baitaplon.Forms
             Resetvalues();
             btnBoqua.Enabled = false;
             btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             string sql;
+            string sql1;
             if (tblNhanvien.Rows.Count == 0)
             {
                 lblThongbao.Text = "Không có dữ liệu!";
@@ -360,10 +399,15 @@ namespace Baitaplon.Forms
                 lblThongbao.ForeColor = Color.Red;
                 return;
             }
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không? \n (Điều này sẽ xoá tài khoản đăng nhập của nhân viên đó) ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 sql = "DELETE NhanVien WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
+                sql1 = "DELETE DangNhap WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
+
+                Class.Function.RunSqlDel(sql1);
+
                 Class.Function.RunSqlDel(sql);
+
                 Load_DataGridView();
                 Resetvalues();
             }
@@ -376,9 +420,11 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = true;
             btnLuu.Enabled = true;
             btnThem.Enabled = false;
+            cboCongviec.Enabled = true;
             Resetvalues();
-            txtManhanvien.Enabled = true;
             txtManhanvien.Focus();
+            lblwarning.Text = "Chú ý! Công việc sẽ \n chỉ được chọn khi \n đang tạo tài khoản mới!";
+            lblwarning.ForeColor = Color.Red;
         }
 
         private void btnBoqua_Click(object sender, EventArgs e)

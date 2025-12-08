@@ -56,6 +56,7 @@
             this.chkNu = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.cboCongviec = new System.Windows.Forms.ComboBox();
+            this.lblwarning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -336,12 +337,21 @@
             this.cboCongviec.Size = new System.Drawing.Size(142, 33);
             this.cboCongviec.TabIndex = 67;
             // 
+            // lblwarning
+            // 
+            this.lblwarning.AutoSize = true;
+            this.lblwarning.Location = new System.Drawing.Point(1068, 191);
+            this.lblwarning.Name = "lblwarning";
+            this.lblwarning.Size = new System.Drawing.Size(0, 25);
+            this.lblwarning.TabIndex = 69;
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1247, 755);
+            this.ClientSize = new System.Drawing.Size(1316, 755);
+            this.Controls.Add(this.lblwarning);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboCongviec);
             this.Controls.Add(this.chkNu);
@@ -409,5 +419,6 @@
         private System.Windows.Forms.RadioButton chkNu;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboCongviec;
+        private System.Windows.Forms.Label lblwarning;
     }
 }

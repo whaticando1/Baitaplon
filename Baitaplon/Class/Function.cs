@@ -136,5 +136,23 @@ namespace Baitaplon.Class
             else
                 return false;
         }
+        public static string ConvertDateTime(string d)
+        {
+            string[] parts = d.Split('/');
+            string dt = String.Format("{0}/{1}/{2}", parts[1], parts[0], parts[2]);
+            return dt;
+        }
+        public static float FirstRowNumberSafe(string sql)
+        {
+            using (SqlCommand cmd = new SqlCommand(sql, Conn))
+            {
+                object result = cmd.ExecuteScalar();
+                if (result == null || result == DBNull.Value)
+                    return 0f;
+                if (float.TryParse(result.ToString(), out float f))
+                    return f;
+                return 0f;
+            }
+        }
     }
 }

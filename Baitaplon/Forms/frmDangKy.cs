@@ -187,6 +187,7 @@ namespace Baitaplon.Forms
             cboNhanvien.SelectedValue = dataGridView1.CurrentRow.Cells["nhanvien_id"].Value.ToString();
             btnLamlai.Enabled = true;
             btnSua.Enabled = true;
+            btnThem.Enabled = false;
         }
     }
 }
