@@ -101,10 +101,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(1008, 628);
+            this.btnThoat.Location = new System.Drawing.Point(1142, 543);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(171, 73);
+            this.btnThoat.Size = new System.Drawing.Size(126, 59);
             this.btnThoat.TabIndex = 53;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -112,10 +112,10 @@
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(813, 628);
+            this.btnBoqua.Location = new System.Drawing.Point(947, 543);
             this.btnBoqua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBoqua.Name = "btnBoqua";
-            this.btnBoqua.Size = new System.Drawing.Size(171, 73);
+            this.btnBoqua.Size = new System.Drawing.Size(126, 59);
             this.btnBoqua.TabIndex = 52;
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = true;
@@ -123,10 +123,10 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(618, 628);
+            this.btnLuu.Location = new System.Drawing.Point(1142, 442);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(171, 73);
+            this.btnLuu.Size = new System.Drawing.Size(126, 59);
             this.btnLuu.TabIndex = 51;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -134,10 +134,10 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(423, 628);
+            this.btnSua.Location = new System.Drawing.Point(947, 442);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(171, 73);
+            this.btnSua.Size = new System.Drawing.Size(126, 59);
             this.btnSua.TabIndex = 50;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -145,10 +145,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(228, 628);
+            this.btnXoa.Location = new System.Drawing.Point(1142, 346);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(171, 73);
+            this.btnXoa.Size = new System.Drawing.Size(126, 59);
             this.btnXoa.TabIndex = 49;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -156,10 +156,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(33, 628);
+            this.btnThem.Location = new System.Drawing.Point(947, 346);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(171, 73);
+            this.btnThem.Size = new System.Drawing.Size(126, 59);
             this.btnThem.TabIndex = 48;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             // DataGridView
             // 
             this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView.Location = new System.Drawing.Point(174, 348);
+            this.DataGridView.Location = new System.Drawing.Point(55, 346);
             this.DataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.RowHeadersWidth = 51;

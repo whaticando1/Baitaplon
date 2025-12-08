@@ -31,6 +31,7 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
             btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             cboCongviec.Enabled = false;
             Resetvalues();
             Load_DataGridView();
@@ -93,7 +94,7 @@ namespace Baitaplon.Forms
             if (btnThem.Enabled == false)
             {
                 MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtManhanvien.Focus();
+                txtTennhanvien.Focus();
                 return;
             }
             txtManhanvien.Text = DataGridView.CurrentRow.Cells["nhanvien_id"].Value.ToString();
@@ -141,6 +142,7 @@ namespace Baitaplon.Forms
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnBoqua.Enabled = true;
+            btnThem.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -256,9 +258,9 @@ namespace Baitaplon.Forms
             Class.Function.RunSql(sql);
             Load_DataGridView();
             Resetvalues();
-            btnBoqua.Enabled = false;
             btnThem.Enabled = true;
             btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
             cboCongviec.Enabled = false;
 
         }
@@ -328,13 +330,6 @@ namespace Baitaplon.Forms
                 txtDiachi.Focus();
                 return;
             }
-            if (txtManhanvien.Text.Trim().Length == 0)
-            {
-                lblThongbao.Text = "Phải nhập mã nhân viên!";
-                lblThongbao.ForeColor = Color.Red;
-                txtManhanvien.Focus();
-                return;
-            }
             if (mskDienthoai.Text == "(   )     -")
             {
                 lblThongbao.Text = "Phải nhập điện thoại!";
@@ -370,9 +365,10 @@ namespace Baitaplon.Forms
             Function.RunSql(sql);
             Load_DataGridView();
             Resetvalues();
-            btnBoqua.Enabled = false;
-            btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            btnSua.Enabled = false;
+            btnBoqua.Enabled = false;
+            btnThem.Enabled = true;
 
         }
 
@@ -386,13 +382,7 @@ namespace Baitaplon.Forms
                 lblThongbao.ForeColor = Color.Red;
                 return;
             }
-            if (txtManhanvien.Text == "")
-            {
-                lblThongbao.Text = "Chọn nhân viên cần xóa!";
-                lblThongbao.ForeColor = Color.Red;
-                return;
-            }
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không? \n (Điều này sẽ xoá tài khoản đăng nhập của nhân viên đó) ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không? \n (Điều này sẽ xoá cả tài khoản đăng nhập của nhân viên này) ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 sql = "DELETE NhanVien WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
                 sql1 = "DELETE DangNhap WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
@@ -403,19 +393,21 @@ namespace Baitaplon.Forms
 
                 Load_DataGridView();
                 Resetvalues();
+                btnXoa.Enabled = false;
+                btnSua.Enabled = false;
+                btnBoqua.Enabled = false;
+                btnThem.Enabled = true;
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
             btnBoqua.Enabled = true;
             btnLuu.Enabled = true;
             btnThem.Enabled = false;
             cboCongviec.Enabled = true;
             Resetvalues();
-            txtManhanvien.Focus();
+            txtTennhanvien.Focus();
             lblwarning.Text = "Chú ý! Công việc sẽ \n chỉ được chọn khi \n đang tạo tài khoản mới!";
             lblwarning.ForeColor = Color.Red;
         }
@@ -423,12 +415,11 @@ namespace Baitaplon.Forms
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             Resetvalues();
-            btnBoqua.Enabled = false;
-            btnThem.Enabled = true;
-            btnXoa.Enabled = true;
+            btnXoa.Enabled = false;
             btnSua.Enabled = false;
+            btnBoqua.Enabled = false;
             btnLuu.Enabled = false;
-            txtManhanvien.Enabled = false;
+            btnThem.Enabled = true;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
