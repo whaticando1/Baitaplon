@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -118,6 +119,40 @@ namespace Baitaplon
                 {
                     Application.Exit(); 
                 }
+            }
+        }
+
+        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Define your email components
+            string to = "tiendung234654@gmail.com";
+            string subject = "Fix ur shit";
+            string encodedBody = "To whom it must be concerning. \n" +
+                                 "Hey fuckface, found roaches in ur code, fix it  ";
+
+
+            // Reconstruct the mailto URI, replacing [at] with @
+            // The previous error message shows [at] in the URI, which is incorrect for a mailto link.
+            // The correct format must use '@'. I've corrected the example code below.
+            string mailtoUri = $"mailto:{to}?subject={Uri.EscapeDataString(subject)}&body={encodedBody}";
+
+            try
+            {
+                // 1. Create the ProcessStartInfo object
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = mailtoUri,
+                    // 2. Set UseShellExecute to TRUE. This is the crucial fix.
+                    UseShellExecute = true
+                };
+
+                // 3. Start the process using the ProcessStartInfo object
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                // Handle cases where the email client can't be launched
+                MessageBox.Show($"Could not open email client. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

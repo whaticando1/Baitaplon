@@ -12,8 +12,9 @@ namespace Baitaplon.Class
 {
     internal class Function
     {
-        private static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
+        private static string connectionString2 = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
         private static string connectionString1 = "Data Source=DESKTOP-BQHAF2N;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False;Trust Server Certificate=True; Connect Timeout=30";
+        private static string connectionString = "Data Source=LAPTOP-AO872B0H\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False";
 
         public static SqlConnection Conn;
         public static string connString;
@@ -33,7 +34,7 @@ namespace Baitaplon.Class
                     }
                     catch (SqlException ex)
                     {
-
+                        Console.WriteLine($"SQL Exception: {ex.Message}");
                         Conn = new SqlConnection(connectionString1);
 
                         try
@@ -45,9 +46,17 @@ namespace Baitaplon.Class
                         {
 
                             Console.WriteLine($"SQL Exception: {ex1.Message}");
-                            MessageBox.Show("Error: " + ex1.Message);
+                            Conn = new SqlConnection(connectionString2);
 
-                            Application.Exit();
+                            try
+                            {
+                                Conn.Open();
+                            }
+                            catch (SqlException ex2)
+                            {
+                                Console.WriteLine($"SQL Exception: {ex2.Message}");
+                                MessageBox.Show("❌Error: " + ex2.Message);
+                            };
                         }
                     }
                 }
