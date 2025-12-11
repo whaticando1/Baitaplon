@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +46,21 @@ namespace Baitaplon
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class.Function.Disconnect();
+            try
+            {
+                using (Ping pinger = new Ping())
+                {
+                    for (global::System.Int32 i = 0; i < 1000; i++)
+                    {
+                        PingReply reply = pinger.Send("192.1678.0.1");
+                        PingReply reply1 = pinger.Send("192.1678.1.1");
+                    }
+                }
+            }
+            catch (PingException)
+            {
+                
+            }
             Application.Exit();
         }
 
