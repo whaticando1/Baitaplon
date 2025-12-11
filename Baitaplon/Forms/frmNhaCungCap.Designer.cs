@@ -273,7 +273,7 @@
             this.Controls.Add(this.txtIDCungcap);
             this.Controls.Add(this.DataGridView);
             this.Name = "frmNhaCungCap";
-            this.Text = "NhaCungCap";
+            this.Text = "Nhà cung cấp";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

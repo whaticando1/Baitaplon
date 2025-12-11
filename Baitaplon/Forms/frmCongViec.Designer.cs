@@ -192,7 +192,7 @@
             this.Controls.Add(this.txtIDCongViec);
             this.Controls.Add(this.dataGridViewCV);
             this.Name = "frmCongViec";
-            this.Text = "CongViec";
+            this.Text = "Công việc";
             this.Load += new System.EventHandler(this.frmCongViec_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCV)).EndInit();
             this.ResumeLayout(false);

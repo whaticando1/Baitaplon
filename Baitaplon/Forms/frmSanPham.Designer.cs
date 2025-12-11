@@ -82,14 +82,14 @@
             this.thểLoạiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1583, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1583, 48);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // thểLoạiToolStripMenuItem
             // 
             this.thểLoạiToolStripMenuItem.Name = "thểLoạiToolStripMenuItem";
-            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
+            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 44);
             this.thểLoạiToolStripMenuItem.Text = "Thể loại";
             this.thểLoạiToolStripMenuItem.Click += new System.EventHandler(this.thểLoạiToolStripMenuItem_Click);
             // 
@@ -473,7 +473,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmSanPham";
-            this.Text = "SanPham";
+            this.Text = "Sản phẩm";
             this.Load += new System.EventHandler(this.frmSanPham_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

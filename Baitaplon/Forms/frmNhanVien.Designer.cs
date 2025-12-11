@@ -382,7 +382,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmNhanVien";
-            this.Text = "NhanVien";
+            this.Text = "Nhân viên";
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);

@@ -318,7 +318,7 @@
             this.Controls.Add(this.lblMakhach);
             this.Controls.Add(this.lblDMKH);
             this.Name = "frmKhachHang";
-            this.Text = "KhachHang";
+            this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);

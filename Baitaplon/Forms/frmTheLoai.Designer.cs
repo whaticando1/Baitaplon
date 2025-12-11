@@ -222,7 +222,7 @@
             this.Controls.Add(this.DataGridView);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmTheLoai";
-            this.Text = "TheLoai";
+            this.Text = "Thể loại";
             this.Load += new System.EventHandler(this.frmTheLoai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
