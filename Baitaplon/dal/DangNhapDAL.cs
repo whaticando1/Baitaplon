@@ -39,5 +39,22 @@ namespace Baitaplon.DAL
             dr.Close();
             return role;
         }
+        public static string GetAccName(string ten)
+        {
+            string sql = "select abc.hoten from\r\n(select a.nhanvien_id, a.hoten " +
+                "from NhanVien a join CongViec b on a.congviec_id = b.congviec_id) abc " +
+                "join DangNhap on DangNhap.nhanvien_id = abc.nhanvien_id \r\n" +
+                "where DangNhap.tendangnhap = @ten";
+            SqlCommand cmd = new SqlCommand(sql, Class.Function.Conn);
+            cmd.Parameters.AddWithValue("@ten", ten);
+            SqlDataReader dr = cmd.ExecuteReader();
+            string accname = null;
+            if (dr.Read())
+            {
+                accname = dr["hoten"].ToString();
+            }
+            dr.Close();
+            return accname;
+        }
     }
 }

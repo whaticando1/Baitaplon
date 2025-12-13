@@ -13,7 +13,7 @@ namespace Baitaplon.Class
     internal class Function
     {
         private static string connectionString2 = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True; Connect Timeout=30";
-        private static string connectionString1 = "Data Source=DESKTOP-BQHAF2N;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False;Trust Server Certificate=True; Connect Timeout=30";
+        private static string connectionString1 = "Data Source=DESKTOP-BQHAF2N;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False; Connect Timeout=30";
         private static string connectionString = "Data Source=LAPTOP-AO872B0H\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False";
 
         public static SqlConnection Conn;
@@ -201,5 +201,6 @@ namespace Baitaplon.Class
                 return 0f;
             }
         }
+        
     }
 }

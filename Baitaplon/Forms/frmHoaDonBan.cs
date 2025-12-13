@@ -21,7 +21,7 @@ namespace Baitaplon.Forms
 
         private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
-            Class.Function.Connect();
+
 
             LoadDGV1();
         }

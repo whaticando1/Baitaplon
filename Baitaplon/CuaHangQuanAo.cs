@@ -40,7 +40,7 @@ namespace Baitaplon
                 đăngKýToolStripMenuItem.Visible = true;
             }    
 
-
+            label1.Text = "Chào mừng " + Forms.frmDangNhap.accname;
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)

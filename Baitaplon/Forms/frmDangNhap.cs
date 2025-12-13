@@ -17,6 +17,7 @@ namespace Baitaplon.Forms
     public partial class frmDangNhap : Form
     {
         public static string role;
+        public static string accname;
 
         DangNhapBLL bll = new DangNhapBLL();
         public frmDangNhap()
