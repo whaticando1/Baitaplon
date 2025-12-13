@@ -18,7 +18,7 @@ namespace Baitaplon
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var loginForm = new frmDangNhap())
+            using (var loginForm = new frmHoaDonBan())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {

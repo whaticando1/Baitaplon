@@ -54,6 +54,7 @@
             this.rdo10 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPhuongthucthanhtoan = new System.Windows.Forms.ComboBox();
+            this.btnChiTiet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             // 
             this.cboMakhachhang.FormattingEnabled = true;
             this.cboMakhachhang.Location = new System.Drawing.Point(563, 122);
-            this.cboMakhachhang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMakhachhang.Margin = new System.Windows.Forms.Padding(2);
             this.cboMakhachhang.Name = "cboMakhachhang";
             this.cboMakhachhang.Size = new System.Drawing.Size(228, 24);
             this.cboMakhachhang.TabIndex = 157;
@@ -103,7 +104,7 @@
             // 
             this.cboManhanvien.FormattingEnabled = true;
             this.cboManhanvien.Location = new System.Drawing.Point(563, 79);
-            this.cboManhanvien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboManhanvien.Margin = new System.Windows.Forms.Padding(2);
             this.cboManhanvien.Name = "cboManhanvien";
             this.cboManhanvien.Size = new System.Drawing.Size(228, 24);
             this.cboManhanvien.TabIndex = 155;
@@ -121,7 +122,7 @@
             // mskNgayban
             // 
             this.mskNgayban.Location = new System.Drawing.Point(170, 125);
-            this.mskNgayban.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskNgayban.Margin = new System.Windows.Forms.Padding(2);
             this.mskNgayban.Mask = "00/00/0000";
             this.mskNgayban.Name = "mskNgayban";
             this.mskNgayban.Size = new System.Drawing.Size(228, 22);
@@ -141,7 +142,7 @@
             // txtTongtien
             // 
             this.txtTongtien.Location = new System.Drawing.Point(170, 222);
-            this.txtTongtien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTongtien.Margin = new System.Windows.Forms.Padding(2);
             this.txtTongtien.Name = "txtTongtien";
             this.txtTongtien.Size = new System.Drawing.Size(228, 22);
             this.txtTongtien.TabIndex = 151;
@@ -149,7 +150,7 @@
             // btnDong
             // 
             this.btnDong.Location = new System.Drawing.Point(665, 415);
-            this.btnDong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDong.Margin = new System.Windows.Forms.Padding(2);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(71, 31);
             this.btnDong.TabIndex = 150;
@@ -159,7 +160,7 @@
             // btnBoqua
             // 
             this.btnBoqua.Location = new System.Drawing.Point(665, 362);
-            this.btnBoqua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBoqua.Margin = new System.Windows.Forms.Padding(2);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(71, 31);
             this.btnBoqua.TabIndex = 149;
@@ -169,7 +170,7 @@
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(549, 415);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(71, 31);
             this.btnLuu.TabIndex = 148;
@@ -179,7 +180,7 @@
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(549, 362);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(71, 31);
             this.btnSua.TabIndex = 147;
@@ -189,7 +190,7 @@
             // btnXoa
             // 
             this.btnXoa.Location = new System.Drawing.Point(665, 308);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(71, 31);
             this.btnXoa.TabIndex = 146;
@@ -199,7 +200,7 @@
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(549, 308);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(71, 31);
             this.btnThem.TabIndex = 145;
@@ -249,7 +250,7 @@
             // txtTrangthai
             // 
             this.txtTrangthai.Location = new System.Drawing.Point(170, 173);
-            this.txtTrangthai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTrangthai.Margin = new System.Windows.Forms.Padding(2);
             this.txtTrangthai.Name = "txtTrangthai";
             this.txtTrangthai.Size = new System.Drawing.Size(228, 22);
             this.txtTrangthai.TabIndex = 140;
@@ -257,7 +258,7 @@
             // txtIDHoadonban
             // 
             this.txtIDHoadonban.Location = new System.Drawing.Point(170, 77);
-            this.txtIDHoadonban.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIDHoadonban.Margin = new System.Windows.Forms.Padding(2);
             this.txtIDHoadonban.Name = "txtIDHoadonban";
             this.txtIDHoadonban.Size = new System.Drawing.Size(228, 22);
             this.txtIDHoadonban.TabIndex = 138;
@@ -266,18 +267,19 @@
             // 
             this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView.Location = new System.Drawing.Point(69, 298);
-            this.DataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.RowHeadersWidth = 82;
             this.DataGridView.RowTemplate.Height = 33;
             this.DataGridView.Size = new System.Drawing.Size(427, 172);
             this.DataGridView.TabIndex = 137;
+            this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // rdo5
             // 
             this.rdo5.AutoSize = true;
             this.rdo5.Location = new System.Drawing.Point(557, 174);
-            this.rdo5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdo5.Margin = new System.Windows.Forms.Padding(2);
             this.rdo5.Name = "rdo5";
             this.rdo5.Size = new System.Drawing.Size(47, 20);
             this.rdo5.TabIndex = 159;
@@ -289,7 +291,7 @@
             // 
             this.rdo10.AutoSize = true;
             this.rdo10.Location = new System.Drawing.Point(622, 175);
-            this.rdo10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdo10.Margin = new System.Windows.Forms.Padding(2);
             this.rdo10.Name = "rdo10";
             this.rdo10.Size = new System.Drawing.Size(54, 20);
             this.rdo10.TabIndex = 160;
@@ -311,10 +313,21 @@
             // 
             this.cboPhuongthucthanhtoan.FormattingEnabled = true;
             this.cboPhuongthucthanhtoan.Location = new System.Drawing.Point(609, 226);
-            this.cboPhuongthucthanhtoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPhuongthucthanhtoan.Margin = new System.Windows.Forms.Padding(2);
             this.cboPhuongthucthanhtoan.Name = "cboPhuongthucthanhtoan";
             this.cboPhuongthucthanhtoan.Size = new System.Drawing.Size(181, 24);
             this.cboPhuongthucthanhtoan.TabIndex = 163;
+            // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.Location = new System.Drawing.Point(42, 252);
+            this.btnChiTiet.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(71, 31);
+            this.btnChiTiet.TabIndex = 164;
+            this.btnChiTiet.Text = "Chi tiet";
+            this.btnChiTiet.UseVisualStyleBackColor = true;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // frmHoaDonBan
             // 
@@ -322,6 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(824, 488);
+            this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.cboPhuongthucthanhtoan);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rdo10);
@@ -348,7 +362,7 @@
             this.Controls.Add(this.txtIDHoadonban);
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.lblDMKH);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHoaDonBan";
             this.Text = "HoaDonBan";
             this.Load += new System.EventHandler(this.frmHoaDonBan_Load);
@@ -385,5 +399,6 @@
         private System.Windows.Forms.RadioButton rdo10;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPhuongthucthanhtoan;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }

@@ -12,6 +12,7 @@ namespace Baitaplon.Forms
 {
     public partial class frmHoaDonBan : Form
     {
+        public static string id_hdb;
         public frmHoaDonBan()
         {
             InitializeComponent();
@@ -20,7 +21,31 @@ namespace Baitaplon.Forms
 
         private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
+            Class.Function.Connect();
 
+            LoadDGV1();
+        }
+
+        private void LoadDGV1()
+        {
+            string sql = "SELECT * FROM HoaDonBan";
+
+            DataTable dt = Class.Function.GetDataToTable(sql);
+
+            DataGridView.DataSource = dt;
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            var f = new frmCTHoaDonBan();
+
+            f.Show();
+
+        }
+
+        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id_hdb = DataGridView.CurrentRow.Cells["hoadonban_id"].Value.ToString();
         }
     }
 }
