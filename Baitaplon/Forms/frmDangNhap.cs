@@ -55,6 +55,8 @@ namespace Baitaplon.Forms
             {
                 role = DAL.DangNhapDAL.GetUserRole(txtTen.Text);
 
+                accname = txtTen.Text.Trim();
+
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();

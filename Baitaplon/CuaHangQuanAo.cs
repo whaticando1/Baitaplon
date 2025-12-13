@@ -1,4 +1,5 @@
 ﻿using Baitaplon.Class;
+using Baitaplon.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,9 +39,9 @@ namespace Baitaplon
             {
                 nhânViênToolStripMenuItem1.Visible = true;
                 đăngKýToolStripMenuItem.Visible = true;
-            }    
+            }
 
-            label1.Text = "Chào mừng " + Forms.frmDangNhap.accname;
+            label1.Text = "Chào mừng " + frmDangNhap.accname;
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
