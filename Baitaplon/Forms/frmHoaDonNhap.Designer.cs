@@ -66,10 +66,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtChatLieu = new System.Windows.Forms.TextBox();
-            this.txtMaTraiCay = new System.Windows.Forms.TextBox();
-            this.txtTenTraiCay = new System.Windows.Forms.TextBox();
+            this.txtMaQuanAo = new System.Windows.Forms.TextBox();
+            this.txtTenQuanAo = new System.Windows.Forms.TextBox();
             this.txtMau = new System.Windows.Forms.TextBox();
-            this.cbbLoaiTC = new System.Windows.Forms.ComboBox();
+            this.cbbLoaiQA = new System.Windows.Forms.ComboBox();
             this.colquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltenquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colmausac = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -437,10 +437,10 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtChatLieu);
-            this.groupBox1.Controls.Add(this.txtMaTraiCay);
-            this.groupBox1.Controls.Add(this.txtTenTraiCay);
+            this.groupBox1.Controls.Add(this.txtMaQuanAo);
+            this.groupBox1.Controls.Add(this.txtTenQuanAo);
             this.groupBox1.Controls.Add(this.txtMau);
-            this.groupBox1.Controls.Add(this.cbbLoaiTC);
+            this.groupBox1.Controls.Add(this.cbbLoaiQA);
             this.groupBox1.Controls.Add(this.dgvTraiCay);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 57);
@@ -478,19 +478,19 @@
             this.txtChatLieu.Size = new System.Drawing.Size(140, 26);
             this.txtChatLieu.TabIndex = 70;
             // 
-            // txtMaTraiCay
+            // txtMaQuanAo
             // 
-            this.txtMaTraiCay.Location = new System.Drawing.Point(121, 62);
-            this.txtMaTraiCay.Name = "txtMaTraiCay";
-            this.txtMaTraiCay.Size = new System.Drawing.Size(140, 26);
-            this.txtMaTraiCay.TabIndex = 64;
+            this.txtMaQuanAo.Location = new System.Drawing.Point(121, 62);
+            this.txtMaQuanAo.Name = "txtMaQuanAo";
+            this.txtMaQuanAo.Size = new System.Drawing.Size(140, 26);
+            this.txtMaQuanAo.TabIndex = 64;
             // 
-            // txtTenTraiCay
+            // txtTenQuanAo
             // 
-            this.txtTenTraiCay.Location = new System.Drawing.Point(121, 111);
-            this.txtTenTraiCay.Name = "txtTenTraiCay";
-            this.txtTenTraiCay.Size = new System.Drawing.Size(140, 26);
-            this.txtTenTraiCay.TabIndex = 65;
+            this.txtTenQuanAo.Location = new System.Drawing.Point(121, 111);
+            this.txtTenQuanAo.Name = "txtTenQuanAo";
+            this.txtTenQuanAo.Size = new System.Drawing.Size(140, 26);
+            this.txtTenQuanAo.TabIndex = 65;
             // 
             // txtMau
             // 
@@ -499,13 +499,13 @@
             this.txtMau.Size = new System.Drawing.Size(140, 26);
             this.txtMau.TabIndex = 66;
             // 
-            // cbbLoaiTC
+            // cbbLoaiQA
             // 
-            this.cbbLoaiTC.FormattingEnabled = true;
-            this.cbbLoaiTC.Location = new System.Drawing.Point(121, 208);
-            this.cbbLoaiTC.Name = "cbbLoaiTC";
-            this.cbbLoaiTC.Size = new System.Drawing.Size(140, 27);
-            this.cbbLoaiTC.TabIndex = 69;
+            this.cbbLoaiQA.FormattingEnabled = true;
+            this.cbbLoaiQA.Location = new System.Drawing.Point(121, 208);
+            this.cbbLoaiQA.Name = "cbbLoaiQA";
+            this.cbbLoaiQA.Size = new System.Drawing.Size(140, 27);
+            this.cbbLoaiQA.TabIndex = 69;
             // 
             // colquanao
             // 
@@ -818,10 +818,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtChatLieu;
-        private System.Windows.Forms.TextBox txtMaTraiCay;
-        private System.Windows.Forms.TextBox txtTenTraiCay;
+        private System.Windows.Forms.TextBox txtMaQuanAo;
+        private System.Windows.Forms.TextBox txtTenQuanAo;
         private System.Windows.Forms.TextBox txtMau;
-        private System.Windows.Forms.ComboBox cbbLoaiTC;
+        private System.Windows.Forms.ComboBox cbbLoaiQA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colquanao;
         private System.Windows.Forms.DataGridViewTextBoxColumn coltenquanao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colmausac;
