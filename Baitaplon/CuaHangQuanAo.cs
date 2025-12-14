@@ -47,21 +47,6 @@ namespace Baitaplon
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Class.Function.Disconnect();
-            try
-            {
-                using (Ping pinger = new Ping())
-                {
-                    for (global::System.Int32 i = 0; i < 1000; i++)
-                    {
-                        PingReply reply = pinger.Send("192.1678.0.1");
-                        PingReply reply1 = pinger.Send("192.1678.1.1");
-                    }
-                }
-            }
-            catch (PingException)
-            {
-                
-            }
             Application.Exit();
         }
 
@@ -152,34 +137,30 @@ namespace Baitaplon
 
         private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Define your email components
-            string to = "tiendung234654@gmail.com";
-            string subject = "Fix ur shit";
-            string encodedBody = "To whom it must be concerning. \n" +
-                                 "Hey fuckface, found roaches in ur code, fix it  ";
+            
+            string to = "VerysadboiA@gmail.com";
+            string subject = "need help";
+            string encodedBody = "please";
 
 
-            // Reconstruct the mailto URI, replacing [at] with @
-            // The previous error message shows [at] in the URI, which is incorrect for a mailto link.
-            // The correct format must use '@'. I've corrected the example code below.
             string mailtoUri = $"mailto:{to}?subject={Uri.EscapeDataString(subject)}&body={encodedBody}";
 
             try
             {
-                // 1. Create the ProcessStartInfo object
+                
                 ProcessStartInfo psi = new ProcessStartInfo
                 {
                     FileName = mailtoUri,
-                    // 2. Set UseShellExecute to TRUE. This is the crucial fix.
+                    
                     UseShellExecute = true
                 };
 
-                // 3. Start the process using the ProcessStartInfo object
+               
                 Process.Start(psi);
             }
             catch (Exception ex)
             {
-                // Handle cases where the email client can't be launched
+                
                 MessageBox.Show($"Could not open email client. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
