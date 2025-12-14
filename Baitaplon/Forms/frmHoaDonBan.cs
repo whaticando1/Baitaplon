@@ -51,5 +51,10 @@ namespace Baitaplon.Forms
         {
             id_hdb = DataGridView.CurrentRow.Cells["hoadonban_id"].Value.ToString();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
