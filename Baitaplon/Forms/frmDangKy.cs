@@ -30,6 +30,8 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = false;
             btnSua.Enabled = false;
             btnLamlai.Enabled = false;
+            btnXoa.Enabled = false;
+           
             Load_DataGridView();
             Resetvalues();
         }
@@ -160,12 +162,18 @@ namespace Baitaplon.Forms
                 cboNhanvien.Focus();
                 return;
             }
-            sql = "UPDATE DangNhap SET matkhau = N'" + txtMatkhau.Text.Trim().ToString() + "', nhanvien_id = N'" + cboNhanvien.SelectedValue.ToString() + "' WHERE tendangnhap = N'" + txtTen.Text.Trim() + "'";
+            sql = "UPDATE DangNhap " +
+                  "SET matkhau = N'" + txtMatkhau.Text.Trim() + "', " +
+                  "tendangnhap = N'" + txtTen.Text.Trim() + "' " +
+                  "WHERE nhanvien_id = N'" + cboNhanvien.SelectedValue.ToString() + "'";
+
             Function.RunSql(sql);
             MessageBox.Show("Cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Resetvalues(); 
+            Load_DataGridView();
             btnLamlai.Enabled = false;
             btnSua.Enabled = false;
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -176,24 +184,45 @@ namespace Baitaplon.Forms
                 lblThongbao.ForeColor = Color.Red;
                 return;
             }
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTen.Focus();
-                return;
-            }
+
             txtMatkhau.Text = dataGridView1.CurrentRow.Cells["matkhau"].Value.ToString();
             txtTen.Text = dataGridView1.CurrentRow.Cells["tendangnhap"].Value.ToString();
             cboNhanvien.SelectedValue = dataGridView1.CurrentRow.Cells["nhanvien_id"].Value.ToString();
             btnLamlai.Enabled = true;
             btnSua.Enabled = true;
             btnThem.Enabled = false;
+            btnXoa.Enabled = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-              
+            string tt = Function.GetFieldValues("Select trangthai from NhanVien where nhanvien_id = N'" + cboNhanvien.SelectedValue + "'");
+            int fad = Convert.ToInt32(Function.GetFieldValues("SELECT COUNT(*) FROM NhanVien WHERE congviec_id = 'Aa1' AND trangthai = N'Đang làm việc' and nhanvien_id = N'" + cboNhanvien.SelectedValue + "'"));
+            if (fad <= 1)
+            {
+                MessageBox.Show("Nhân viên này là admin cuối cùng, không thể xóa tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (tt == "Đang làm việc")
+            {
+                MessageBox.Show("Nhân viên này vẫn còn đang làm việc, không thể xóa tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
 
+                string sql = "DELETE DangNhap WHERE tendangnhap=N'" + txtTen.Text + "'";
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Function.RunSqlDel(sql);
+                    Load_DataGridView();
+                    Resetvalues();
+                    btnXoa.Enabled = false;
+                    btnSua.Enabled = false;
+                    btnLamlai.Enabled = false;
+                    btnThem.Enabled = true;
+                }
+            }
         }
     }
 }
