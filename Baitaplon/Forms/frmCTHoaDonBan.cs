@@ -35,14 +35,14 @@ namespace Baitaplon.Forms
         {
             string sql = "SELECT * FROM ChiTietHoaDonBan WHERE hoadonban_id = N'" +   id + "'";
             DataTable dt = Class.Function.GetDataToTable(sql);
-            DataGridView.DataSource = dt;
+            //DataGridView.DataSource = dt;
         }
 
         private void LoadDGV2()
         {
             string sql = "SELECT * FROM SanPham ";
             DataTable dt = Class.Function.GetDataToTable(sql);
-            dataGridView1.DataSource = dt;
+            //dataGridView1.DataSource = dt;
         }
     }
 }

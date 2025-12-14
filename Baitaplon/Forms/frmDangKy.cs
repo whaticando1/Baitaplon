@@ -68,6 +68,7 @@ namespace Baitaplon.Forms
             btnSua.Enabled = false;
             btnLuu.Enabled = false;
             btnThem.Enabled = true;
+            btnXoa.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -173,6 +174,7 @@ namespace Baitaplon.Forms
             Load_DataGridView();
             btnLamlai.Enabled = false;
             btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
         }
 
@@ -197,7 +199,10 @@ namespace Baitaplon.Forms
         private void btnXoa_Click(object sender, EventArgs e)
         {
             string tt = Function.GetFieldValues("Select trangthai from NhanVien where nhanvien_id = N'" + cboNhanvien.SelectedValue + "'");
-            int fad = Convert.ToInt32(Function.GetFieldValues("SELECT COUNT(*) FROM NhanVien WHERE congviec_id = 'Aa1' AND trangthai = N'Đang làm việc' and nhanvien_id = N'" + cboNhanvien.SelectedValue + "'"));
+            int fad = Convert.ToInt32(Function.GetFieldValues("SELECT COUNT(*) " +
+                                                            "FROM DangNhap dn " +
+                                                            "JOIN NhanVien nv ON dn.nhanvien_id = nv.nhanvien_id " +
+                                                            "WHERE nv.congviec_id = 'Aa1' " ));
             if (fad <= 1)
             {
                 MessageBox.Show("Nhân viên này là admin cuối cùng, không thể xóa tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,7 +216,7 @@ namespace Baitaplon.Forms
             else
             {
 
-                string sql = "DELETE DangNhap WHERE tendangnhap=N'" + txtTen.Text + "'";
+                string sql = "DELETE DangNhap WHERE nhanvien_id = N'" + cboNhanvien.SelectedValue + "'";
                 if (MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Function.RunSqlDel(sql);

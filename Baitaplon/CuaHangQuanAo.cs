@@ -34,11 +34,13 @@ namespace Baitaplon
             {
                 nhânViênToolStripMenuItem1.Visible = false;
                 đăngKýToolStripMenuItem.Visible = false;
+                côngViệcToolStripMenuItem.Visible = false;
             }
             else if (role == "Admin")
             {
                 nhânViênToolStripMenuItem1.Visible = true;
                 đăngKýToolStripMenuItem.Visible = true;
+                côngViệcToolStripMenuItem.Visible = true;
             }
 
             label1.Text = "Chào mừng " + frmDangNhap.accname;

@@ -36,7 +36,7 @@ namespace Baitaplon.Forms
 
             DataTable dt = Class.Function.GetDataToTable(sql);
 
-            DataGridView.DataSource = dt;
+            //DataGridView.DataSource = dt;
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Baitaplon.Forms
 
         private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id_hdb = DataGridView.CurrentRow.Cells["hoadonban_id"].Value.ToString();
+            //id_hdb = DataGridView.CurrentRow.Cells["hoadonban_id"].Value.ToString();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
