@@ -158,7 +158,7 @@
             // 
             // txtDiachi
             // 
-            this.txtDiachi.BackColor = System.Drawing.Color.White;
+            this.txtDiachi.BackColor = System.Drawing.SystemColors.Window;
             this.txtDiachi.Location = new System.Drawing.Point(264, 281);
             this.txtDiachi.Name = "txtDiachi";
             this.txtDiachi.Size = new System.Drawing.Size(278, 31);
@@ -166,7 +166,7 @@
             // 
             // txtTenkhach
             // 
-            this.txtTenkhach.BackColor = System.Drawing.Color.White;
+            this.txtTenkhach.BackColor = System.Drawing.SystemColors.Window;
             this.txtTenkhach.Location = new System.Drawing.Point(264, 223);
             this.txtTenkhach.Name = "txtTenkhach";
             this.txtTenkhach.Size = new System.Drawing.Size(278, 31);
@@ -174,7 +174,7 @@
             // 
             // txtMakhach
             // 
-            this.txtMakhach.BackColor = System.Drawing.Color.White;
+            this.txtMakhach.BackColor = System.Drawing.SystemColors.Window;
             this.txtMakhach.Location = new System.Drawing.Point(264, 166);
             this.txtMakhach.Name = "txtMakhach";
             this.txtMakhach.Size = new System.Drawing.Size(278, 31);
@@ -242,7 +242,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
             this.txtEmail.Location = new System.Drawing.Point(789, 281);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(278, 31);

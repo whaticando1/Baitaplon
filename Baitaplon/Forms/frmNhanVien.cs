@@ -25,13 +25,17 @@ namespace Baitaplon.Forms
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
             cboCongviec.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTrangthai.DropDownStyle = ComboBoxStyle.DropDownList;
             Function.FillCombo("SELECT congviec_id, tencongviec FROM CongViec", cboCongviec, "congviec_id", "tencongviec");
             cboCongviec.SelectedIndex = -1;
+            cboTrangthai.BeginUpdate();
+            cboTrangthai.Items.Add("Đang làm việc");
+            cboTrangthai.Items.Add("Đã nghỉ");
+            cboTrangthai.EndUpdate();
             txtManhanvien.Enabled = false;
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
             btnSua.Enabled = false;
-            btnXoa.Enabled = false;
             cboCongviec.Enabled = false;
             Resetvalues();
             Load_DataGridView();
@@ -48,6 +52,7 @@ namespace Baitaplon.Forms
             chkNam.Checked = false;
             chkNu.Checked = false;
             txtEmail.Text = "";
+            cboTrangthai.SelectedIndex = -1;
             cboCongviec.SelectedIndex = -1;
             lblThongbao.Text = "";
         }
@@ -55,7 +60,7 @@ namespace Baitaplon.Forms
         private void Load_DataGridView()
         {
             string sql;
-            sql = "SELECT nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email FROM NhanVien";
+            sql = "SELECT nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email, trangthai FROM NhanVien";
             tblNhanvien = Class.Function.GetDataToTable(sql);
             DataGridView.DataSource = tblNhanvien;
 
@@ -70,6 +75,7 @@ namespace Baitaplon.Forms
                 DataGridView.Columns[6].HeaderText = "Ngày tuyển dụng";
                 DataGridView.Columns[7].HeaderText = "Mã công việc";
                 DataGridView.Columns[8].HeaderText = "Email";
+                DataGridView.Columns[9].HeaderText = "Trạng thái";
                 DataGridView.Columns[0].Width = 100;
                 DataGridView.Columns[1].Width = 150;
                 DataGridView.Columns[2].Width = 100;
@@ -79,6 +85,7 @@ namespace Baitaplon.Forms
                 DataGridView.Columns[6].Width = 100;
                 DataGridView.Columns[7].Width = 100;
                 DataGridView.Columns[8].Width = 150;
+                DataGridView.Columns[9].Width = 100;
             }
             DataGridView.AllowUserToAddRows = false;
             DataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
@@ -91,12 +98,7 @@ namespace Baitaplon.Forms
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTennhanvien.Focus();
-                return;
-            }
+            
             txtManhanvien.Text = DataGridView.CurrentRow.Cells["nhanvien_id"].Value.ToString();
             txtTennhanvien.Text = DataGridView.CurrentRow.Cells["tennhanvien"].Value.ToString();
             string gioitinh = DataGridView.CurrentRow.Cells["Gioitinh"].Value.ToString();
@@ -139,8 +141,8 @@ namespace Baitaplon.Forms
             }
             cboCongviec.SelectedValue = DataGridView.CurrentRow.Cells["congviec_id"].Value.ToString();
             txtEmail.Text = DataGridView.CurrentRow.Cells["Email"].Value.ToString();
+            cboTrangthai.Text = DataGridView.CurrentRow.Cells["trangthai"].Value.ToString();
             btnSua.Enabled = true;
-            btnXoa.Enabled = true;
             btnBoqua.Enabled = true;
             btnThem.Enabled = false;
         }
@@ -220,6 +222,13 @@ namespace Baitaplon.Forms
                 cboCongviec.Focus();
                 return;
             }
+            if (cboTrangthai.SelectedIndex == -1)
+            {
+                lblThongbao.Text = "Phải chọn trạng thái!";
+                lblThongbao.ForeColor = Color.Red;
+                cboTrangthai.Focus();
+                return;
+            }
             if (chkNam.Checked == true)
                 gt = "Nam";
             else
@@ -245,7 +254,7 @@ namespace Baitaplon.Forms
             string bdate = Class.Function.ConvertDateTime(mskNgaysinh.Text.Trim());
             string edate = Class.Function.ConvertDateTime(mskNgaytuyendung.Text.Trim());
 
-            sql = "INSERT INTO NhanVien(nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email) VALUES(" +
+            sql = "INSERT INTO NhanVien(nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email, trangthai) VALUES(" +
                   "N'" + id + "', " +
                   "N'" + txtTennhanvien.Text.Trim() + "', " +
                   "N'" + gt + "', " +
@@ -254,7 +263,8 @@ namespace Baitaplon.Forms
                   "N'" + bdate + "', " +
                   "N'" + edate + "', " +
                   "N'" + cboCongviec.SelectedValue.ToString() + "', " +
-                  "N'" + txtEmail.Text.Trim() + "')";
+                  "N'" + txtEmail.Text.Trim() + "', " +
+                  "N'" + cboTrangthai.Text + "')";
             Class.Function.RunSql(sql);
             Load_DataGridView();
             Resetvalues();
@@ -344,6 +354,13 @@ namespace Baitaplon.Forms
                 cboCongviec.Focus();
                 return;
             }
+            if (cboTrangthai.SelectedIndex == -1)
+            {
+                lblThongbao.Text = "Phải chọn trạng thái!";
+                lblThongbao.ForeColor = Color.Red;
+                cboTrangthai.Focus();
+                return;
+            }
             if (chkNam.Checked == true)
                 gt = "Nam";
             else
@@ -361,43 +378,17 @@ namespace Baitaplon.Forms
                   "ngaytuyendung=N'" + edate1 + "', " +
                   "congviec_id=N'" + cboCongviec.SelectedValue.ToString() + "', " +
                   "email=N'" + txtEmail.Text.Trim() + "' " +
+                  ",trangthai=N'" + cboTrangthai.Text + "'  " +
                   "WHERE nhanvien_id=N'" + txtManhanvien.Text.Trim() + "'";
             Function.RunSql(sql);
             Load_DataGridView();
             Resetvalues();
-            btnXoa.Enabled = false;
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
 
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            string sql;
-            string sql1;
-            if (tblNhanvien.Rows.Count == 0)
-            {
-               MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên này không? \n (Điều này sẽ xoá cả tài khoản đăng nhập của nhân viên này) ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                sql = "DELETE NhanVien WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
-                sql1 = "DELETE DangNhap WHERE nhanvien_id=N'" + txtManhanvien.Text + "'";
-
-                Class.Function.RunSqlDel(sql1);
-
-                Class.Function.RunSqlDel(sql);
-
-                Load_DataGridView();
-                Resetvalues();
-                btnXoa.Enabled = false;
-                btnSua.Enabled = false;
-                btnBoqua.Enabled = false;
-                btnThem.Enabled = true;
-            }
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -414,7 +405,6 @@ namespace Baitaplon.Forms
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             Resetvalues();
-            btnXoa.Enabled = false;
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnLuu.Enabled = false;

@@ -1,8 +1,11 @@
-﻿using Baitaplon.Class;
+﻿using Baitaplon.BLL;
+using Baitaplon.Class;
+using Baitaplon.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,7 +28,7 @@ namespace Baitaplon.Forms
             Load_DataGridViewTL();
             txtIDTheloai.Enabled = false;
             btnLuu.Enabled = false;
-            btnXoa.Enabled = false;
+            
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
         }
@@ -66,17 +69,12 @@ namespace Baitaplon.Forms
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtIDTheloai.Focus();
-                return;
-            }
+
             txtIDTheloai.Text = DataGridView.CurrentRow.Cells["theloai_id"].Value.ToString();
             txtTentheloai.Text = DataGridView.CurrentRow.Cells["tentheloai"].Value.ToString();
             txtMota.Text = DataGridView.CurrentRow.Cells["mota"].Value.ToString();
             btnSua.Enabled = true;
-            btnXoa.Enabled = true;
+            
             btnBoqua.Enabled = true;
             btnThem.Enabled = false;
         }
@@ -120,24 +118,7 @@ namespace Baitaplon.Forms
             Function.RunSql(Sql);
             Load_DataGridViewTL();
             resetValues();
-            btnXoa.Enabled = false;
-            btnSua.Enabled = false;
-            btnBoqua.Enabled = false;
-            btnThem.Enabled = true;
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (tblTL.Rows.Count == 0)
-            {
-                MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            string sql = "DELETE TheLoai WHERE theloai_id=N'" + txtIDTheloai.Text + "'";
-            Function.RunSqlDel(sql);
-            Load_DataGridViewTL();
-            resetValues();
-            btnXoa.Enabled = false;
+            
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
@@ -155,7 +136,7 @@ namespace Baitaplon.Forms
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             resetValues();
-            btnXoa.Enabled = false;
+            
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnLuu.Enabled = false;

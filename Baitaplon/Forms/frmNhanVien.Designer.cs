@@ -36,7 +36,6 @@
             this.btnBoqua = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.DataGridView = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +56,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cboCongviec = new System.Windows.Forms.ComboBox();
             this.lblwarning = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboTrangthai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(1142, 543);
+            this.btnThoat.Location = new System.Drawing.Point(1040, 543);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(126, 59);
@@ -112,7 +113,7 @@
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(947, 543);
+            this.btnBoqua.Location = new System.Drawing.Point(1142, 346);
             this.btnBoqua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(126, 59);
@@ -142,17 +143,6 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(1142, 346);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(126, 59);
-            this.btnXoa.TabIndex = 49;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -340,10 +330,27 @@
             // lblwarning
             // 
             this.lblwarning.AutoSize = true;
-            this.lblwarning.Location = new System.Drawing.Point(1068, 191);
+            this.lblwarning.Location = new System.Drawing.Point(1073, 19);
             this.lblwarning.Name = "lblwarning";
             this.lblwarning.Size = new System.Drawing.Size(0, 25);
             this.lblwarning.TabIndex = 69;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1073, 194);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 25);
+            this.label11.TabIndex = 71;
+            this.label11.Text = "Trạng thái:";
+            // 
+            // cboTrangthai
+            // 
+            this.cboTrangthai.FormattingEnabled = true;
+            this.cboTrangthai.Location = new System.Drawing.Point(1078, 234);
+            this.cboTrangthai.Name = "cboTrangthai";
+            this.cboTrangthai.Size = new System.Drawing.Size(142, 33);
+            this.cboTrangthai.TabIndex = 70;
             // 
             // frmNhanVien
             // 
@@ -351,6 +358,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1316, 755);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cboTrangthai);
             this.Controls.Add(this.lblwarning);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboCongviec);
@@ -369,7 +378,6 @@
             this.Controls.Add(this.btnBoqua);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.label4);
@@ -399,7 +407,6 @@
         private System.Windows.Forms.Button btnBoqua;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.Label label4;
@@ -420,5 +427,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboCongviec;
         private System.Windows.Forms.Label lblwarning;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cboTrangthai;
     }
 }

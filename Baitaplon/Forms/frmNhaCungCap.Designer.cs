@@ -274,6 +274,7 @@
             this.Controls.Add(this.DataGridView);
             this.Name = "frmNhaCungCap";
             this.Text = "Nhà cung cấp";
+            this.Load += new System.EventHandler(this.frmNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

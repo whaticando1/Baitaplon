@@ -40,12 +40,10 @@
             this.txtGiaban = new System.Windows.Forms.TextBox();
             this.txtChatlieu = new System.Windows.Forms.TextBox();
             this.txtDoituong = new System.Windows.Forms.TextBox();
-            this.txtTrangthai = new System.Windows.Forms.TextBox();
             this.txtTensanpham = new System.Windows.Forms.TextBox();
             this.txtSoluong = new System.Windows.Forms.TextBox();
             this.txtGianhap = new System.Windows.Forms.TextBox();
             this.txtMausac = new System.Windows.Forms.TextBox();
-            this.txtMua = new System.Windows.Forms.TextBox();
             this.b = new System.Windows.Forms.Label();
             this.c = new System.Windows.Forms.Label();
             this.d = new System.Windows.Forms.Label();
@@ -69,6 +67,8 @@
             this.lblMota = new System.Windows.Forms.Label();
             this.a = new System.Windows.Forms.Label();
             this.lblThongbao = new System.Windows.Forms.Label();
+            this.cboMua = new System.Windows.Forms.ComboBox();
+            this.cboTrangthai = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -76,20 +76,19 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thểLoạiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1583, 48);
+            this.menuStrip1.Size = new System.Drawing.Size(1583, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // thểLoạiToolStripMenuItem
             // 
             this.thểLoạiToolStripMenuItem.Name = "thểLoạiToolStripMenuItem";
-            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 44);
+            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
             this.thểLoạiToolStripMenuItem.Text = "Thể loại";
             this.thểLoạiToolStripMenuItem.Click += new System.EventHandler(this.thểLoạiToolStripMenuItem_Click);
             // 
@@ -110,7 +109,7 @@
             // 
             // mskNgaynhap
             // 
-            this.mskNgaynhap.Location = new System.Drawing.Point(1041, 332);
+            this.mskNgaynhap.Location = new System.Drawing.Point(1041, 338);
             this.mskNgaynhap.Mask = "00/00/0000";
             this.mskNgaynhap.Name = "mskNgaynhap";
             this.mskNgaynhap.Size = new System.Drawing.Size(192, 31);
@@ -145,7 +144,7 @@
             // 
             // txtAnh
             // 
-            this.txtAnh.Location = new System.Drawing.Point(1320, 431);
+            this.txtAnh.Location = new System.Drawing.Point(1310, 431);
             this.txtAnh.Name = "txtAnh";
             this.txtAnh.Size = new System.Drawing.Size(201, 31);
             this.txtAnh.TabIndex = 41;
@@ -170,13 +169,6 @@
             this.txtDoituong.Name = "txtDoituong";
             this.txtDoituong.Size = new System.Drawing.Size(192, 31);
             this.txtDoituong.TabIndex = 47;
-            // 
-            // txtTrangthai
-            // 
-            this.txtTrangthai.Location = new System.Drawing.Point(649, 141);
-            this.txtTrangthai.Name = "txtTrangthai";
-            this.txtTrangthai.Size = new System.Drawing.Size(192, 31);
-            this.txtTrangthai.TabIndex = 48;
             // 
             // txtTensanpham
             // 
@@ -205,13 +197,6 @@
             this.txtMausac.Name = "txtMausac";
             this.txtMausac.Size = new System.Drawing.Size(192, 31);
             this.txtMausac.TabIndex = 53;
-            // 
-            // txtMua
-            // 
-            this.txtMua.Location = new System.Drawing.Point(1038, 200);
-            this.txtMua.Name = "txtMua";
-            this.txtMua.Size = new System.Drawing.Size(192, 31);
-            this.txtMua.TabIndex = 54;
             // 
             // b
             // 
@@ -320,6 +305,7 @@
             this.btnDong.TabIndex = 73;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnBoqua
             // 
@@ -329,6 +315,7 @@
             this.btnBoqua.TabIndex = 72;
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = true;
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnLuu
             // 
@@ -338,6 +325,7 @@
             this.btnLuu.TabIndex = 71;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -347,6 +335,7 @@
             this.btnSua.TabIndex = 70;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -356,6 +345,7 @@
             this.btnXoa.TabIndex = 69;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -365,6 +355,7 @@
             this.btnThem.TabIndex = 68;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // DataGridView
             // 
@@ -375,6 +366,7 @@
             this.DataGridView.RowTemplate.Height = 33;
             this.DataGridView.Size = new System.Drawing.Size(736, 445);
             this.DataGridView.TabIndex = 67;
+            this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // lblDMKH
             // 
@@ -425,12 +417,30 @@
             this.lblThongbao.TabIndex = 107;
             this.lblThongbao.Text = "a";
             // 
+            // cboMua
+            // 
+            this.cboMua.FormattingEnabled = true;
+            this.cboMua.Location = new System.Drawing.Point(1041, 200);
+            this.cboMua.Name = "cboMua";
+            this.cboMua.Size = new System.Drawing.Size(192, 33);
+            this.cboMua.TabIndex = 110;
+            // 
+            // cboTrangthai
+            // 
+            this.cboTrangthai.FormattingEnabled = true;
+            this.cboTrangthai.Location = new System.Drawing.Point(649, 141);
+            this.cboTrangthai.Name = "cboTrangthai";
+            this.cboTrangthai.Size = new System.Drawing.Size(192, 33);
+            this.cboTrangthai.TabIndex = 111;
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1583, 979);
+            this.Controls.Add(this.cboTrangthai);
+            this.Controls.Add(this.cboMua);
             this.Controls.Add(this.lblThongbao);
             this.Controls.Add(this.txtMota);
             this.Controls.Add(this.lblMota);
@@ -453,12 +463,10 @@
             this.Controls.Add(this.d);
             this.Controls.Add(this.c);
             this.Controls.Add(this.b);
-            this.Controls.Add(this.txtMua);
             this.Controls.Add(this.txtMausac);
             this.Controls.Add(this.txtGianhap);
             this.Controls.Add(this.txtSoluong);
             this.Controls.Add(this.txtTensanpham);
-            this.Controls.Add(this.txtTrangthai);
             this.Controls.Add(this.txtDoituong);
             this.Controls.Add(this.txtChatlieu);
             this.Controls.Add(this.txtGiaban);
@@ -498,12 +506,10 @@
         private System.Windows.Forms.TextBox txtGiaban;
         private System.Windows.Forms.TextBox txtChatlieu;
         private System.Windows.Forms.TextBox txtDoituong;
-        private System.Windows.Forms.TextBox txtTrangthai;
         private System.Windows.Forms.TextBox txtTensanpham;
         private System.Windows.Forms.TextBox txtSoluong;
         private System.Windows.Forms.TextBox txtGianhap;
         private System.Windows.Forms.TextBox txtMausac;
-        private System.Windows.Forms.TextBox txtMua;
         private System.Windows.Forms.Label b;
         private System.Windows.Forms.Label c;
         private System.Windows.Forms.Label d;
@@ -527,5 +533,7 @@
         private System.Windows.Forms.Label lblMota;
         private System.Windows.Forms.Label a;
         private System.Windows.Forms.Label lblThongbao;
+        private System.Windows.Forms.ComboBox cboMua;
+        private System.Windows.Forms.ComboBox cboTrangthai;
     }
 }

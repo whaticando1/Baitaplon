@@ -189,5 +189,11 @@ namespace Baitaplon.Forms
             btnSua.Enabled = true;
             btnThem.Enabled = false;
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+              
+
+        }
     }
 }

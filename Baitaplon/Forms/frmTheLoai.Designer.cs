@@ -37,7 +37,6 @@
             this.txtTentheloai = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnBoqua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -115,7 +114,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(188, 593);
+            this.btnThem.Location = new System.Drawing.Point(240, 592);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(113, 47);
@@ -126,7 +125,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(309, 593);
+            this.btnSua.Location = new System.Drawing.Point(361, 592);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(112, 47);
@@ -135,20 +134,9 @@
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(430, 593);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(112, 47);
-            this.btnXoa.TabIndex = 10;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(552, 593);
+            this.btnLuu.Location = new System.Drawing.Point(482, 592);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(112, 47);
@@ -159,7 +147,7 @@
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(674, 593);
+            this.btnBoqua.Location = new System.Drawing.Point(604, 592);
             this.btnBoqua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(112, 47);
@@ -170,7 +158,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(795, 593);
+            this.btnThoat.Location = new System.Drawing.Point(725, 592);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(112, 47);
@@ -210,7 +198,6 @@
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnBoqua);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtTentheloai);
@@ -241,7 +228,6 @@
         private System.Windows.Forms.TextBox txtTentheloai;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnBoqua;
         private System.Windows.Forms.Button btnThoat;

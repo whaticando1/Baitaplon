@@ -44,14 +44,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.lblThongbao = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTrangthai = new System.Windows.Forms.TextBox();
             this.txtIDHoadonban = new System.Windows.Forms.TextBox();
             this.DataGridView = new System.Windows.Forms.DataGridView();
-            this.rdo5 = new System.Windows.Forms.RadioButton();
-            this.rdo10 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPhuongthucthanhtoan = new System.Windows.Forms.ComboBox();
             this.btnChiTiet = new System.Windows.Forms.Button();
@@ -201,15 +198,6 @@
             this.lblThongbao.TabIndex = 144;
             this.lblThongbao.Text = "a";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(686, 273);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 25);
-            this.label4.TabIndex = 143;
-            this.label4.Text = "Giảm giá:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -253,32 +241,10 @@
             this.DataGridView.TabIndex = 137;
             this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
-            // rdo5
-            // 
-            this.rdo5.AutoSize = true;
-            this.rdo5.Location = new System.Drawing.Point(836, 272);
-            this.rdo5.Name = "rdo5";
-            this.rdo5.Size = new System.Drawing.Size(74, 29);
-            this.rdo5.TabIndex = 159;
-            this.rdo5.TabStop = true;
-            this.rdo5.Text = "5%";
-            this.rdo5.UseVisualStyleBackColor = true;
-            // 
-            // rdo10
-            // 
-            this.rdo10.AutoSize = true;
-            this.rdo10.Location = new System.Drawing.Point(933, 273);
-            this.rdo10.Name = "rdo10";
-            this.rdo10.Size = new System.Drawing.Size(86, 29);
-            this.rdo10.TabIndex = 160;
-            this.rdo10.TabStop = true;
-            this.rdo10.Text = "10%";
-            this.rdo10.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(662, 353);
+            this.label3.Location = new System.Drawing.Point(662, 273);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(247, 25);
             this.label3.TabIndex = 162;
@@ -287,7 +253,7 @@
             // cboPhuongthucthanhtoan
             // 
             this.cboPhuongthucthanhtoan.FormattingEnabled = true;
-            this.cboPhuongthucthanhtoan.Location = new System.Drawing.Point(914, 353);
+            this.cboPhuongthucthanhtoan.Location = new System.Drawing.Point(915, 270);
             this.cboPhuongthucthanhtoan.Name = "cboPhuongthucthanhtoan";
             this.cboPhuongthucthanhtoan.Size = new System.Drawing.Size(270, 33);
             this.cboPhuongthucthanhtoan.TabIndex = 163;
@@ -311,8 +277,6 @@
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.cboPhuongthucthanhtoan);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.rdo10);
-            this.Controls.Add(this.rdo5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboMakhachhang);
             this.Controls.Add(this.label10);
@@ -328,7 +292,6 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.lblThongbao);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTrangthai);
@@ -361,14 +324,11 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label lblThongbao;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTrangthai;
         private System.Windows.Forms.TextBox txtIDHoadonban;
         private System.Windows.Forms.DataGridView DataGridView;
-        private System.Windows.Forms.RadioButton rdo5;
-        private System.Windows.Forms.RadioButton rdo10;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPhuongthucthanhtoan;
         private System.Windows.Forms.Button btnChiTiet;

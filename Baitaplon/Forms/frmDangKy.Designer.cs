@@ -41,12 +41,13 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(707, 365);
+            this.btnThoat.Location = new System.Drawing.Point(789, 424);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(135, 55);
             this.btnThoat.TabIndex = 13;
@@ -56,7 +57,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(707, 288);
+            this.btnLuu.Location = new System.Drawing.Point(789, 270);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(135, 55);
             this.btnLuu.TabIndex = 12;
@@ -115,7 +116,7 @@
             // 
             // btnLamlai
             // 
-            this.btnLamlai.Location = new System.Drawing.Point(707, 135);
+            this.btnLamlai.Location = new System.Drawing.Point(648, 348);
             this.btnLamlai.Name = "btnLamlai";
             this.btnLamlai.Size = new System.Drawing.Size(135, 55);
             this.btnLamlai.TabIndex = 18;
@@ -133,7 +134,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(707, 212);
+            this.btnSua.Location = new System.Drawing.Point(648, 425);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(135, 54);
             this.btnSua.TabIndex = 22;
@@ -144,7 +145,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(143, 288);
+            this.dataGridView1.Location = new System.Drawing.Point(62, 288);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -154,7 +155,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(707, 57);
+            this.btnThem.Location = new System.Drawing.Point(648, 270);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(135, 54);
             this.btnThem.TabIndex = 24;
@@ -162,12 +163,23 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(789, 347);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(135, 55);
+            this.btnXoa.TabIndex = 25;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(958, 504);
+            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSua);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

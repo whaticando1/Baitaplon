@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Baitaplon.BLL;
+using Baitaplon.Class;
+using Baitaplon.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +19,11 @@ namespace Baitaplon.Forms
         public frmNhaCungCap()
         {
             InitializeComponent();
+        }
+
+        private void frmNhaCungCap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
