@@ -43,6 +43,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblGiaTien = new System.Windows.Forms.Label();
             this.dgvQuanao = new System.Windows.Forms.DataGridView();
+            this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colhinhanh = new System.Windows.Forms.DataGridViewImageColumn();
             this.picQuanao = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,16 +56,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTimTraiCay = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbbGiamgia = new System.Windows.Forms.ComboBox();
             this.colmaquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltenquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colgiatien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGiamgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colthanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colhinhanh = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -71,6 +74,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.cbbGiamgia);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cbbKhachHang);
             this.groupBox2.Controls.Add(this.dgvGioHang);
@@ -116,6 +121,7 @@
             this.coltenquanao,
             this.colgiatien,
             this.colsoluong,
+            this.colGiamgia,
             this.colthanhtien});
             this.dgvGioHang.Location = new System.Drawing.Point(8, 244);
             this.dgvGioHang.Margin = new System.Windows.Forms.Padding(4);
@@ -251,6 +257,50 @@
             this.dgvQuanao.Size = new System.Drawing.Size(536, 206);
             this.dgvQuanao.TabIndex = 13;
             // 
+            // colMaQA
+            // 
+            this.colMaQA.DataPropertyName = "MaQA";
+            this.colMaQA.HeaderText = "Mã Quần Áo";
+            this.colMaQA.MinimumWidth = 6;
+            this.colMaQA.Name = "colMaQA";
+            this.colMaQA.ReadOnly = true;
+            this.colMaQA.Visible = false;
+            // 
+            // colTenQA
+            // 
+            this.colTenQA.DataPropertyName = "TenQA";
+            this.colTenQA.HeaderText = "Tên Quần Áo";
+            this.colTenQA.MinimumWidth = 6;
+            this.colTenQA.Name = "colTenQA";
+            this.colTenQA.ReadOnly = true;
+            // 
+            // GiaTien
+            // 
+            this.GiaTien.DataPropertyName = "GiaTien";
+            dataGridViewCellStyle1.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle1;
+            this.GiaTien.HeaderText = "Giá tiền";
+            this.GiaTien.MinimumWidth = 6;
+            this.GiaTien.Name = "GiaTien";
+            this.GiaTien.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SoLuong";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // colhinhanh
+            // 
+            this.colhinhanh.DataPropertyName = "HinhAnh";
+            this.colhinhanh.HeaderText = "Hình ảnh";
+            this.colhinhanh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colhinhanh.MinimumWidth = 6;
+            this.colhinhanh.Name = "colhinhanh";
+            this.colhinhanh.ReadOnly = true;
+            // 
             // picQuanao
             // 
             this.picQuanao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -336,6 +386,26 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Hóa đơn bán";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 74);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 19);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Giảm giá:";
+            // 
+            // cbbGiamgia
+            // 
+            this.cbbGiamgia.FormattingEnabled = true;
+            this.cbbGiamgia.Location = new System.Drawing.Point(147, 74);
+            this.cbbGiamgia.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbGiamgia.Name = "cbbGiamgia";
+            this.cbbGiamgia.Size = new System.Drawing.Size(160, 27);
+            this.cbbGiamgia.TabIndex = 16;
+            // 
             // colmaquanao
             // 
             this.colmaquanao.DataPropertyName = "MaQuanAo";
@@ -369,6 +439,13 @@
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.ReadOnly = true;
             // 
+            // colGiamgia
+            // 
+            this.colGiamgia.HeaderText = "Giảm giá";
+            this.colGiamgia.MinimumWidth = 6;
+            this.colGiamgia.Name = "colGiamgia";
+            this.colGiamgia.ReadOnly = true;
+            // 
             // colthanhtien
             // 
             this.colthanhtien.DataPropertyName = "ThanhTien";
@@ -376,50 +453,6 @@
             this.colthanhtien.MinimumWidth = 6;
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.ReadOnly = true;
-            // 
-            // colMaQA
-            // 
-            this.colMaQA.DataPropertyName = "MaQA";
-            this.colMaQA.HeaderText = "Mã Quần Áo";
-            this.colMaQA.MinimumWidth = 6;
-            this.colMaQA.Name = "colMaQA";
-            this.colMaQA.ReadOnly = true;
-            this.colMaQA.Visible = false;
-            // 
-            // colTenQA
-            // 
-            this.colTenQA.DataPropertyName = "TenQA";
-            this.colTenQA.HeaderText = "Tên Quần Áo";
-            this.colTenQA.MinimumWidth = 6;
-            this.colTenQA.Name = "colTenQA";
-            this.colTenQA.ReadOnly = true;
-            // 
-            // GiaTien
-            // 
-            this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle1.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle1;
-            this.GiaTien.HeaderText = "Giá tiền";
-            this.GiaTien.MinimumWidth = 6;
-            this.GiaTien.Name = "GiaTien";
-            this.GiaTien.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SoLuong";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // colhinhanh
-            // 
-            this.colhinhanh.DataPropertyName = "HinhAnh";
-            this.colhinhanh.HeaderText = "Hình ảnh";
-            this.colhinhanh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colhinhanh.MinimumWidth = 6;
-            this.colhinhanh.Name = "colhinhanh";
-            this.colhinhanh.ReadOnly = true;
             // 
             // frmHoaDonBan
             // 
@@ -430,7 +463,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHoaDonBan";
             this.Text = "HoaDonBan";
             this.Load += new System.EventHandler(this.frmHoaDonBan_Load);
@@ -469,15 +502,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTimTraiCay;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colmaquanao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coltenquanao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colgiatien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colsoluong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colthanhtien;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaQA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenQA;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewImageColumn colhinhanh;
+        private System.Windows.Forms.ComboBox cbbGiamgia;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colmaquanao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coltenquanao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colgiatien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsoluong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGiamgia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colthanhtien;
     }
 }
