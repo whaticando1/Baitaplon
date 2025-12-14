@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbKhachHang = new System.Windows.Forms.ComboBox();
@@ -64,6 +64,15 @@
             this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGiamgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colthanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThemhoadon = new System.Windows.Forms.Button();
+            this.btnHuyhoadon = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.btnCTHoaDon = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -277,8 +286,8 @@
             // GiaTien
             // 
             this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle1.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle4;
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.MinimumWidth = 6;
             this.GiaTien.Name = "GiaTien";
@@ -454,18 +463,108 @@
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.ReadOnly = true;
             // 
+            // btnThemhoadon
+            // 
+            this.btnThemhoadon.Location = new System.Drawing.Point(18, 528);
+            this.btnThemhoadon.Name = "btnThemhoadon";
+            this.btnThemhoadon.Size = new System.Drawing.Size(113, 48);
+            this.btnThemhoadon.TabIndex = 17;
+            this.btnThemhoadon.Text = "Thêm hóa đơn";
+            this.btnThemhoadon.UseVisualStyleBackColor = true;
+            // 
+            // btnHuyhoadon
+            // 
+            this.btnHuyhoadon.Location = new System.Drawing.Point(137, 528);
+            this.btnHuyhoadon.Name = "btnHuyhoadon";
+            this.btnHuyhoadon.Size = new System.Drawing.Size(109, 48);
+            this.btnHuyhoadon.TabIndex = 30;
+            this.btnHuyhoadon.Text = "Hủy hóa đơn";
+            this.btnHuyhoadon.UseVisualStyleBackColor = true;
+            // 
+            // btnDong
+            // 
+            this.btnDong.Location = new System.Drawing.Point(361, 528);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(94, 48);
+            this.btnDong.TabIndex = 31;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(252, 528);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(103, 48);
+            this.btnIn.TabIndex = 32;
+            this.btnIn.Text = "In Hóa Đơn";
+            this.btnIn.UseVisualStyleBackColor = true;
+            // 
+            // btnCTHoaDon
+            // 
+            this.btnCTHoaDon.Location = new System.Drawing.Point(461, 528);
+            this.btnCTHoaDon.Name = "btnCTHoaDon";
+            this.btnCTHoaDon.Size = new System.Drawing.Size(96, 48);
+            this.btnCTHoaDon.TabIndex = 33;
+            this.btnCTHoaDon.Text = "Xem chi tiết hóa đơn";
+            this.btnCTHoaDon.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(563, 525);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(195, 16);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Nhấp đúp vào một dòng để xóa";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(826, 528);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 16);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Tổng tiền:";
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Location = new System.Drawing.Point(904, 522);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(143, 22);
+            this.txtTongTien.TabIndex = 36;
+            this.txtTongTien.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(826, 553);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 16);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Bằng chữ:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
             // frmHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1074, 578);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtTongTien);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btnCTHoaDon);
+            this.Controls.Add(this.btnIn);
+            this.Controls.Add(this.btnDong);
+            this.Controls.Add(this.btnHuyhoadon);
+            this.Controls.Add(this.btnThemhoadon);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHoaDonBan";
-            this.Text = "HoaDonBan";
+            this.Text = "z";
             this.Load += new System.EventHandler(this.frmHoaDonBan_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -515,5 +614,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colsoluong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGiamgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colthanhtien;
+        private System.Windows.Forms.Button btnThemhoadon;
+        private System.Windows.Forms.Button btnHuyhoadon;
+        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.Button btnCTHoaDon;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.Label label12;
     }
 }
