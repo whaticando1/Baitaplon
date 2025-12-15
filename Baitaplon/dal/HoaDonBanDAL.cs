@@ -24,7 +24,7 @@ namespace Baitaplon.DAL
                 new SqlParameter("@tong", tongtien)
             };
 
-            return int.Parse(Function.ExecuteScalar(sql).ToString());
+            return int.Parse(Function.ExecuteScalar(sql,null).ToString());
         }
 
         public static void InsertChiTiet(int hoadonId, int sanphamId, int soluong, decimal giaban)

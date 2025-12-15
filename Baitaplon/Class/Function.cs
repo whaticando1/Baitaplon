@@ -211,17 +211,21 @@ namespace Baitaplon.Class
                 "Products"
             );
         }
-        public static object ExecuteScalar(string sql)
+        public static object ExecuteScalar(string sql, SqlParameter[] parameters)
         {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    if (parameters != null)
+                        cmd.Parameters.AddRange(parameters);
 
-
-            Conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, Conn);
-            return cmd.ExecuteScalar();
-
-
-
+                    con.Open();
+                    return cmd.ExecuteScalar();
+                }
+            }
         }
+
         public static int ExecuteNonQuery(string sql, SqlParameter[] param = null)
         {
       
