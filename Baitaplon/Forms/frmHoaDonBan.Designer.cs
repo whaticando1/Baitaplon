@@ -29,45 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbGiamgia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbKhachHang = new System.Windows.Forms.ComboBox();
             this.dgvGioHang = new System.Windows.Forms.DataGridView();
-            this.txtSoLuongNhap = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnThemSoLuong = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTenTraiCay = new System.Windows.Forms.Label();
-            this.lblSoLuongTonKho = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblGiaTien = new System.Windows.Forms.Label();
-            this.dgvQuanao = new System.Windows.Forms.DataGridView();
-            this.picQuanao = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTimTen = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnTimTraiCay = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnThemhoadon = new System.Windows.Forms.Button();
-            this.btnHuyhoadon = new System.Windows.Forms.Button();
-            this.btnDong = new System.Windows.Forms.Button();
-            this.btnIn = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMausac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChatlieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colhinhanh = new System.Windows.Forms.DataGridViewImageColumn();
             this.coltenquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colmaquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMausacQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +45,39 @@
             this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGiamgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colthanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSoLuongNhap = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnThemSoLuong = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblTenTraiCay = new System.Windows.Forms.Label();
+            this.lblSoLuongTonKho = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblGiaTien = new System.Windows.Forms.Label();
+            this.dgvQuanao = new System.Windows.Forms.DataGridView();
+            this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMausac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiquanao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChatlieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colhinhanh = new System.Windows.Forms.DataGridViewImageColumn();
+            this.picQuanao = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTimTen = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnTimQuanAo = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnThemhoadon = new System.Windows.Forms.Button();
+            this.btnHuyhoadon = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,9 +98,9 @@
             this.groupBox2.Controls.Add(this.btnThemSoLuong);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(555, 58);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(525, 463);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
@@ -110,7 +110,7 @@
             // 
             this.cbbGiamgia.FormattingEnabled = true;
             this.cbbGiamgia.Location = new System.Drawing.Point(147, 74);
-            this.cbbGiamgia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbGiamgia.Margin = new System.Windows.Forms.Padding(4);
             this.cbbGiamgia.Name = "cbbGiamgia";
             this.cbbGiamgia.Size = new System.Drawing.Size(160, 27);
             this.cbbGiamgia.TabIndex = 16;
@@ -141,7 +141,7 @@
             // 
             this.cbbKhachHang.FormattingEnabled = true;
             this.cbbKhachHang.Location = new System.Drawing.Point(147, 118);
-            this.cbbKhachHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.cbbKhachHang.Name = "cbbKhachHang";
             this.cbbKhachHang.Size = new System.Drawing.Size(160, 27);
             this.cbbKhachHang.TabIndex = 13;
@@ -162,7 +162,7 @@
             this.colGiamgia,
             this.colthanhtien});
             this.dgvGioHang.Location = new System.Drawing.Point(8, 244);
-            this.dgvGioHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvGioHang.Margin = new System.Windows.Forms.Padding(4);
             this.dgvGioHang.Name = "dgvGioHang";
             this.dgvGioHang.ReadOnly = true;
             this.dgvGioHang.RowHeadersVisible = false;
@@ -173,11 +173,84 @@
             this.dgvGioHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGioHang_CellContentClick);
             this.dgvGioHang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGioHang_CellDoubleClick);
             // 
+            // coltenquanao
+            // 
+            this.coltenquanao.DataPropertyName = "tenquanao";
+            this.coltenquanao.HeaderText = "Tên Quần Áo";
+            this.coltenquanao.MinimumWidth = 6;
+            this.coltenquanao.Name = "coltenquanao";
+            this.coltenquanao.ReadOnly = true;
+            // 
+            // colmaquanao
+            // 
+            this.colmaquanao.DataPropertyName = "maquanao";
+            this.colmaquanao.HeaderText = "Ma Quan Ao";
+            this.colmaquanao.MinimumWidth = 6;
+            this.colmaquanao.Name = "colmaquanao";
+            this.colmaquanao.ReadOnly = true;
+            this.colmaquanao.Visible = false;
+            // 
+            // colMausacQA
+            // 
+            this.colMausacQA.DataPropertyName = "mausacquanao";
+            this.colMausacQA.HeaderText = "Màu sắc";
+            this.colMausacQA.MinimumWidth = 6;
+            this.colMausacQA.Name = "colMausacQA";
+            this.colMausacQA.ReadOnly = true;
+            // 
+            // colLoaiQA
+            // 
+            this.colLoaiQA.DataPropertyName = "loaiquanao";
+            this.colLoaiQA.HeaderText = "Loại quần áo";
+            this.colLoaiQA.MinimumWidth = 6;
+            this.colLoaiQA.Name = "colLoaiQA";
+            this.colLoaiQA.ReadOnly = true;
+            // 
+            // colChatlieuQA
+            // 
+            this.colChatlieuQA.DataPropertyName = "chatlieuquanao";
+            this.colChatlieuQA.HeaderText = "Chất liệu";
+            this.colChatlieuQA.MinimumWidth = 6;
+            this.colChatlieuQA.Name = "colChatlieuQA";
+            this.colChatlieuQA.ReadOnly = true;
+            // 
+            // colgiatien
+            // 
+            this.colgiatien.DataPropertyName = "GiaTien";
+            this.colgiatien.HeaderText = "Giá tiền";
+            this.colgiatien.MinimumWidth = 6;
+            this.colgiatien.Name = "colgiatien";
+            this.colgiatien.ReadOnly = true;
+            // 
+            // colsoluong
+            // 
+            this.colsoluong.DataPropertyName = "SoLuong";
+            this.colsoluong.HeaderText = "Số lượng";
+            this.colsoluong.MinimumWidth = 6;
+            this.colsoluong.Name = "colsoluong";
+            this.colsoluong.ReadOnly = true;
+            // 
+            // colGiamgia
+            // 
+            this.colGiamgia.DataPropertyName = "Giamgia";
+            this.colGiamgia.HeaderText = "Giảm giá";
+            this.colGiamgia.MinimumWidth = 6;
+            this.colGiamgia.Name = "colGiamgia";
+            this.colGiamgia.ReadOnly = true;
+            // 
+            // colthanhtien
+            // 
+            this.colthanhtien.DataPropertyName = "ThanhTien";
+            this.colthanhtien.HeaderText = "Thành tiền";
+            this.colthanhtien.MinimumWidth = 6;
+            this.colthanhtien.Name = "colthanhtien";
+            this.colthanhtien.ReadOnly = true;
+            // 
             // txtSoLuongNhap
             // 
             this.txtSoLuongNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoLuongNhap.Location = new System.Drawing.Point(147, 30);
-            this.txtSoLuongNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoLuongNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoLuongNhap.Name = "txtSoLuongNhap";
             this.txtSoLuongNhap.Size = new System.Drawing.Size(160, 26);
             this.txtSoLuongNhap.TabIndex = 11;
@@ -200,7 +273,7 @@
             this.btnThemSoLuong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThemSoLuong.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemSoLuong.Location = new System.Drawing.Point(349, 20);
-            this.btnThemSoLuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemSoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemSoLuong.Name = "btnThemSoLuong";
             this.btnThemSoLuong.Size = new System.Drawing.Size(143, 42);
             this.btnThemSoLuong.TabIndex = 0;
@@ -222,17 +295,26 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTimTen);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnTimTraiCay);
+            this.groupBox1.Controls.Add(this.btnTimQuanAo);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(-5, 58);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(552, 463);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin quần áo";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(452, 206);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 31);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // lblTenTraiCay
             // 
@@ -293,7 +375,7 @@
             this.dataGridViewTextBoxColumn3,
             this.colhinhanh});
             this.dgvQuanao.Location = new System.Drawing.Point(8, 244);
-            this.dgvQuanao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvQuanao.Margin = new System.Windows.Forms.Padding(4);
             this.dgvQuanao.Name = "dgvQuanao";
             this.dgvQuanao.ReadOnly = true;
             this.dgvQuanao.RowHeadersVisible = false;
@@ -303,11 +385,76 @@
             this.dgvQuanao.TabIndex = 13;
             this.dgvQuanao.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanao_CellContentClick);
             // 
+            // colTenQA
+            // 
+            this.colTenQA.DataPropertyName = "TenQA";
+            this.colTenQA.HeaderText = "Tên Quần Áo";
+            this.colTenQA.MinimumWidth = 6;
+            this.colTenQA.Name = "colTenQA";
+            this.colTenQA.ReadOnly = true;
+            // 
+            // colMaQA
+            // 
+            this.colMaQA.DataPropertyName = "MaQA";
+            this.colMaQA.HeaderText = "Mã Quần Áo";
+            this.colMaQA.MinimumWidth = 6;
+            this.colMaQA.Name = "colMaQA";
+            this.colMaQA.ReadOnly = true;
+            this.colMaQA.Visible = false;
+            // 
+            // colMausac
+            // 
+            this.colMausac.HeaderText = "Màu sắc";
+            this.colMausac.MinimumWidth = 6;
+            this.colMausac.Name = "colMausac";
+            this.colMausac.ReadOnly = true;
+            // 
+            // colLoaiquanao
+            // 
+            this.colLoaiquanao.HeaderText = "Loại quần áo";
+            this.colLoaiquanao.MinimumWidth = 6;
+            this.colLoaiquanao.Name = "colLoaiquanao";
+            this.colLoaiquanao.ReadOnly = true;
+            // 
+            // colChatlieu
+            // 
+            this.colChatlieu.HeaderText = "Chất liệu";
+            this.colChatlieu.MinimumWidth = 6;
+            this.colChatlieu.Name = "colChatlieu";
+            this.colChatlieu.ReadOnly = true;
+            // 
+            // GiaTien
+            // 
+            this.GiaTien.DataPropertyName = "GiaTien";
+            dataGridViewCellStyle2.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GiaTien.HeaderText = "Giá tiền";
+            this.GiaTien.MinimumWidth = 6;
+            this.GiaTien.Name = "GiaTien";
+            this.GiaTien.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SoLuong";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // colhinhanh
+            // 
+            this.colhinhanh.DataPropertyName = "HinhAnh";
+            this.colhinhanh.HeaderText = "Hình ảnh";
+            this.colhinhanh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colhinhanh.MinimumWidth = 6;
+            this.colhinhanh.Name = "colhinhanh";
+            this.colhinhanh.ReadOnly = true;
+            // 
             // picQuanao
             // 
             this.picQuanao.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picQuanao.Location = new System.Drawing.Point(23, 74);
-            this.picQuanao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picQuanao.Margin = new System.Windows.Forms.Padding(4);
             this.picQuanao.Name = "picQuanao";
             this.picQuanao.Size = new System.Drawing.Size(149, 130);
             this.picQuanao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -351,7 +498,7 @@
             // 
             this.txtTimTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimTen.Location = new System.Drawing.Point(167, 30);
-            this.txtTimTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimTen.Name = "txtTimTen";
             this.txtTimTen.Size = new System.Drawing.Size(263, 26);
             this.txtTimTen.TabIndex = 2;
@@ -367,18 +514,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tìm tên quần áo";
             // 
-            // btnTimTraiCay
+            // btnTimQuanAo
             // 
-            this.btnTimTraiCay.BackColor = System.Drawing.Color.Silver;
-            this.btnTimTraiCay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimTraiCay.BackgroundImage")));
-            this.btnTimTraiCay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTimTraiCay.Location = new System.Drawing.Point(439, 23);
-            this.btnTimTraiCay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTimTraiCay.Name = "btnTimTraiCay";
-            this.btnTimTraiCay.Size = new System.Drawing.Size(92, 34);
-            this.btnTimTraiCay.TabIndex = 0;
-            this.btnTimTraiCay.UseVisualStyleBackColor = false;
-            this.btnTimTraiCay.Click += new System.EventHandler(this.btnTimTraiCay_Click);
+            this.btnTimQuanAo.BackColor = System.Drawing.Color.Silver;
+            this.btnTimQuanAo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimQuanAo.BackgroundImage")));
+            this.btnTimQuanAo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTimQuanAo.Location = new System.Drawing.Point(439, 23);
+            this.btnTimQuanAo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTimQuanAo.Name = "btnTimQuanAo";
+            this.btnTimQuanAo.Size = new System.Drawing.Size(92, 34);
+            this.btnTimQuanAo.TabIndex = 0;
+            this.btnTimQuanAo.UseVisualStyleBackColor = false;
+            this.btnTimQuanAo.Click += new System.EventHandler(this.btnTimTraiCay_Click);
             // 
             // label6
             // 
@@ -454,154 +601,6 @@
             this.txtTongTien.TabIndex = 36;
             this.txtTongTien.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // colTenQA
-            // 
-            this.colTenQA.DataPropertyName = "TenQA";
-            this.colTenQA.HeaderText = "Tên Quần Áo";
-            this.colTenQA.MinimumWidth = 6;
-            this.colTenQA.Name = "colTenQA";
-            this.colTenQA.ReadOnly = true;
-            // 
-            // colMaQA
-            // 
-            this.colMaQA.DataPropertyName = "MaQA";
-            this.colMaQA.HeaderText = "Mã Quần Áo";
-            this.colMaQA.MinimumWidth = 6;
-            this.colMaQA.Name = "colMaQA";
-            this.colMaQA.ReadOnly = true;
-            this.colMaQA.Visible = false;
-            // 
-            // colMausac
-            // 
-            this.colMausac.HeaderText = "Màu sắc";
-            this.colMausac.MinimumWidth = 6;
-            this.colMausac.Name = "colMausac";
-            this.colMausac.ReadOnly = true;
-            // 
-            // colLoaiquanao
-            // 
-            this.colLoaiquanao.HeaderText = "Loại quần áo";
-            this.colLoaiquanao.MinimumWidth = 6;
-            this.colLoaiquanao.Name = "colLoaiquanao";
-            this.colLoaiquanao.ReadOnly = true;
-            // 
-            // colChatlieu
-            // 
-            this.colChatlieu.HeaderText = "Chất liệu";
-            this.colChatlieu.MinimumWidth = 6;
-            this.colChatlieu.Name = "colChatlieu";
-            this.colChatlieu.ReadOnly = true;
-            // 
-            // GiaTien
-            // 
-            this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle9.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle9;
-            this.GiaTien.HeaderText = "Giá tiền";
-            this.GiaTien.MinimumWidth = 6;
-            this.GiaTien.Name = "GiaTien";
-            this.GiaTien.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SoLuong";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // colhinhanh
-            // 
-            this.colhinhanh.DataPropertyName = "HinhAnh";
-            this.colhinhanh.HeaderText = "Hình ảnh";
-            this.colhinhanh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colhinhanh.MinimumWidth = 6;
-            this.colhinhanh.Name = "colhinhanh";
-            this.colhinhanh.ReadOnly = true;
-            // 
-            // coltenquanao
-            // 
-            this.coltenquanao.DataPropertyName = "tenquanao";
-            this.coltenquanao.HeaderText = "Tên Quần Áo";
-            this.coltenquanao.MinimumWidth = 6;
-            this.coltenquanao.Name = "coltenquanao";
-            this.coltenquanao.ReadOnly = true;
-            // 
-            // colmaquanao
-            // 
-            this.colmaquanao.DataPropertyName = "maquanao";
-            this.colmaquanao.HeaderText = "Ma Quan Ao";
-            this.colmaquanao.MinimumWidth = 6;
-            this.colmaquanao.Name = "colmaquanao";
-            this.colmaquanao.ReadOnly = true;
-            this.colmaquanao.Visible = false;
-            // 
-            // colMausacQA
-            // 
-            this.colMausacQA.DataPropertyName = "mausacquanao";
-            this.colMausacQA.HeaderText = "Màu sắc";
-            this.colMausacQA.MinimumWidth = 6;
-            this.colMausacQA.Name = "colMausacQA";
-            this.colMausacQA.ReadOnly = true;
-            // 
-            // colLoaiQA
-            // 
-            this.colLoaiQA.DataPropertyName = "loaiquanao";
-            this.colLoaiQA.HeaderText = "Loại quần áo";
-            this.colLoaiQA.MinimumWidth = 6;
-            this.colLoaiQA.Name = "colLoaiQA";
-            this.colLoaiQA.ReadOnly = true;
-            // 
-            // colChatlieuQA
-            // 
-            this.colChatlieuQA.DataPropertyName = "chatlieuquanao";
-            this.colChatlieuQA.HeaderText = "Chất liệu";
-            this.colChatlieuQA.MinimumWidth = 6;
-            this.colChatlieuQA.Name = "colChatlieuQA";
-            this.colChatlieuQA.ReadOnly = true;
-            // 
-            // colgiatien
-            // 
-            this.colgiatien.DataPropertyName = "GiaTien";
-            this.colgiatien.HeaderText = "Giá tiền";
-            this.colgiatien.MinimumWidth = 6;
-            this.colgiatien.Name = "colgiatien";
-            this.colgiatien.ReadOnly = true;
-            // 
-            // colsoluong
-            // 
-            this.colsoluong.DataPropertyName = "SoLuong";
-            this.colsoluong.HeaderText = "Số lượng";
-            this.colsoluong.MinimumWidth = 6;
-            this.colsoluong.Name = "colsoluong";
-            this.colsoluong.ReadOnly = true;
-            // 
-            // colGiamgia
-            // 
-            this.colGiamgia.DataPropertyName = "Giamgia";
-            this.colGiamgia.HeaderText = "Giảm giá";
-            this.colGiamgia.MinimumWidth = 6;
-            this.colGiamgia.Name = "colGiamgia";
-            this.colGiamgia.ReadOnly = true;
-            // 
-            // colthanhtien
-            // 
-            this.colthanhtien.DataPropertyName = "ThanhTien";
-            this.colthanhtien.HeaderText = "Thành tiền";
-            this.colthanhtien.MinimumWidth = 6;
-            this.colthanhtien.Name = "colthanhtien";
-            this.colthanhtien.ReadOnly = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(452, 206);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 31);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Làm mới";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -618,7 +617,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHoaDonBan";
             this.Text = "z";
             this.Load += new System.EventHandler(this.frmHoaDonBan_Load);
@@ -655,7 +654,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTimTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnTimTraiCay;
+        private System.Windows.Forms.Button btnTimQuanAo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbGiamgia;
         private System.Windows.Forms.Label label9;

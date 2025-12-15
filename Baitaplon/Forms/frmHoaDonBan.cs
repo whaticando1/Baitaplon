@@ -352,8 +352,28 @@ namespace Baitaplon.Forms
 
         private void btnTimTraiCay_Click(object sender, EventArgs e)
         {
+            string keyword = txtTimTen.Text.Trim();
 
+            if (tblSanPham == null)
+                return;
 
+            DataView dv = tblSanPham.DefaultView;
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                dv.RowFilter = "";
+            }
+            else
+            {
+                dv.RowFilter = $"tensanpham LIKE '%{keyword}%'";
+            }
+
+            dgvQuanao.DataSource = dv;
+
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
 
             if (dgvGioHang.Rows.Count == 0)
             {
@@ -367,65 +387,87 @@ namespace Baitaplon.Forms
             Excel.Workbook wb = excel.Workbooks.Add();
             Excel.Worksheet ws = wb.ActiveSheet;
 
-                    ws.Cells[1, 1] = "HÓA ĐƠN BÁN HÀNG";
-            Excel.Range title = ws.Range["A1", "E1"];
-            title.Merge();
-            title.Font.Bold = true;
-            title.Font.Size = 16;
-            title.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-
-            ws.Cells[2, 1] = "Ngày:";
-            ws.Cells[2, 2] = DateTime.Now.ToString("dd/MM/yyyy");
-
-            ws.Cells[3, 1] = "Khách hàng:";
-            ws.Cells[3, 2] = cbbKhachHang.Text;
-
-            ws.Cells[4, 1] = "Giảm giá:";
-            ws.Cells[4, 2] = phanTramGiamGia + "%";
-
-           
-            int startRow = 6;
-
-            ws.Cells[startRow, 1] = "STT";
-            ws.Cells[startRow, 2] = "Tên sản phẩm";
-            ws.Cells[startRow, 3] = "Giá bán";
-            ws.Cells[startRow, 4] = "Số lượng";
-            ws.Cells[startRow, 5] = "Thành tiền";
-
-            Excel.Range header = ws.Range["A6", "E6"];
-            header.Font.Bold = true;
-            header.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-
-            
-            int rowExcel = startRow + 1;
-            int stt = 1;
-
-            foreach (DataGridViewRow row in dgvGioHang.Rows)
+            try
             {
-                if (row.IsNewRow) continue;
+               
+                ws.Cells[1, 1] = "HÓA ĐƠN BÁN HÀNG";
+                Excel.Range title = ws.Range["A1", "E1"];
+                title.Merge();
+                title.Font.Bold = true;
+                title.Font.Size = 16;
+                title.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
-                ws.Cells[rowExcel, 1] = stt++;
-                ws.Cells[rowExcel, 2] = row.Cells["tensanpham"].Value;
-                ws.Cells[rowExcel, 3] = row.Cells["giaban"].Value;
-                ws.Cells[rowExcel, 4] = row.Cells["soluong"].Value;
-                ws.Cells[rowExcel, 5] = row.Cells["thanhtien"].Value;
+                ws.Cells[2, 1] = "Ngày:";
+                ws.Cells[2, 2] = DateTime.Now.ToString("dd/MM/yyyy");
 
-                ws.Range[$"A{rowExcel}", $"E{rowExcel}"].Borders.LineStyle =
-                    Excel.XlLineStyle.xlContinuous;
+                ws.Cells[3, 1] = "Khách hàng:";
+                ws.Cells[3, 2] = cbbKhachHang.Text;
 
-                rowExcel++;
+                ws.Cells[4, 1] = "Giảm giá:";
+                ws.Cells[4, 2] = phanTramGiamGia + "%";
+
+              
+                int startRow = 6;
+                ws.Cells[startRow, 1] = "STT";
+                ws.Cells[startRow, 2] = "Tên sản phẩm";
+                ws.Cells[startRow, 3] = "Giá bán";
+                ws.Cells[startRow, 4] = "Số lượng";
+                ws.Cells[startRow, 5] = "Thành tiền";
+
+                Excel.Range header = ws.Range["A6", "E6"];
+                header.Font.Bold = true;
+                header.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+               
+                int rowExcel = startRow + 1;
+                int stt = 1;
+                decimal tongTien = 0;
+
+                foreach (DataGridViewRow row in dgvGioHang.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    decimal thanhTien = Convert.ToDecimal(row.Cells["thanhtien"].Value);
+                    tongTien += thanhTien;
+
+                    ws.Cells[rowExcel, 1] = stt++;
+                    ws.Cells[rowExcel, 2] = row.Cells["tensanpham"].Value;
+                    ws.Cells[rowExcel, 3] = row.Cells["giaban"].Value;
+                    ws.Cells[rowExcel, 4] = row.Cells["soluong"].Value;
+                    ws.Cells[rowExcel, 5] = thanhTien;
+
+                    ws.Range[$"A{rowExcel}", $"E{rowExcel}"].Borders.LineStyle =
+                        Excel.XlLineStyle.xlContinuous;
+
+                    rowExcel++;
+                }
+
+             
+                ws.Cells[rowExcel + 1, 4] = "Tổng tiền:";
+                ws.Cells[rowExcel + 1, 5] = tongTien;
+                ws.Range[$"D{rowExcel + 1}", $"E{rowExcel + 1}"].Font.Bold = true;
+
+              
+                ws.Cells[rowExcel + 2, 1] = "Bằng chữ:";
+                ws.Cells[rowExcel + 2, 2] = DocSoThanhChu(tongTien);
+                ws.Range[$"A{rowExcel + 2}", $"E{rowExcel + 2}"].Merge();
+                ws.Range[$"A{rowExcel + 2}", $"E{rowExcel + 2}"].Font.Italic = true;
+
+                ws.Columns.AutoFit();
+            }
+            finally
+            {
+          
+                Marshal.ReleaseComObject(ws);
+                Marshal.ReleaseComObject(wb);
+                Marshal.ReleaseComObject(excel);
             }
 
-            // ===== TỔNG TIỀN =====
-            ws.Cells[rowExcel + 1, 4] = "Tổng tiền:";
-            ws.Cells[rowExcel + 1, 5] = txtTongTien.Text;
-
-            ws.Range[$"D{rowExcel + 1}", $"E{rowExcel + 1}"].Font.Bold = true;
-
-            ws.Columns.AutoFit();
-
             MessageBox.Show("In hóa đơn thành công!");
-
+        }
+        string DocSoThanhChu(decimal so)
+        {
+            return so.ToString("N0") + " đồng";
         }
 
     }
