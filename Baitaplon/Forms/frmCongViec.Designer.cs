@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCongViec));
             this.dataGridViewCV = new System.Windows.Forms.DataGridView();
             this.txtIDCongViec = new System.Windows.Forms.TextBox();
             this.txtMoTa = new System.Windows.Forms.TextBox();
@@ -176,6 +177,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1256, 742);
             this.Controls.Add(this.lblDMKH);
             this.Controls.Add(this.btnDong);

@@ -25,9 +25,23 @@ namespace Baitaplon.Forms
 
         private void thểLoạiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.frmTheLoai f = new Forms.frmTheLoai();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            using (Forms.frmTheLoai f = new Forms.frmTheLoai())
+            {
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.ShowDialog(); 
+            }
+
+            Function.FillCombo(
+                "SELECT theloai_id, tentheloai FROM TheLoai",
+                cboMatheloai,
+                "theloai_id",
+                "tentheloai"
+            );
+            cboMatheloai.SelectedIndex = -1;
+
+            Load_DataGridViewSP();
+            resetValues();
+            btnThem.Enabled = true;
         }
 
         private void frmSanPham_Load(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace Baitaplon.Forms
             cboMua.Text = DataGridView.CurrentRow.Cells["mua"].Value.ToString();
             cboMatheloai.SelectedValue = DataGridView.CurrentRow.Cells["theloai_id"].Value.ToString();
             txtAnh.Text = DataGridView.CurrentRow.Cells["url_anh"].Value.ToString();
-            picAnh.Image = Image.FromFile(txtAnh.Text);
+            LoadImageNoLock(txtAnh.Text);
             txtMota.Text = DataGridView.CurrentRow.Cells["mota"].Value.ToString();
             if (DataGridView.CurrentRow.Cells["ngaynhap"].Value != DBNull.Value)
             {
@@ -176,6 +190,8 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = false;
             btnThem.Enabled = true;
             btnXoa.Enabled = false;
+            Load_DataGridViewSP();
+            tsTxtTimkiem.Clear();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -522,6 +538,11 @@ namespace Baitaplon.Forms
             // ===== DELETE IMAGE FILE (if exists) =====
             if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
             {
+                if (picAnh.Image != null)
+                {
+                    picAnh.Image.Dispose();
+                    picAnh.Image = null;
+                }
                 try
                 {
                     File.Delete(imagePath);
@@ -586,5 +607,60 @@ namespace Baitaplon.Forms
             if (e.KeyCode == Keys.Enter)
                 txtMota.Focus();
         }
+
+        private void TimKiemSanPham()
+        {
+            string keyword = tsTxtTimkiem.Text.Trim();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                MessageBox.Show("Nhập thông tin cần tìm!", "Thông báo");
+                return;
+            }
+
+            string sql =
+                "SELECT * FROM SanPham WHERE " +
+                "tensanpham LIKE N'%" + keyword + "%' OR " +
+                "mausac LIKE N'%" + keyword + "%' OR " +
+                "chatlieu LIKE N'%" + keyword + "%' OR " +
+                "doituong LIKE N'%" + keyword + "%'";
+
+            dtSanPham = Function.GetDataToTable(sql);
+            DataGridView.DataSource = dtSanPham;
+            
+        }
+
+        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnBoqua.Enabled = true;
+            TimKiemSanPham();
+        }
+
+        private void tsTxtTimkiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TimKiemSanPham();
+                e.SuppressKeyPress = true;
+                btnBoqua.Enabled = true;
+            }
+        }
+        private void LoadImageNoLock(string path)
+        {
+            if (!File.Exists(path)) return;
+
+            // release old image
+            if (picAnh.Image != null)
+            {
+                picAnh.Image.Dispose();
+                picAnh.Image = null;
+            }
+
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                picAnh.Image = Image.FromStream(fs);
+            }
+        }
+
     }
 }

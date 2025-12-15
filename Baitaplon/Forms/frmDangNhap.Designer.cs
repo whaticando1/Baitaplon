@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
@@ -35,6 +36,7 @@
             this.lblThongbao = new System.Windows.Forms.Label();
             this.btnDangnhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.chkHienMK = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +59,7 @@
             // 
             // txtTen
             // 
+            this.txtTen.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtTen.Location = new System.Drawing.Point(302, 125);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(380, 31);
@@ -65,6 +68,7 @@
             // 
             // txtMatkhau
             // 
+            this.txtMatkhau.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtMatkhau.Location = new System.Drawing.Point(302, 202);
             this.txtMatkhau.Name = "txtMatkhau";
             this.txtMatkhau.Size = new System.Drawing.Size(380, 31);
@@ -73,7 +77,7 @@
             // lblThongbao
             // 
             this.lblThongbao.AutoSize = true;
-            this.lblThongbao.Location = new System.Drawing.Point(183, 262);
+            this.lblThongbao.Location = new System.Drawing.Point(247, 298);
             this.lblThongbao.Name = "lblThongbao";
             this.lblThongbao.Size = new System.Drawing.Size(0, 25);
             this.lblThongbao.TabIndex = 4;
@@ -98,12 +102,26 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // chkHienMK
+            // 
+            this.chkHienMK.AutoSize = true;
+            this.chkHienMK.Location = new System.Drawing.Point(302, 253);
+            this.chkHienMK.Name = "chkHienMK";
+            this.chkHienMK.Size = new System.Drawing.Size(188, 29);
+            this.chkHienMK.TabIndex = 7;
+            this.chkHienMK.Text = "Hiện mật khẩu ";
+            this.chkHienMK.UseVisualStyleBackColor = true;
+            this.chkHienMK.CheckedChanged += new System.EventHandler(this.chkHienMK_CheckedChanged);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(974, 406);
+            this.Controls.Add(this.chkHienMK);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangnhap);
             this.Controls.Add(this.lblThongbao);
@@ -128,5 +146,6 @@
         private System.Windows.Forms.Label lblThongbao;
         private System.Windows.Forms.Button btnDangnhap;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.CheckBox chkHienMK;
     }
 }

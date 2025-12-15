@@ -111,29 +111,29 @@ namespace Baitaplon
 
         private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
-                this.Hide();
-                using (var loginForm = new Forms.frmDangNhap())
-                {
-                    if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    {
+            DialogResult confirm = MessageBox.Show("Bạn có chắc muốn đăng xuất?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
-                        if (loginForm.ShowDialog() == DialogResult.OK)
-                        {
-                            this.role = Forms.frmDangNhap.role;
-                            this.Show();
-                            CuaHangQuanAo_Load(this, EventArgs.Empty);
-                        }
-                        else
-                        {
-                            Application.Exit();
-                        }
-                    }
+            if (confirm == DialogResult.No)
+                return;
+
+            
+            this.Hide();
+
+            using (Forms.frmDangNhap loginForm = new Forms.frmDangNhap())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    
+                    this.role = Forms.frmDangNhap.role;
+
+                    
+                    CuaHangQuanAo_Load(this, EventArgs.Empty);
+
+                    this.Show();
+                }
+                else
+                {
+                    Application.Exit();
                 }
             }
         }

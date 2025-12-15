@@ -31,7 +31,7 @@ namespace Baitaplon.Forms
             btnSua.Enabled = false;
             btnLamlai.Enabled = false;
             btnXoa.Enabled = false;
-           
+            cboNhanvien.Enabled = false;
             Load_DataGridView();
             Resetvalues();
         }
@@ -69,6 +69,7 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = false;
             btnThem.Enabled = true;
             btnXoa.Enabled = false;
+            cboNhanvien.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace Baitaplon.Forms
                 btnLamlai.Enabled = false;
                 btnThem.Enabled = true;
                 btnLuu.Enabled = false;
+                cboNhanvien.Enabled = false;
             }
         }
 
@@ -130,7 +132,8 @@ namespace Baitaplon.Forms
             btnLuu.Enabled = true;
             btnThem.Enabled = false;
             Resetvalues();
-            txtTen.Focus(); 
+            txtTen.Focus();
+            cboNhanvien.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -163,6 +166,7 @@ namespace Baitaplon.Forms
                 cboNhanvien.Focus();
                 return;
             }
+            
             sql = "UPDATE DangNhap " +
                   "SET matkhau = N'" + txtMatkhau.Text.Trim() + "', " +
                   "tendangnhap = N'" + txtTen.Text.Trim() + "' " +
@@ -194,6 +198,7 @@ namespace Baitaplon.Forms
             btnSua.Enabled = true;
             btnThem.Enabled = false;
             btnXoa.Enabled = true;
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

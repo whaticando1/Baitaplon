@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSanPham));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thểLoạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMasanpham = new System.Windows.Forms.TextBox();
@@ -69,6 +70,8 @@
             this.lblThongbao = new System.Windows.Forms.Label();
             this.cboMua = new System.Windows.Forms.ComboBox();
             this.cboTrangthai = new System.Windows.Forms.ComboBox();
+            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsTxtTimkiem = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -79,17 +82,19 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thểLoạiToolStripMenuItem});
+            this.thểLoạiToolStripMenuItem,
+            this.tìmKiếmToolStripMenuItem,
+            this.tsTxtTimkiem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1583, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1583, 43);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // thểLoạiToolStripMenuItem
             // 
             this.thểLoạiToolStripMenuItem.Name = "thểLoạiToolStripMenuItem";
-            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
+            this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 39);
             this.thểLoạiToolStripMenuItem.Text = "Thể loại";
             this.thểLoạiToolStripMenuItem.Click += new System.EventHandler(this.thểLoạiToolStripMenuItem_Click);
             // 
@@ -442,11 +447,27 @@
             this.cboTrangthai.Size = new System.Drawing.Size(192, 33);
             this.cboTrangthai.TabIndex = 111;
             // 
+            // tìmKiếmToolStripMenuItem
+            // 
+            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
+            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(133, 39);
+            this.tìmKiếmToolStripMenuItem.Text = "Tìm kiếm";
+            this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
+            // 
+            // tsTxtTimkiem
+            // 
+            this.tsTxtTimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tsTxtTimkiem.Name = "tsTxtTimkiem";
+            this.tsTxtTimkiem.Size = new System.Drawing.Size(100, 44);
+            this.tsTxtTimkiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tsTxtTimkiem_KeyUp);
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1583, 979);
             this.Controls.Add(this.cboTrangthai);
             this.Controls.Add(this.cboMua);
@@ -544,5 +565,7 @@
         private System.Windows.Forms.Label lblThongbao;
         private System.Windows.Forms.ComboBox cboMua;
         private System.Windows.Forms.ComboBox cboTrangthai;
+        private System.Windows.Forms.ToolStripMenuItem tìmKiếmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox tsTxtTimkiem;
     }
 }

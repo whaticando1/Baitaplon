@@ -30,6 +30,7 @@ namespace Baitaplon.Forms
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             Class.Function.Connect();
+            txtMatkhau.UseSystemPasswordChar = true;
         }
 
         private void btnDangnhap_Click(object sender, EventArgs e)
@@ -82,6 +83,11 @@ namespace Baitaplon.Forms
         {
             if (e.KeyCode == Keys.Enter)
                 txtMatkhau.Focus();
+        }
+
+        private void chkHienMK_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMatkhau.UseSystemPasswordChar = !chkHienMK.Checked;
         }
     }
 }

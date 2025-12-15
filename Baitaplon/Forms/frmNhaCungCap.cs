@@ -124,30 +124,35 @@ namespace Baitaplon.Forms
             if (txtTennhacungcap.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên nhà cung cấp";
+                lblThongbao.ForeColor = Color.Red;
                 txtTennhacungcap.Focus();
                 return;
             }
             if (txtDiachi.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập địa chỉ";
+                lblThongbao.ForeColor = Color.Red;
                 txtDiachi.Focus();
                 return;
             }
             if (mskDienthoai.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập điện thoại";
+                lblThongbao.ForeColor = Color.Red;
                 mskDienthoai.Focus();
                 return;
             }
             if (cboTrangthai.SelectedIndex == -1)
             {
                 lblThongbao.Text = "Phải chọn trạng thái";
+                lblThongbao.ForeColor = Color.Red;
                 cboTrangthai.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length != 0 || !txtEmail.Text.Contains("@"))
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
-                lblThongbao.Text = "Email không hợp lệ";
+                lblThongbao.Text = "Email không hợp lệ"; 
+                lblThongbao.ForeColor = Color.Red;
                 txtEmail.Focus();
                 return;
             }
@@ -168,30 +173,35 @@ namespace Baitaplon.Forms
             if (txtTennhacungcap.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên nhà cung cấp";
+                lblThongbao.ForeColor = Color.Red;
                 txtTennhacungcap.Focus();
                 return;
             }
             if (txtDiachi.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập địa chỉ";
+                lblThongbao.ForeColor = Color.Red;
                 txtDiachi.Focus();
                 return;
             }
             if (mskDienthoai.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập điện thoại";
+                lblThongbao.ForeColor = Color.Red;
                 mskDienthoai.Focus();
                 return;
             }
             if (cboTrangthai.SelectedIndex == -1)
             {
                 lblThongbao.Text = "Phải chọn trạng thái";
+                lblThongbao.ForeColor = Color.Red;
                 cboTrangthai.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length != 0 || !txtEmail.Text.Contains("@"))
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Email không hợp lệ";
+                lblThongbao.ForeColor = Color.Red;
                 txtEmail.Focus();
                 return;
             }
