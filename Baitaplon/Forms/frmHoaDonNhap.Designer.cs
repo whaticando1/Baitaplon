@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvSPThem = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMauTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,9 +77,10 @@
             this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colnhacungcap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coltrangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
+            this.txtMaHDN = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtChatLieu = new System.Windows.Forms.TextBox();
@@ -90,21 +91,20 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
-            this.btnLammoi = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSPThem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picQuanao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanao)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvSPThem
+            // dgvNhapHang
             // 
-            this.dgvSPThem.AllowUserToAddRows = false;
-            this.dgvSPThem.AllowUserToDeleteRows = false;
-            this.dgvSPThem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSPThem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvNhapHang.AllowUserToAddRows = false;
+            this.dgvNhapHang.AllowUserToDeleteRows = false;
+            this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaQA,
             this.colTenQA,
             this.colMauTC,
@@ -116,20 +116,20 @@
             this.colSoLuongTC,
             this.colNCC,
             this.colTrangThaiTC});
-            this.dgvSPThem.Location = new System.Drawing.Point(8, 7);
-            this.dgvSPThem.Name = "dgvSPThem";
-            this.dgvSPThem.ReadOnly = true;
-            this.dgvSPThem.RowHeadersVisible = false;
-            this.dgvSPThem.RowHeadersWidth = 51;
-            this.dgvSPThem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSPThem.Size = new System.Drawing.Size(489, 203);
-            this.dgvSPThem.TabIndex = 86;
+            this.dgvNhapHang.Location = new System.Drawing.Point(8, 7);
+            this.dgvNhapHang.Name = "dgvNhapHang";
+            this.dgvNhapHang.ReadOnly = true;
+            this.dgvNhapHang.RowHeadersVisible = false;
+            this.dgvNhapHang.RowHeadersWidth = 51;
+            this.dgvNhapHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNhapHang.Size = new System.Drawing.Size(489, 203);
+            this.dgvNhapHang.TabIndex = 86;
             // 
             // colMaQA
             // 
             this.colMaQA.DataPropertyName = "MaQA";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.colMaQA.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.colMaQA.DefaultCellStyle = dataGridViewCellStyle9;
             this.colMaQA.HeaderText = "Mã quần áo";
             this.colMaQA.MinimumWidth = 6;
             this.colMaQA.Name = "colMaQA";
@@ -179,8 +179,8 @@
             // colGiaTienTC
             // 
             this.colGiaTienTC.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle6.Format = "#,## VNĐ";
-            this.colGiaTienTC.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Format = "#,## VNĐ";
+            this.colGiaTienTC.DefaultCellStyle = dataGridViewCellStyle10;
             this.colGiaTienTC.HeaderText = "Giá tiền";
             this.colGiaTienTC.MinimumWidth = 6;
             this.colGiaTienTC.Name = "colGiaTienTC";
@@ -241,7 +241,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvSPThem);
+            this.groupBox2.Controls.Add(this.dgvNhapHang);
             this.groupBox2.Location = new System.Drawing.Point(722, 57);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(505, 217);
@@ -396,7 +396,7 @@
             this.btnLapHD.Name = "btnLapHD";
             this.btnLapHD.Size = new System.Drawing.Size(109, 47);
             this.btnLapHD.TabIndex = 89;
-            this.btnLapHD.Text = "Lập Hóa Đơn";
+            this.btnLapHD.Text = "Lưu Hóa Đơn";
             this.btnLapHD.UseVisualStyleBackColor = false;
             this.btnLapHD.Click += new System.EventHandler(this.btnLapHD_Click);
             // 
@@ -476,8 +476,8 @@
             // colquanao
             // 
             this.colquanao.DataPropertyName = "MaQuanAo";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.colquanao.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            this.colquanao.DefaultCellStyle = dataGridViewCellStyle11;
             this.colquanao.HeaderText = "Mã quần áo";
             this.colquanao.MinimumWidth = 6;
             this.colquanao.Name = "colquanao";
@@ -527,8 +527,8 @@
             // colgiatien
             // 
             this.colgiatien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle8.Format = "#,## VNĐ";
-            this.colgiatien.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Format = "#,## VNĐ";
+            this.colgiatien.DefaultCellStyle = dataGridViewCellStyle12;
             this.colgiatien.HeaderText = "Giá tiền";
             this.colgiatien.MinimumWidth = 6;
             this.colgiatien.Name = "colgiatien";
@@ -580,13 +580,13 @@
             this.coltrangthai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.coltrangthai.Width = 125;
             // 
-            // txtMaHD
+            // txtMaHDN
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(858, 366);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.ReadOnly = true;
-            this.txtMaHD.Size = new System.Drawing.Size(135, 22);
-            this.txtMaHD.TabIndex = 95;
+            this.txtMaHDN.Location = new System.Drawing.Point(858, 366);
+            this.txtMaHDN.Name = "txtMaHDN";
+            this.txtMaHDN.ReadOnly = true;
+            this.txtMaHDN.Size = new System.Drawing.Size(135, 22);
+            this.txtMaHDN.TabIndex = 95;
             // 
             // label10
             // 
@@ -631,6 +631,16 @@
             this.groupBox1.TabIndex = 87;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập thông tin quần áo";
+            // 
+            // btnLammoi
+            // 
+            this.btnLammoi.Location = new System.Drawing.Point(585, 258);
+            this.btnLammoi.Name = "btnLammoi";
+            this.btnLammoi.Size = new System.Drawing.Size(93, 23);
+            this.btnLammoi.TabIndex = 86;
+            this.btnLammoi.Text = "Làm mới";
+            this.btnLammoi.UseVisualStyleBackColor = true;
+            this.btnLammoi.Click += new System.EventHandler(this.btnLammoi_Click);
             // 
             // label5
             // 
@@ -721,17 +731,7 @@
             this.btnIn.TabIndex = 100;
             this.btnIn.Text = "In Hóa Đơn";
             this.btnIn.UseVisualStyleBackColor = false;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // btnLammoi
-            // 
-            this.btnLammoi.Location = new System.Drawing.Point(585, 258);
-            this.btnLammoi.Name = "btnLammoi";
-            this.btnLammoi.Size = new System.Drawing.Size(93, 23);
-            this.btnLammoi.TabIndex = 86;
-            this.btnLammoi.Text = "Làm mới";
-            this.btnLammoi.UseVisualStyleBackColor = true;
-            this.btnLammoi.Click += new System.EventHandler(this.btnLammoi_Click);
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click_1);
             // 
             // label9
             // 
@@ -758,14 +758,14 @@
             this.Controls.Add(this.lblTongTien);
             this.Controls.Add(this.btnLapHD);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtMaHD);
+            this.Controls.Add(this.txtMaHDN);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHoaDonNhap";
             this.Text = "làm";
             this.Load += new System.EventHandler(this.frmHoaDonNhap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSPThem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picQuanao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanao)).EndInit();
@@ -777,7 +777,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvSPThem;
+        private System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblThanhTien;
@@ -801,7 +801,7 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvQuanao;
-        private System.Windows.Forms.TextBox txtMaHD;
+        private System.Windows.Forms.TextBox txtMaHDN;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;

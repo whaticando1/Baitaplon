@@ -94,11 +94,28 @@ namespace Baitaplon.Forms
         private void dgvQuanao_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            DataGridViewRow row = dgvQuanao.Rows[e.RowIndex];
 
-            string tenAnh = dgvQuanao
-                .Rows[e.RowIndex]
-                .Cells["hinhanh"]
-                .Value?.ToString();
+            string ten = (row.Cells["tensanpham"]?.Value ?? row.Cells["TenQA"]?.Value ?? row.Cells["colTenQA"]?.Value)?.ToString();
+            lblTenTraiCay.Text = ten ?? string.Empty;
+
+            object priceObj = row.Cells["giaban"]?.Value ?? row.Cells["GiaTien"]?.Value ?? row.Cells["gianhap"]?.Value;
+            decimal price = 0m;
+            if (priceObj != null && decimal.TryParse(priceObj.ToString(), out price))
+                lblGiaTien.Text = price.ToString("N0");
+            else
+                lblGiaTien.Text = "0";
+
+  
+            object stockObj = row.Cells["soluong"]?.Value ?? row.Cells["SoLuong"]?.Value;
+            lblSoLuongTonKho.Text = stockObj?.ToString() ?? "0";
+
+  
+            string tenAnh = (row.Cells["hinhanh"]?.Value ?? row.Cells["HinhAnh"]?.Value)?.ToString();
+            HienThiAnhSanPham(tenAnh);
+
+            txtSoLuongNhap.Focus();
+
 
             HienThiAnhSanPham(tenAnh);
         }
