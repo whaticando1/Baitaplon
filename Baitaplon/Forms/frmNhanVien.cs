@@ -157,7 +157,7 @@ namespace Baitaplon.Forms
                 txtTennhanvien.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length == 0)
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Phải nhập Email!";
                 lblThongbao.ForeColor = Color.Red;
@@ -290,7 +290,7 @@ namespace Baitaplon.Forms
                 txtTennhanvien.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length == 0)
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Phải nhập Email!";
                 lblThongbao.ForeColor = Color.Red;

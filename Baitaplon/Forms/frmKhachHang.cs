@@ -117,7 +117,7 @@ namespace Baitaplon.Forms
                 txtDiachi.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length == 0)
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Phải nhập email khách hàng!";
                 lblThongbao.ForeColor = Color.Red;
@@ -183,7 +183,7 @@ namespace Baitaplon.Forms
                 txtDiachi.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length == 0)
+            if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Phải nhập email khách hàng!";
                 lblThongbao.ForeColor = Color.Red;

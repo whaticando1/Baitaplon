@@ -145,7 +145,7 @@ namespace Baitaplon.Forms
                 cboTrangthai.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length != 0)
+            if (txtEmail.Text.Trim().Length != 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Email không hợp lệ";
                 txtEmail.Focus();
@@ -189,7 +189,7 @@ namespace Baitaplon.Forms
                 cboTrangthai.Focus();
                 return;
             }
-            if (txtEmail.Text.Trim().Length != 0)
+            if (txtEmail.Text.Trim().Length != 0 || !txtEmail.Text.Contains("@"))
             {
                 lblThongbao.Text = "Email không hợp lệ";
                 txtEmail.Focus();
