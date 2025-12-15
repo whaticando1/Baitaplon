@@ -57,7 +57,8 @@ namespace Baitaplon.Class
                             {
                                 Console.WriteLine($"SQL Exception: {ex2.Message}");
                                 MessageBox.Show("❌Error: " + ex2.Message);
-                            };
+                            }
+                            ;
                         }
                     }
                 }
@@ -210,7 +211,28 @@ namespace Baitaplon.Class
                 "Products"
             );
         }
+        public static object ExecuteScalar(string sql)
+        {
 
 
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, Conn);
+            return cmd.ExecuteScalar();
+
+
+
+        }
+        public static int ExecuteNonQuery(string sql, SqlParameter[] param = null)
+        {
+      
+       
+                Conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, Conn);
+                if (param != null)
+                    cmd.Parameters.AddRange(param);
+
+                return cmd.ExecuteNonQuery();
+            
+        }
     }
 }
