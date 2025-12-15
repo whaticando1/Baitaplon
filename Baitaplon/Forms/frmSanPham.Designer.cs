@@ -82,7 +82,7 @@
             this.thểLoạiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1583, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1583, 48);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,7 +160,7 @@
             // 
             // txtChatlieu
             // 
-            this.txtChatlieu.Location = new System.Drawing.Point(247, 268);
+            this.txtChatlieu.Location = new System.Drawing.Point(649, 335);
             this.txtChatlieu.Name = "txtChatlieu";
             this.txtChatlieu.Size = new System.Drawing.Size(192, 31);
             this.txtChatlieu.TabIndex = 46;
@@ -188,7 +188,7 @@
             // 
             // txtGianhap
             // 
-            this.txtGianhap.Location = new System.Drawing.Point(649, 335);
+            this.txtGianhap.Location = new System.Drawing.Point(247, 271);
             this.txtGianhap.Name = "txtGianhap";
             this.txtGianhap.Size = new System.Drawing.Size(192, 31);
             this.txtGianhap.TabIndex = 51;
@@ -203,7 +203,7 @@
             // b
             // 
             this.b.AutoSize = true;
-            this.b.Location = new System.Drawing.Point(93, 203);
+            this.b.Location = new System.Drawing.Point(98, 206);
             this.b.Name = "b";
             this.b.Size = new System.Drawing.Size(93, 25);
             this.b.TabIndex = 55;
@@ -212,7 +212,7 @@
             // c
             // 
             this.c.AutoSize = true;
-            this.c.Location = new System.Drawing.Point(93, 274);
+            this.c.Location = new System.Drawing.Point(495, 341);
             this.c.Name = "c";
             this.c.Size = new System.Drawing.Size(103, 25);
             this.c.TabIndex = 56;
@@ -221,7 +221,7 @@
             // d
             // 
             this.d.AutoSize = true;
-            this.d.Location = new System.Drawing.Point(93, 338);
+            this.d.Location = new System.Drawing.Point(98, 338);
             this.d.Name = "d";
             this.d.Size = new System.Drawing.Size(110, 25);
             this.d.TabIndex = 57;
@@ -257,7 +257,7 @@
             // h
             // 
             this.h.AutoSize = true;
-            this.h.Location = new System.Drawing.Point(495, 338);
+            this.h.Location = new System.Drawing.Point(98, 274);
             this.h.Name = "h";
             this.h.Size = new System.Drawing.Size(105, 25);
             this.h.TabIndex = 61;
@@ -415,9 +415,8 @@
             this.lblThongbao.AutoSize = true;
             this.lblThongbao.Location = new System.Drawing.Point(142, 375);
             this.lblThongbao.Name = "lblThongbao";
-            this.lblThongbao.Size = new System.Drawing.Size(24, 25);
+            this.lblThongbao.Size = new System.Drawing.Size(0, 25);
             this.lblThongbao.TabIndex = 107;
-            this.lblThongbao.Text = "a";
             // 
             // cboMua
             // 

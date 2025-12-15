@@ -216,14 +216,6 @@
     <Folder Include="Images\DecoBackgr\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Products\Váy trắng cúp ngực đuôi chéo.jpg" />
-    <Content Include="Images\Products\váy xanh đậm ngắn dây nơ.jpg" />
-    <Content Include="Images\Products\Váy xòe tím 2 dây.jpg" />
-    <Content Include="Images\Products\Váy xòe đỏ cúp ngực.jpg" />
-    <Content Include="Images\Products\Váy đen dài tay nơ.jpg" />
-    <Content Include="Images\Products\Váy đen xám ren cúp ngực.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>

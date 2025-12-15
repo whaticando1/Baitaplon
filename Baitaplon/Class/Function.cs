@@ -17,7 +17,7 @@ namespace Baitaplon.Class
         private static string connectionString2 = "Data Source=LAPTOP-AO872B0H\\SQLEXPRESS;Initial Catalog=QuanLyBanHang;Integrated Security=True;Encrypt=False";
 
         public static SqlConnection Conn;
-        public static string connString;
+
 
         public static void Connect()
         {
