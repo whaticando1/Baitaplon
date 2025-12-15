@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Baitaplon.Forms
 {
@@ -371,5 +373,80 @@ namespace Baitaplon.Forms
             txtTimTen.Clear();
             dgvQuanao.DataSource = tblSanPham;
         }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+    
+        
+            if (tblHDBan.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để in!");
+                return;
+            }
+
+            Excel.Application excelApp = new Excel.Application();
+            excelApp.Visible = true;
+
+            Excel.Workbook wb = excelApp.Workbooks.Add();
+            Excel.Worksheet ws = wb.ActiveSheet;
+
+           
+            ws.Cells[1, 1] = "HÓA ĐƠN BÁN HÀNG";
+            Excel.Range title = ws.Range["A1", "E1"];
+            title.Merge();
+            title.Font.Bold = true;
+            title.Font.Size = 16;
+            title.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            ws.Cells[2, 1] = "Ngày:";
+            ws.Cells[2, 2] = DateTime.Now.ToString("dd/MM/yyyy");
+
+            ws.Cells[3, 1] = "Khách hàng:";
+            ws.Cells[3, 2] = cbbKhachHang.Text;
+
+            ws.Cells[4, 1] = "Giảm giá:";
+            ws.Cells[4, 2] = phanTramGiamGia + "%";
+
+          
+            int row = 6;
+            ws.Cells[row, 1] = "STT";
+            ws.Cells[row, 2] = "Tên sản phẩm";
+            ws.Cells[row, 3] = "Giá bán";
+            ws.Cells[row, 4] = "Số lượng";
+            ws.Cells[row, 5] = "Thành tiền";
+
+            Excel.Range header = ws.Range["A6", "E6"];
+            header.Font.Bold = true;
+            header.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            row++;
+
+            
+            int stt = 1;
+            foreach (DataRow dr in tblHDBan.Rows)
+            {
+                ws.Cells[row, 1] = stt++;
+                ws.Cells[row, 2] = dr["tensanpham"];
+                ws.Cells[row, 3] = dr["giaban"];
+                ws.Cells[row, 4] = dr["soluong"];
+                ws.Cells[row, 5] = dr["thanhtien"];
+
+                ws.Range[$"A{row}", $"E{row}"].Borders.LineStyle =
+                    Excel.XlLineStyle.xlContinuous;
+
+                row++;
+            }
+
+           
+            ws.Cells[row + 1, 4] = "Tổng tiền:";
+            ws.Cells[row + 1, 5] = txtTongTien.Text;
+            ws.Range[$"D{row + 1}", $"E{row + 1}"].Font.Bold = true;
+
+            ws.Columns.AutoFit();
+
+            MessageBox.Show("Xuất hóa đơn ra Excel thành công!");
+        }
+
     }
 }
+

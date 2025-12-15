@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbGiamgia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -426,6 +426,7 @@
             this.btnIn.TabIndex = 32;
             this.btnIn.Text = "In Hóa Đơn";
             this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // label10
             // 
@@ -494,8 +495,8 @@
             // GiaTien
             // 
             this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle8.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle9;
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.MinimumWidth = 6;
             this.GiaTien.Name = "GiaTien";
