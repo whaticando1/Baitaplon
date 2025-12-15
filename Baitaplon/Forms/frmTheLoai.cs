@@ -28,7 +28,6 @@ namespace Baitaplon.Forms
             Load_DataGridViewTL();
             txtIDTheloai.Enabled = false;
             btnLuu.Enabled = false;
-            
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
         }
@@ -74,7 +73,6 @@ namespace Baitaplon.Forms
             txtTentheloai.Text = DataGridView.CurrentRow.Cells["tentheloai"].Value.ToString();
             txtMota.Text = DataGridView.CurrentRow.Cells["mota"].Value.ToString();
             btnSua.Enabled = true;
-            
             btnBoqua.Enabled = true;
             btnThem.Enabled = false;
         }
@@ -136,7 +134,6 @@ namespace Baitaplon.Forms
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             resetValues();
-            
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnLuu.Enabled = false;

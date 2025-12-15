@@ -33,14 +33,11 @@
             this.btnBoqua = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.lblThongbaoCV = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLuongCoBan = new System.Windows.Forms.TextBox();
             this.txtTennhacungcap = new System.Windows.Forms.TextBox();
             this.txtMoTa = new System.Windows.Forms.TextBox();
             this.txtIDCungcap = new System.Windows.Forms.TextBox();
@@ -50,6 +47,10 @@
             this.mskDienthoai = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblThongbao = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboTrangthai = new System.Windows.Forms.ComboBox();
+            this.txtDiachi = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,30 +68,33 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(1004, 674);
+            this.btnDong.Location = new System.Drawing.Point(919, 676);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(107, 49);
             this.btnDong.TabIndex = 91;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Location = new System.Drawing.Point(1004, 591);
+            this.btnBoqua.Location = new System.Drawing.Point(1004, 508);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(107, 49);
             this.btnBoqua.TabIndex = 90;
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = true;
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(830, 674);
+            this.btnLuu.Location = new System.Drawing.Point(1004, 591);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(107, 49);
             this.btnLuu.TabIndex = 89;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -100,15 +104,7 @@
             this.btnSua.TabIndex = 88;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(1004, 508);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(107, 49);
-            this.btnXoa.TabIndex = 87;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -118,6 +114,7 @@
             this.btnThem.TabIndex = 86;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // lblThongbaoCV
             // 
@@ -130,25 +127,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(774, 140);
+            this.label4.Location = new System.Drawing.Point(712, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 25);
             this.label4.TabIndex = 84;
             this.label4.Text = "Mô tả:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 293);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 25);
-            this.label3.TabIndex = 83;
-            this.label3.Text = "Lương cơ bản:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 221);
+            this.label2.Location = new System.Drawing.Point(47, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 25);
             this.label2.TabIndex = 82;
@@ -157,18 +145,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 150);
+            this.label1.Location = new System.Drawing.Point(54, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 25);
             this.label1.TabIndex = 81;
             this.label1.Text = "Mã nhà cung cấp:";
-            // 
-            // txtLuongCoBan
-            // 
-            this.txtLuongCoBan.Location = new System.Drawing.Point(262, 287);
-            this.txtLuongCoBan.Name = "txtLuongCoBan";
-            this.txtLuongCoBan.Size = new System.Drawing.Size(340, 31);
-            this.txtLuongCoBan.TabIndex = 80;
             // 
             // txtTennhacungcap
             // 
@@ -179,10 +160,10 @@
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(762, 172);
+            this.txtMoTa.Location = new System.Drawing.Point(790, 150);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(414, 146);
+            this.txtMoTa.Size = new System.Drawing.Size(406, 128);
             this.txtMoTa.TabIndex = 78;
             // 
             // txtIDCungcap
@@ -201,11 +182,12 @@
             this.DataGridView.RowTemplate.Height = 33;
             this.DataGridView.Size = new System.Drawing.Size(641, 269);
             this.DataGridView.TabIndex = 76;
+            this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(138, 368);
+            this.label5.Location = new System.Drawing.Point(167, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 25);
             this.label5.TabIndex = 94;
@@ -223,7 +205,7 @@
             this.mskDienthoai.Location = new System.Drawing.Point(836, 368);
             this.mskDienthoai.Mask = "(999) 000-0000";
             this.mskDienthoai.Name = "mskDienthoai";
-            this.mskDienthoai.Size = new System.Drawing.Size(340, 31);
+            this.mskDienthoai.Size = new System.Drawing.Size(168, 31);
             this.mskDienthoai.TabIndex = 95;
             // 
             // label6
@@ -244,12 +226,47 @@
             this.lblThongbao.TabIndex = 107;
             this.lblThongbao.Text = "a";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(712, 307);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 25);
+            this.label11.TabIndex = 109;
+            this.label11.Text = "Trạng thái:";
+            // 
+            // cboTrangthai
+            // 
+            this.cboTrangthai.FormattingEnabled = true;
+            this.cboTrangthai.Location = new System.Drawing.Point(836, 304);
+            this.cboTrangthai.Name = "cboTrangthai";
+            this.cboTrangthai.Size = new System.Drawing.Size(168, 33);
+            this.cboTrangthai.TabIndex = 108;
+            // 
+            // txtDiachi
+            // 
+            this.txtDiachi.Location = new System.Drawing.Point(262, 287);
+            this.txtDiachi.Name = "txtDiachi";
+            this.txtDiachi.Size = new System.Drawing.Size(340, 31);
+            this.txtDiachi.TabIndex = 80;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(154, 290);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "Địa chỉ:";
+            // 
             // frmNhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1257, 809);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cboTrangthai);
             this.Controls.Add(this.lblThongbao);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mskDienthoai);
@@ -260,14 +277,13 @@
             this.Controls.Add(this.btnBoqua);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.lblThongbaoCV);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtLuongCoBan);
+            this.Controls.Add(this.txtDiachi);
             this.Controls.Add(this.txtTennhacungcap);
             this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.txtIDCungcap);
@@ -288,14 +304,11 @@
         private System.Windows.Forms.Button btnBoqua;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label lblThongbaoCV;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtLuongCoBan;
         private System.Windows.Forms.TextBox txtTennhacungcap;
         private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.TextBox txtIDCungcap;
@@ -305,5 +318,9 @@
         private System.Windows.Forms.MaskedTextBox mskDienthoai;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblThongbao;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cboTrangthai;
+        private System.Windows.Forms.TextBox txtDiachi;
+        private System.Windows.Forms.Label label3;
     }
 }

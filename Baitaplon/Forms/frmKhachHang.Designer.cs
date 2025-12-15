@@ -32,7 +32,6 @@
             this.btnBoqua = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.DataGridView = new System.Windows.Forms.DataGridView();
             this.mskDienthoai = new System.Windows.Forms.MaskedTextBox();
@@ -58,7 +57,7 @@
             this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDong.ForeColor = System.Drawing.Color.Black;
             this.btnDong.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnDong.Location = new System.Drawing.Point(1025, 656);
+            this.btnDong.Location = new System.Drawing.Point(942, 655);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(125, 55);
             this.btnDong.TabIndex = 32;
@@ -72,7 +71,7 @@
             this.btnBoqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBoqua.ForeColor = System.Drawing.Color.Black;
             this.btnBoqua.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnBoqua.Location = new System.Drawing.Point(858, 656);
+            this.btnBoqua.Location = new System.Drawing.Point(1025, 445);
             this.btnBoqua.Name = "btnBoqua";
             this.btnBoqua.Size = new System.Drawing.Size(125, 55);
             this.btnBoqua.TabIndex = 31;
@@ -107,20 +106,6 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.Black;
-            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnXoa.Location = new System.Drawing.Point(1025, 445);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(125, 55);
-            this.btnXoa.TabIndex = 28;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -305,7 +290,6 @@
             this.Controls.Add(this.btnBoqua);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.mskDienthoai);
@@ -332,7 +316,6 @@
         private System.Windows.Forms.Button btnBoqua;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView DataGridView;
         private System.Windows.Forms.MaskedTextBox mskDienthoai;

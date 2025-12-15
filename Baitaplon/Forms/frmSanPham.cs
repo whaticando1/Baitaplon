@@ -31,6 +31,7 @@ namespace Baitaplon.Forms
 
         private void frmSanPham_Load(object sender, EventArgs e)
         {
+            picAnh.SizeMode = PictureBoxSizeMode.StretchImage;
             cboTrangthai.DropDownStyle = ComboBoxStyle.DropDownList;
             cboMua.DropDownStyle = ComboBoxStyle.DropDownList;
             cboMatheloai.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -120,6 +121,8 @@ namespace Baitaplon.Forms
             cboMua.Text = DataGridView.CurrentRow.Cells["mua"].Value.ToString();
             cboMatheloai.SelectedValue = DataGridView.CurrentRow.Cells["theloai_id"].Value.ToString();
             txtAnh.Text = DataGridView.CurrentRow.Cells["url_anh"].Value.ToString();
+            picAnh.Image = Image.FromFile(txtAnh.Text);
+            txtMota.Text = DataGridView.CurrentRow.Cells["mota"].Value.ToString();
             if (DataGridView.CurrentRow.Cells["ngaynhap"].Value != DBNull.Value)
             {
                 DateTime ngaytuyendung = Convert.ToDateTime(DataGridView.CurrentRow.Cells["ngaytuyendung"].Value);
@@ -160,6 +163,9 @@ namespace Baitaplon.Forms
 
         }
 
-       
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

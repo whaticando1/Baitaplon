@@ -28,7 +28,6 @@ namespace Baitaplon.Forms
             Load_DataGridViewKH();
             txtMakhach.Enabled = false;
             btnLuu.Enabled = false;
-            btnXoa.Enabled = false;
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
         }
@@ -96,27 +95,8 @@ namespace Baitaplon.Forms
                 mskDangky.Text = "";
             }
             btnSua.Enabled = true;
-            btnXoa.Enabled = true;
             btnBoqua.Enabled = true;
             btnThem.Enabled = false;
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            string sql;
-            if (tblKH.Rows.Count == 0)
-            {
-                MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            sql = "DELETE KhachHang WHERE khachhang_id=N'" + txtMakhach.Text + "'";
-            Class.Function.RunSqlDel(sql);
-            Load_DataGridViewKH();
-            Resetvalues();
-            btnXoa.Enabled = false;
-            btnSua.Enabled = false;
-            btnBoqua.Enabled = false;
-            btnThem.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -236,7 +216,6 @@ namespace Baitaplon.Forms
             Class.Function.RunSql(sql);
             Load_DataGridViewKH();
             Resetvalues();
-            btnXoa.Enabled = false;
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
@@ -252,7 +231,6 @@ namespace Baitaplon.Forms
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             Resetvalues();
-            btnXoa.Enabled = false;
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnLuu.Enabled = false;
