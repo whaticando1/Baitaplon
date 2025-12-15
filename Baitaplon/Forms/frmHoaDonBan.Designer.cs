@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbGiamgia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -426,8 +426,8 @@
             // GiaTien
             // 
             this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle3.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle6;
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.MinimumWidth = 6;
             this.GiaTien.Name = "GiaTien";
@@ -460,6 +460,7 @@
             this.picQuanao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picQuanao.TabIndex = 6;
             this.picQuanao.TabStop = false;
+            this.picQuanao.Click += new System.EventHandler(this.picQuanao_Click);
             // 
             // label4
             // 

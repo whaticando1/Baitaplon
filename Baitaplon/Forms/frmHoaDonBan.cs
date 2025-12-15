@@ -7,12 +7,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
 
 namespace Baitaplon.Forms
 {
@@ -92,7 +93,14 @@ namespace Baitaplon.Forms
 
         private void dgvQuanao_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
 
+            string tenAnh = dgvQuanao
+                .Rows[e.RowIndex]
+                .Cells["hinhanh"]
+                .Value?.ToString();
+
+            HienThiAnhSanPham(tenAnh);
         }
 
         private void dgvGioHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -500,6 +508,37 @@ namespace Baitaplon.Forms
 
             this.Close();
         }
+
+        private void picQuanao_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void HienThiAnhSanPham(string tenFileAnh)
+        {
+            if (string.IsNullOrEmpty(tenFileAnh))
+            {
+                picQuanao.Image = null;
+                return;
+            }
+
+            string duongDanAnh = Path.Combine(
+                Function.GetImageRootPath(),
+                tenFileAnh
+            );
+
+            if (!File.Exists(duongDanAnh))
+            {
+                picQuanao.Image = null;
+                return;
+            }
+            using (var fs = new FileStream(duongDanAnh, FileMode.Open, FileAccess.Read))
+            {
+                picQuanao.Image = Image.FromStream(fs);
+            }
+
+            picQuanao.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
     }
 }
 
