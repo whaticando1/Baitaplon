@@ -539,6 +539,10 @@ namespace Baitaplon.Forms
             picQuanao.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
