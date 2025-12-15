@@ -122,6 +122,18 @@ namespace Baitaplon.Forms
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (File.Exists(txtAnh.Text))
+            {
+                using (var img = Image.FromFile(txtAnh.Text))
+                {
+                    picAnh.Image = new Bitmap(img);
+                }
+            }
+            else
+            {
+                picAnh.Image = null;
+            }
+
 
             txtMasanpham.Text = DataGridView.CurrentRow.Cells["sanpham_id"].Value.ToString();
             txtTensanpham.Text = DataGridView.CurrentRow.Cells["tensanpham"].Value.ToString();
@@ -299,7 +311,7 @@ namespace Baitaplon.Forms
 
             // ===== SAVE IMAGE TO PROJECT FOLDER =====
             string sourcePath = txtAnh.Text;
-            string targetFolder = Application.StartupPath + @"\Images\Products\";
+            string targetFolder = Function.GetImageRootPath();
 
             if (!Directory.Exists(targetFolder))
                 Directory.CreateDirectory(targetFolder);
@@ -445,7 +457,7 @@ namespace Baitaplon.Forms
             // ===== IMAGE HANDLING (ONLY if changed) =====
             if (File.Exists(txtAnh.Text) && !txtAnh.Text.Contains(@"\Images\Products\"))
             {
-                string targetFolder = Application.StartupPath + @"\Images\Products\";
+                string targetFolder = Function.GetImageRootPath();
                 if (!Directory.Exists(targetFolder))
                     Directory.CreateDirectory(targetFolder);
 

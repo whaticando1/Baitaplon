@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -201,6 +202,15 @@ namespace Baitaplon.Class
                 return 0f;
             }
         }
-        
+        public static string GetImageRootPath()
+        {
+            return Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "Images",
+                "Products"
+            );
+        }
+
+
     }
 }
