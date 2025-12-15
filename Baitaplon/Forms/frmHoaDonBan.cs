@@ -352,46 +352,22 @@ namespace Baitaplon.Forms
 
         private void btnTimTraiCay_Click(object sender, EventArgs e)
         {
-            string keyword = txtTimTen.Text.Trim();
 
-            DataView dv = tblSanPham.DefaultView;
 
-            if (string.IsNullOrEmpty(keyword))
-            {
-                dv.RowFilter = "";
-            }
-            else
-            {
-                dv.RowFilter = $"Tensanpham LIKE '%{keyword}%'";
-            }
 
-            dgvQuanao.DataSource = dv;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtTimTen.Clear();
-            dgvQuanao.DataSource = tblSanPham;
-        }
-
-        private void btnIn_Click(object sender, EventArgs e)
-        {
-    
-        
-            if (tblHDBan.Rows.Count == 0)
+            if (dgvGioHang.Rows.Count == 0)
             {
                 MessageBox.Show("Không có dữ liệu để in!");
                 return;
             }
 
-            Excel.Application excelApp = new Excel.Application();
-            excelApp.Visible = true;
+            Excel.Application excel = new Excel.Application();
+            excel.Visible = true;
 
-            Excel.Workbook wb = excelApp.Workbooks.Add();
+            Excel.Workbook wb = excel.Workbooks.Add();
             Excel.Worksheet ws = wb.ActiveSheet;
 
-           
-            ws.Cells[1, 1] = "HÓA ĐƠN BÁN HÀNG";
+                    ws.Cells[1, 1] = "HÓA ĐƠN BÁN HÀNG";
             Excel.Range title = ws.Range["A1", "E1"];
             title.Merge();
             title.Font.Bold = true;
@@ -407,44 +383,49 @@ namespace Baitaplon.Forms
             ws.Cells[4, 1] = "Giảm giá:";
             ws.Cells[4, 2] = phanTramGiamGia + "%";
 
-          
-            int row = 6;
-            ws.Cells[row, 1] = "STT";
-            ws.Cells[row, 2] = "Tên sản phẩm";
-            ws.Cells[row, 3] = "Giá bán";
-            ws.Cells[row, 4] = "Số lượng";
-            ws.Cells[row, 5] = "Thành tiền";
+           
+            int startRow = 6;
+
+            ws.Cells[startRow, 1] = "STT";
+            ws.Cells[startRow, 2] = "Tên sản phẩm";
+            ws.Cells[startRow, 3] = "Giá bán";
+            ws.Cells[startRow, 4] = "Số lượng";
+            ws.Cells[startRow, 5] = "Thành tiền";
 
             Excel.Range header = ws.Range["A6", "E6"];
             header.Font.Bold = true;
             header.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
-            row++;
-
             
+            int rowExcel = startRow + 1;
             int stt = 1;
-            foreach (DataRow dr in tblHDBan.Rows)
-            {
-                ws.Cells[row, 1] = stt++;
-                ws.Cells[row, 2] = dr["tensanpham"];
-                ws.Cells[row, 3] = dr["giaban"];
-                ws.Cells[row, 4] = dr["soluong"];
-                ws.Cells[row, 5] = dr["thanhtien"];
 
-                ws.Range[$"A{row}", $"E{row}"].Borders.LineStyle =
+            foreach (DataGridViewRow row in dgvGioHang.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                ws.Cells[rowExcel, 1] = stt++;
+                ws.Cells[rowExcel, 2] = row.Cells["tensanpham"].Value;
+                ws.Cells[rowExcel, 3] = row.Cells["giaban"].Value;
+                ws.Cells[rowExcel, 4] = row.Cells["soluong"].Value;
+                ws.Cells[rowExcel, 5] = row.Cells["thanhtien"].Value;
+
+                ws.Range[$"A{rowExcel}", $"E{rowExcel}"].Borders.LineStyle =
                     Excel.XlLineStyle.xlContinuous;
 
-                row++;
+                rowExcel++;
             }
 
-           
-            ws.Cells[row + 1, 4] = "Tổng tiền:";
-            ws.Cells[row + 1, 5] = txtTongTien.Text;
-            ws.Range[$"D{row + 1}", $"E{row + 1}"].Font.Bold = true;
+            // ===== TỔNG TIỀN =====
+            ws.Cells[rowExcel + 1, 4] = "Tổng tiền:";
+            ws.Cells[rowExcel + 1, 5] = txtTongTien.Text;
+
+            ws.Range[$"D{rowExcel + 1}", $"E{rowExcel + 1}"].Font.Bold = true;
 
             ws.Columns.AutoFit();
 
-            MessageBox.Show("Xuất hóa đơn ra Excel thành công!");
+            MessageBox.Show("In hóa đơn thành công!");
+
         }
 
     }
