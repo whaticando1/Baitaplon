@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbGiamgia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,7 +60,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMausac = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +77,7 @@
             this.colsoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGiamgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colthanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -210,6 +210,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.lblTenTraiCay);
             this.groupBox1.Controls.Add(this.lblSoLuongTonKho);
             this.groupBox1.Controls.Add(this.label8);
@@ -377,6 +378,7 @@
             this.btnTimTraiCay.Size = new System.Drawing.Size(92, 34);
             this.btnTimTraiCay.TabIndex = 0;
             this.btnTimTraiCay.UseVisualStyleBackColor = false;
+            this.btnTimTraiCay.Click += new System.EventHandler(this.btnTimTraiCay_Click);
             // 
             // label6
             // 
@@ -395,6 +397,7 @@
             this.btnThemhoadon.TabIndex = 17;
             this.btnThemhoadon.Text = "Thêm hóa đơn";
             this.btnThemhoadon.UseVisualStyleBackColor = true;
+            this.btnThemhoadon.Click += new System.EventHandler(this.btnThemhoadon_Click_1);
             // 
             // btnHuyhoadon
             // 
@@ -404,6 +407,7 @@
             this.btnHuyhoadon.TabIndex = 30;
             this.btnHuyhoadon.Text = "Hủy hóa đơn";
             this.btnHuyhoadon.UseVisualStyleBackColor = true;
+            this.btnHuyhoadon.Click += new System.EventHandler(this.btnHuyhoadon_Click);
             // 
             // btnDong
             // 
@@ -449,16 +453,6 @@
             this.txtTongTien.TabIndex = 36;
             this.txtTongTien.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(826, 553);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 16);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "Bằng chữ:";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
             // colTenQA
             // 
             this.colTenQA.DataPropertyName = "TenQA";
@@ -500,8 +494,8 @@
             // GiaTien
             // 
             this.GiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle3.Format = "#,## VNĐ";
-            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "#,## VNĐ";
+            this.GiaTien.DefaultCellStyle = dataGridViewCellStyle8;
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.MinimumWidth = 6;
             this.GiaTien.Name = "GiaTien";
@@ -597,13 +591,22 @@
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(452, 206);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 31);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1098, 624);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -662,7 +665,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenQA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaQA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMausac;
@@ -680,5 +682,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colsoluong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGiamgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colthanhtien;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -54,7 +54,49 @@ namespace Baitaplon.DAL
 
             return Function.GetDataToTable(sql);
         }
+        public static int InsertHoaDon(
+            int nhanvienId,
+            int khachhangId,
+            decimal tongTien,
+            int giamGia,
+            DataTable chiTiet,
+            SqlConnection conn,
+            SqlTransaction tran)
+        {
+            
+            string sqlHD = @"
+                INSERT INTO HoaDonBan(ngayban, nhanvien_id, khachhang_id, tongtien, giamgia)
+                OUTPUT INSERTED.hdb_id
+                VALUES(GETDATE(), @nv, @kh, @tong, @gg)";
 
+            SqlCommand cmdHD = new SqlCommand(sqlHD, conn, tran);
+            cmdHD.Parameters.AddWithValue("@nv", nhanvienId);
+            cmdHD.Parameters.AddWithValue("@kh", khachhangId == 0 ? (object)DBNull.Value : khachhangId);
+            cmdHD.Parameters.AddWithValue("@tong", tongTien);
+            cmdHD.Parameters.AddWithValue("@gg", giamGia);
+
+            int hdbId = (int)cmdHD.ExecuteScalar();
+
+           
+            foreach (DataRow row in chiTiet.Rows)
+            {
+                string sqlCT = @"
+                    INSERT INTO ChiTietHoaDonBan
+                    (hdb_id, sanpham_id, soluong, giaban, thanhtien)
+                    VALUES (@hdb, @sp, @sl, @gia, @tt)";
+
+                SqlCommand cmdCT = new SqlCommand(sqlCT, conn, tran);
+                cmdCT.Parameters.AddWithValue("@hdb", hdbId);
+                cmdCT.Parameters.AddWithValue("@sp", row["sanpham_id"]);
+                cmdCT.Parameters.AddWithValue("@sl", row["soluong"]);
+                cmdCT.Parameters.AddWithValue("@gia", row["giaban"]);
+                cmdCT.Parameters.AddWithValue("@tt", row["thanhtien"]);
+
+                cmdCT.ExecuteNonQuery();
+            }
+
+            return hdbId;
+        }
     }
 }
 

@@ -1,7 +1,9 @@
-﻿using Baitaplon.DAL;
+﻿using Baitaplon.Class;
+using Baitaplon.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +35,39 @@ namespace Baitaplon.BLL
         public static DataTable LayDanhSachSanPham()
         {
             return HoaDonBanDAL.GetAll();
+        }
+        public static bool TaoHoaDon(
+           int nhanvienId,
+           int khachhangId,
+           DataTable tblHDBan,
+           decimal tongTien,
+           int giamGia)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+
+                try
+                {
+                    HoaDonBanDAL.InsertHoaDon(
+                        nhanvienId,
+                        khachhangId,
+                        tongTien,
+                        giamGia,
+                        tblHDBan,
+                        conn,
+                        tran);
+
+                    tran.Commit();
+                    return true;
+                }
+                catch
+                {
+                    tran.Rollback();
+                    return false;
+                }
+            }
         }
     }
 }

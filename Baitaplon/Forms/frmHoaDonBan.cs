@@ -28,7 +28,8 @@ namespace Baitaplon.Forms
 
         private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
-            dgvQuanao.DataSource = HoaDonBanBLL.LayDanhSachSanPham();
+            tblSanPham = HoaDonBanBLL.LayDanhSachSanPham(); 
+            dgvQuanao.DataSource = tblSanPham;
             TaoBangGioHang();
             LoadKhachHang();
             LoadGiamGia();
@@ -268,6 +269,107 @@ namespace Baitaplon.Forms
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThemhoadon_Click_1(object sender, EventArgs e)
+        {
+            if (tblHDBan.Rows.Count == 0)
+            {
+                MessageBox.Show("Giỏ hàng trống!");
+                return;
+            }
+
+            int nhanvienId = 1; // từ đăng nhập
+            int khachhangId = Convert.ToInt32(cbbKhachHang.SelectedValue);
+
+            decimal tongTien = decimal.Parse(txtTongTien.Text.Replace(",", ""));
+            int giamGia = phanTramGiamGia;
+
+            bool ok = HoaDonBanBLL.TaoHoaDon(
+                nhanvienId,
+                khachhangId,
+                tblHDBan,
+                tongTien,
+                giamGia);
+
+            if (ok)
+            {
+                MessageBox.Show("Lưu hóa đơn thành công!");
+                tblHDBan.Clear();
+                CapNhatTongTien();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi lưu hóa đơn!");
+            }
+        }
+
+        private void btnHuyhoadon_Click(object sender, EventArgs e)
+        {
+            if (tblHDBan.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có hóa đơn để hủy!");
+                return;
+            }
+
+            DialogResult rs = MessageBox.Show(
+                "Bạn có chắc chắn muốn hủy hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (rs == DialogResult.No) return;
+
+            foreach (DataRow row in tblHDBan.Rows)
+            {
+                int sanphamId = (int)row["sanpham_id"];
+                int soLuong = (int)row["soluong"];
+
+                foreach (DataGridViewRow spRow in dgvQuanao.Rows)
+                {
+                    if (Convert.ToInt32(spRow.Cells["sanpham_id"].Value) == sanphamId)
+                    {
+                        spRow.Cells["soluong"].Value =
+                            Convert.ToInt32(spRow.Cells["soluong"].Value) + soLuong;
+                        break;
+                    }
+                }
+            }
+
+
+            tblHDBan.Clear();
+
+            phanTramGiamGia = 0;
+            cbbGiamgia.SelectedIndex = 0;
+            cbbKhachHang.SelectedIndex = 0;
+            txtSoLuongNhap.Clear();
+            txtTongTien.Text = "0";
+
+            MessageBox.Show("Đã hủy hóa đơn!");
+        }
+
+        private void btnTimTraiCay_Click(object sender, EventArgs e)
+        {
+            string keyword = txtTimTen.Text.Trim();
+
+            DataView dv = tblSanPham.DefaultView;
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                dv.RowFilter = "";
+            }
+            else
+            {
+                dv.RowFilter = $"Tensanpham LIKE '%{keyword}%'";
+            }
+
+            dgvQuanao.DataSource = dv;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtTimTen.Clear();
+            dgvQuanao.DataSource = tblSanPham;
         }
     }
 }
