@@ -140,6 +140,7 @@
             this.mskDienthoai.Name = "mskDienthoai";
             this.mskDienthoai.Size = new System.Drawing.Size(278, 31);
             this.mskDienthoai.TabIndex = 25;
+            this.mskDienthoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienthoai_KeyUp);
             // 
             // txtDiachi
             // 
@@ -148,6 +149,7 @@
             this.txtDiachi.Name = "txtDiachi";
             this.txtDiachi.Size = new System.Drawing.Size(278, 31);
             this.txtDiachi.TabIndex = 24;
+            this.txtDiachi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiachi_KeyUp);
             // 
             // txtTenkhach
             // 
@@ -156,6 +158,7 @@
             this.txtTenkhach.Name = "txtTenkhach";
             this.txtTenkhach.Size = new System.Drawing.Size(278, 31);
             this.txtTenkhach.TabIndex = 23;
+            this.txtTenkhach.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenkhach_KeyUp);
             // 
             // txtMakhach
             // 
@@ -266,6 +269,7 @@
             this.mskDangky.Size = new System.Drawing.Size(278, 31);
             this.mskDangky.TabIndex = 39;
             this.mskDangky.ValidatingType = typeof(System.DateTime);
+            this.mskDangky.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDangky_KeyUp);
             // 
             // lblThongbao
             // 

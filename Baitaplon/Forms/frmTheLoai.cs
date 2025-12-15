@@ -145,6 +145,10 @@ namespace Baitaplon.Forms
             this.Close();
         }
 
-        
+        private void txtTentheloai_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMota.Focus();
+        }
     }
 }

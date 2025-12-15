@@ -78,6 +78,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(380, 31);
             this.txtTen.TabIndex = 9;
+            this.txtTen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTen_KeyUp);
             // 
             // label2
             // 

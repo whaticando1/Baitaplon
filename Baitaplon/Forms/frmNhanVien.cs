@@ -415,5 +415,35 @@ namespace Baitaplon.Forms
         {
             this.Close();
         }
+
+        private void txtTennhanvien_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            txtEmail.Focus();
+        }
+
+        private void txtEmail_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            txtDiachi.Focus();
+        }
+
+        private void txtDiachi_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskDienthoai.Focus();
+        }
+
+        private void mskDienthoai_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskNgaysinh.Focus();
+        }
+
+        private void mskNgaysinh_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskNgaytuyendung.Focus();
+        }
     }
 }

@@ -77,6 +77,12 @@ namespace Baitaplon.Forms
             Class.Function.Disconnect();
             Application.Exit();
         }
+
+        private void txtTen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMatkhau.Focus();
+        }
     }
 }
 

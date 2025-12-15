@@ -242,6 +242,28 @@ namespace Baitaplon.Forms
             this.Close();
         }
 
-       
+        private void txtTenkhach_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtDiachi.Focus();
+        }
+
+        private void txtDiachi_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskDienthoai.Focus();
+        }
+
+        private void mskDienthoai_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskDangky.Focus();
+        }
+
+        private void mskDangky_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtEmail.Focus();
+        }
     }
 }

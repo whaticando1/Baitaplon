@@ -210,5 +210,29 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
         }
+
+        private void txtTennhacungcap_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtDiachi.Focus();      
+        }
+
+        private void txtDiachi_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtEmail.Focus();
+        }
+
+        private void txtEmail_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskDienthoai.Focus();
+        }
+
+        private void mskDienthoai_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMoTa.Focus();
+        }
     }
 }

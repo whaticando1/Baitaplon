@@ -111,6 +111,7 @@
             this.txtTentheloai.Name = "txtTentheloai";
             this.txtTentheloai.Size = new System.Drawing.Size(276, 31);
             this.txtTentheloai.TabIndex = 6;
+            this.txtTentheloai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTentheloai_KeyUp);
             // 
             // btnThem
             // 

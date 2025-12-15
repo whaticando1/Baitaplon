@@ -157,6 +157,7 @@
             this.txtTennhacungcap.Name = "txtTennhacungcap";
             this.txtTennhacungcap.Size = new System.Drawing.Size(340, 31);
             this.txtTennhacungcap.TabIndex = 79;
+            this.txtTennhacungcap.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTennhacungcap_KeyUp);
             // 
             // txtMoTa
             // 
@@ -199,6 +200,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(340, 31);
             this.txtEmail.TabIndex = 93;
+            this.txtEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyUp);
             // 
             // mskDienthoai
             // 
@@ -207,6 +209,7 @@
             this.mskDienthoai.Name = "mskDienthoai";
             this.mskDienthoai.Size = new System.Drawing.Size(168, 31);
             this.mskDienthoai.TabIndex = 95;
+            this.mskDienthoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienthoai_KeyUp);
             // 
             // label6
             // 
@@ -244,15 +247,16 @@
             // 
             // txtDiachi
             // 
-            this.txtDiachi.Location = new System.Drawing.Point(262, 287);
+            this.txtDiachi.Location = new System.Drawing.Point(262, 292);
             this.txtDiachi.Name = "txtDiachi";
             this.txtDiachi.Size = new System.Drawing.Size(340, 31);
             this.txtDiachi.TabIndex = 80;
+            this.txtDiachi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiachi_KeyUp);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(154, 290);
+            this.label3.Location = new System.Drawing.Point(154, 295);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 83;

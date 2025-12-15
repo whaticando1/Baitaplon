@@ -80,6 +80,7 @@
             this.mskNgaysinh.Size = new System.Drawing.Size(230, 31);
             this.mskNgaysinh.TabIndex = 56;
             this.mskNgaysinh.ValidatingType = typeof(System.DateTime);
+            this.mskNgaysinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskNgaysinh_KeyUp);
             // 
             // label6
             // 
@@ -99,6 +100,7 @@
             this.mskDienthoai.Name = "mskDienthoai";
             this.mskDienthoai.Size = new System.Drawing.Size(230, 31);
             this.mskDienthoai.TabIndex = 54;
+            this.mskDienthoai.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskDienthoai_KeyUp);
             // 
             // btnThoat
             // 
@@ -184,6 +186,7 @@
             this.txtDiachi.Name = "txtDiachi";
             this.txtDiachi.Size = new System.Drawing.Size(230, 31);
             this.txtDiachi.TabIndex = 45;
+            this.txtDiachi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiachi_KeyUp);
             // 
             // label5
             // 
@@ -202,6 +205,7 @@
             this.txtTennhanvien.Name = "txtTennhanvien";
             this.txtTennhanvien.Size = new System.Drawing.Size(230, 31);
             this.txtTennhanvien.TabIndex = 43;
+            this.txtTennhanvien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTennhanvien_KeyUp);
             // 
             // label3
             // 
@@ -277,6 +281,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(230, 31);
             this.txtEmail.TabIndex = 64;
+            this.txtEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyUp);
             // 
             // label9
             // 

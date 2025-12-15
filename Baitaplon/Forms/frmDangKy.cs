@@ -229,5 +229,11 @@ namespace Baitaplon.Forms
                 }
             }
         }
+
+        private void txtTen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMatkhau.Focus();
+        }
     }
 }

@@ -539,7 +539,52 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
         }
+        private void txtTensanpham_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtGiaban.Focus();
+        }
+        private void txtGiaban_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                  txtGianhap.Focus();
+        }
 
-        
+        private void txtGianhap_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtDoituong.Focus();
+        }
+
+        private void txtDoituong_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtSoluong.Focus();
+        }
+
+        private void txtSoluong_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtChatlieu.Focus();
+        }
+
+        private void txtChatlieu_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMausac.Focus();
+
+        }
+
+        private void txtMausac_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                mskNgaynhap.Focus();
+        }
+
+        private void mskNgaynhap_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                txtMota.Focus();
+        }
     }
 }
