@@ -1,15 +1,7 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
-using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
@@ -42,8 +34,7 @@ namespace Baitaplon.Forms
 
         private void Load_DataGridViewTL()
         {
-            string sql = "Select theloai_id, tentheloai, mota from TheLoai";
-            tblTL = Class.Function.GetDataToTable(sql);
+            tblTL = TheLoaiBLL.LayDanhSachTheLoai();
             DataGridView.DataSource = tblTL;
 
             if (DataGridView.Rows.Count > 0)
@@ -56,9 +47,7 @@ namespace Baitaplon.Forms
                 DataGridView.Columns[2].Width = 250;
                 DataGridView.AllowUserToAddRows = false;
                 DataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
-
             }
-            
         }
 
         private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,26 +65,24 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = true;
             btnThem.Enabled = false;
         }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, id="";
+            string id = "";
 
             if (txtTentheloai.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên thể loại!";
-                lblThongbao.ForeColor = Color.Red;
+                lblThongbao.ForeColor = System.Drawing.Color.Red;
                 txtTentheloai.Focus();
                 return;
             }
 
             string sql2 = "Select top 1 right(theloai_id,1) From TheLoai order by right(theloai_id,1) desc";
-
             float count = Function.FirstRowNumberSafe(sql2) + 1;
-
             id = "TL" + count;
 
-            sql = "INSERT INTO TheLoai (theloai_id, tentheloai, mota) VALUES (N'" + id + "', N'" + txtTentheloai.Text.Trim() + "', N'" + txtMota.Text.Trim() + "')";
-            Function.RunSql(sql);
+            TheLoaiBLL.ThemTheLoai(id, txtTentheloai.Text.Trim(), txtMota.Text.Trim());
             Load_DataGridViewTL();
             resetValues();
             btnThem.Enabled = true;
@@ -108,15 +95,14 @@ namespace Baitaplon.Forms
             if (txtTentheloai.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên thể loại!";
-                lblThongbao.ForeColor = Color.Red;
+                lblThongbao.ForeColor = System.Drawing.Color.Red;
                 txtTentheloai.Focus();
                 return;
             }
-            string Sql = "UPDATE TheLoai SET tentheloai=N'" + txtTentheloai.Text.Trim().ToString() + "', mota=N'" + txtMota.Text.Trim().ToString() + "' WHERE theloai_id=N'" + txtIDTheloai.Text + "'";
-            Function.RunSql(Sql);
+            TheLoaiBLL.CapNhatTheLoai(txtIDTheloai.Text, txtTentheloai.Text.Trim(), txtMota.Text.Trim());
             Load_DataGridViewTL();
             resetValues();
-            
+
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;

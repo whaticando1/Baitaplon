@@ -1,21 +1,14 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
-using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
 {
     public partial class frmKhachHang : Form
-    { 
+    {
         DataTable tblKH;
         public frmKhachHang()
         {
@@ -43,8 +36,7 @@ namespace Baitaplon.Forms
         }
         private void Load_DataGridViewKH()
         {
-            string sql="SELECT khachhang_id, tenkhachhang, diachi, dienthoai, email, ngaydangky FROM KhachHang";
-            tblKH = Class.Function.GetDataToTable(sql);
+            tblKH = KhachHangBLL.LayDanhSachKhachHang();
             DataGridView.DataSource = tblKH;
 
             if (DataGridView.Rows.Count > 0)
@@ -74,12 +66,7 @@ namespace Baitaplon.Forms
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMakhach.Focus();
-                return;
-            }
+
             txtMakhach.Text = DataGridView.CurrentRow.Cells["khachhang_id"].Value.ToString();
             txtTenkhach.Text = DataGridView.CurrentRow.Cells["tenkhachhang"].Value.ToString();
             txtDiachi.Text = DataGridView.CurrentRow.Cells["diachi"].Value.ToString();
@@ -101,7 +88,7 @@ namespace Baitaplon.Forms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, id="";
+            string id = "";
 
             if (txtTenkhach.Text.Trim().Length == 0)
             {
@@ -145,15 +132,19 @@ namespace Baitaplon.Forms
                 mskDangky.Focus();
                 return;
             }
-            string sql1 = "Select top 1 right(khachhang_id,1) From KhachHang order by right(khachhang_id,1) desc";
 
-            float count = Function.FirstRowNumberSafe(sql1) + 1;
-
-            id = "G" + count;
+            id = KhachHangBLL.TaoMaMoi();
 
             string ngaydk = Class.Function.ConvertDateTime(mskDangky.Text);
-            sql = "INSERT INTO KhachHang(khachhang_id, tenkhachhang, diachi, dienthoai, email, ngaydangky) VALUES (N'" + id + "',N'" + txtTenkhach.Text.Trim() + "',N'" + txtDiachi.Text.Trim() + "',N'" + mskDienthoai.Text + "',N'" + txtEmail.Text.Trim() + "','" + ngaydk + "')";
-            Class.Function.RunSql(sql);
+            KhachHangBLL.ThemKhachHang(
+                id,
+                txtTenkhach.Text.Trim(),
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text,
+                txtEmail.Text.Trim(),
+                ngaydk
+            );
+
             Load_DataGridViewKH();
             Resetvalues();
             btnThem.Enabled = true;
@@ -163,7 +154,6 @@ namespace Baitaplon.Forms
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string sql;
             if (tblKH.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,9 +201,17 @@ namespace Baitaplon.Forms
                 mskDangky.Focus();
                 return;
             }
+
             string ngaydk = Class.Function.ConvertDateTime(mskDangky.Text);
-            sql = "UPDATE KhachHang SET tenkhachhang=N'" + txtTenkhach.Text.Trim().ToString() + "', diachi=N'" + txtDiachi.Text.Trim().ToString() + "', dienthoai=N'" + mskDienthoai.Text + "', email=N'" + txtEmail.Text.Trim().ToString() + "', ngaydangky='" + ngaydk + "' WHERE khachhang_id=N'" + txtMakhach.Text + "'";
-            Class.Function.RunSql(sql);
+            KhachHangBLL.CapNhatKhachHang(
+                txtMakhach.Text,
+                txtTenkhach.Text.Trim(),
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text,
+                txtEmail.Text.Trim(),
+                ngaydk
+            );
+
             Load_DataGridViewKH();
             Resetvalues();
             btnSua.Enabled = false;

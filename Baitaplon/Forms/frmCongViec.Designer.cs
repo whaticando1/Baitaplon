@@ -194,6 +194,7 @@
             this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.txtIDCongViec);
             this.Controls.Add(this.dataGridViewCV);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCongViec";
             this.Text = "Công việc";
             this.Load += new System.EventHandler(this.frmCongViec_Load);

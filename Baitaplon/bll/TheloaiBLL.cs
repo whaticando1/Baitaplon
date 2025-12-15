@@ -1,18 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using Baitaplon.DAL;
-using System.Data;
 
 namespace Baitaplon.BLL
 {
     internal class TheLoaiBLL
     {
-        public static DataTable LayDanhSachLoai()
+        public static DataTable LayDanhSachTheLoai()
         {
             return TheLoaiDAL.GetAll();
+        }
+
+        public static DataTable LayDanhSachLoai()
+        {
+            return TheLoaiDAL.GetAllLoai();
+        }
+
+        public static void ThemTheLoai(string id, string ten, string mota)
+        {
+            TheLoaiDAL.Insert(id, ten, mota);
+        }
+
+        public static void CapNhatTheLoai(string id, string ten, string mota)
+        {
+            TheLoaiDAL.Update(id, ten, mota);
         }
     }
 }

@@ -1,22 +1,41 @@
-﻿using System;
+﻿using System.Data;
 using Baitaplon.DAL;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using Baitaplon.Class;
 
 namespace Baitaplon.BLL
 {
     internal class KhachHangBLL
     {
+        public static DataTable LayDanhSachKhachHang()
+        {
+            return KhachHangDAL.GetAll();
+        }
 
-            public static DataTable LayDanhSachKhachHang()
-            {
-                return KhachHangDAL.GetAll();
-            }
-        
+        public static string TaoMaMoi()
+        {
+            return KhachHangDAL.GetNextId();
+        }
+
+        public static void ThemKhachHang(
+            string id,
+            string ten,
+            string diachi,
+            string dienthoai,
+            string email,
+            string ngaydangkyIso)
+        {
+            KhachHangDAL.Insert(id, ten, diachi, dienthoai, email, ngaydangkyIso);
+        }
+
+        public static void CapNhatKhachHang(
+            string id,
+            string ten,
+            string diachi,
+            string dienthoai,
+            string email,
+            string ngaydangkyIso)
+        {
+            KhachHangDAL.Update(id, ten, diachi, dienthoai, email, ngaydangkyIso);
+        }
     }
 }

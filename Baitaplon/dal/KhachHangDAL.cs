@@ -1,11 +1,5 @@
-﻿using Baitaplon.Class;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
+using Baitaplon.Class;
 
 namespace Baitaplon.DAL
 {
@@ -13,13 +7,51 @@ namespace Baitaplon.DAL
     {
         public static DataTable GetAll()
         {
-            string sql = "SELECT khachhang_id, tenkhachhang FROM KhachHang";
+            string sql = "SELECT khachhang_id, tenkhachhang, diachi, dienthoai, email, ngaydangky FROM KhachHang";
+            return Function.GetDataToTable(sql);
+        }
 
-            SqlDataAdapter da = new SqlDataAdapter(sql, Function.Conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+        public static string GetNextId()
+        {
+            string sql = "Select top 1 right(khachhang_id,1) From KhachHang order by right(khachhang_id,1) desc";
+            float count = Function.FirstRowNumberSafe(sql) + 1;
+            return "G" + count;
+        }
 
-            return dt;
+        public static void Insert(
+            string id,
+            string ten,
+            string diachi,
+            string dienthoai,
+            string email,
+            string ngaydangkyIso)
+        {
+            string sql = "INSERT INTO KhachHang(khachhang_id, tenkhachhang, diachi, dienthoai, email, ngaydangky) VALUES (" +
+                         "N'" + id + "', " +
+                         "N'" + ten + "', " +
+                         "N'" + diachi + "', " +
+                         "N'" + dienthoai + "', " +
+                         "N'" + email + "', " +
+                         "'" + ngaydangkyIso + "')";
+            Function.RunSql(sql);
+        }
+
+        public static void Update(
+            string id,
+            string ten,
+            string diachi,
+            string dienthoai,
+            string email,
+            string ngaydangkyIso)
+        {
+            string sql = "UPDATE KhachHang SET " +
+                         "tenkhachhang = N'" + ten + "', " +
+                         "diachi = N'" + diachi + "', " +
+                         "dienthoai = N'" + dienthoai + "', " +
+                         "email = N'" + email + "', " +
+                         "ngaydangky = '" + ngaydangkyIso + "' " +
+                         "WHERE khachhang_id = N'" + id + "'";
+            Function.RunSql(sql);
         }
     }
 }

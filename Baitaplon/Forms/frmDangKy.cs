@@ -1,15 +1,8 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
-using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
@@ -44,9 +37,7 @@ namespace Baitaplon.Forms
         }
         private void Load_DataGridView()
         {
-            string sql;
-            sql = "SELECT tendangnhap, matkhau, nhanvien_id FROM DangNhap";
-            tblDangky = Class.Function.GetDataToTable(sql);
+            tblDangky = DangKyBLL.LayTatCaDangNhap();
             dataGridView1.DataSource = tblDangky;
 
             if (dataGridView1.Rows.Count > 0)
@@ -79,7 +70,6 @@ namespace Baitaplon.Forms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql;
             if (txtTen.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên đăng nhập";
@@ -102,8 +92,7 @@ namespace Baitaplon.Forms
                 return;
             }
             string nhanvienId = cboNhanvien.SelectedValue.ToString();
-            sql = "SELECT tendangnhap FROM DangNhap WHERE nhanvien_id = N'" + nhanvienId + "'";
-            if (Function.CheckKey(sql))
+            if (DangKyBLL.NhanVienDaCoTaiKhoan(nhanvienId))
             {
                 lblThongbao.Text = "Nhân viên này đã có tài khoản đăng nhập";
                 lblThongbao.ForeColor = Color.Red;
@@ -113,8 +102,7 @@ namespace Baitaplon.Forms
 
             if (MessageBox.Show("Bạn có muốn đăng ký tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                sql = "INSERT INTO DangNhap (tendangnhap, matkhau, nhanvien_id ) VALUES (N'" + txtTen.Text.Trim() + "', N'" + txtMatkhau.Text.Trim() + "', N'" + cboNhanvien.SelectedValue.ToString() + "')";
-                Function.RunSql(sql);
+                DangKyBLL.ThemDangNhap(txtTen.Text.Trim(), txtMatkhau.Text.Trim(), cboNhanvien.SelectedValue.ToString());
                 MessageBox.Show("Đăng ký tài khoản mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Load_DataGridView();
                 Resetvalues();
@@ -138,7 +126,6 @@ namespace Baitaplon.Forms
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string sql;
             if (tblDangky.Rows.Count == 0)
             {
                 lblThongbao.Text = "Không có dữ liệu!";
@@ -166,20 +153,15 @@ namespace Baitaplon.Forms
                 cboNhanvien.Focus();
                 return;
             }
-            
-            sql = "UPDATE DangNhap " +
-                  "SET matkhau = N'" + txtMatkhau.Text.Trim() + "', " +
-                  "tendangnhap = N'" + txtTen.Text.Trim() + "' " +
-                  "WHERE nhanvien_id = N'" + cboNhanvien.SelectedValue.ToString() + "'";
 
-            Function.RunSql(sql);
+            DangKyBLL.CapNhatDangNhap(txtTen.Text.Trim(), txtMatkhau.Text.Trim(), cboNhanvien.SelectedValue.ToString());
+
             MessageBox.Show("Cập nhật tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Resetvalues(); 
+            Resetvalues();
             Load_DataGridView();
             btnLamlai.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -198,16 +180,13 @@ namespace Baitaplon.Forms
             btnSua.Enabled = true;
             btnThem.Enabled = false;
             btnXoa.Enabled = true;
-            
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string tt = Function.GetFieldValues("Select trangthai from NhanVien where nhanvien_id = N'" + cboNhanvien.SelectedValue + "'");
-            int fad = Convert.ToInt32(Function.GetFieldValues("SELECT COUNT(*) " +
-                                                            "FROM DangNhap dn " +
-                                                            "JOIN NhanVien nv ON dn.nhanvien_id = nv.nhanvien_id " +
-                                                            "WHERE nv.congviec_id = 'Aa1' " ));
+            string tt = DangKyBLL.LayTrangThaiNhanVien(cboNhanvien.SelectedValue.ToString());
+            int fad = DangKyBLL.DemAdmin();
             if (fad <= 1)
             {
                 MessageBox.Show("Nhân viên này là admin cuối cùng, không thể xóa tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -220,11 +199,9 @@ namespace Baitaplon.Forms
             }
             else
             {
-
-                string sql = "DELETE DangNhap WHERE nhanvien_id = N'" + cboNhanvien.SelectedValue + "'";
                 if (MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Function.RunSqlDel(sql);
+                    DangKyBLL.XoaDangNhap(cboNhanvien.SelectedValue.ToString());
                     Load_DataGridView();
                     Resetvalues();
                     btnXoa.Enabled = false;

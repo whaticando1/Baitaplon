@@ -91,8 +91,8 @@ namespace Baitaplon.Forms
         }
         private void Load_DataGridViewSP()
         {
-            string sql = "Select sanpham_id, tensanpham, gianhap, giaban, soluong, chatlieu, mausac, doituong, trangthai, theloai_id, ngaynhap, mua, mota, url_anh from SanPham";
-            dtSanPham = Class.Function.GetDataToTable(sql);
+            // Use BLL to obtain product list
+            dtSanPham = SanPhamBLL.LayDanhSachSanPham();
             DataGridView.DataSource = dtSanPham;
             if (DataGridView.Rows.Count > 0)
             {
@@ -223,7 +223,7 @@ namespace Baitaplon.Forms
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, id = "";
+            // Validation (unchanged)
             if (txtTensanpham.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên sản phẩm!";
@@ -320,10 +320,11 @@ namespace Baitaplon.Forms
                 lblThongbao.ForeColor = Color.Red;
                 return;
             }
+
             // ===== CREATE PRODUCT ID =====
             string sql1 = "SELECT TOP 1 RIGHT(sanpham_id, 2) FROM SanPham ORDER BY RIGHT(sanpham_id, 2) DESC";
             int count = (int)Function.FirstRowNumberSafe(sql1) + 1;
-            id = "SP" + count.ToString("00");   // SP01, SP02...
+            string id = "SP" + count.ToString("00");   // SP01, SP02...
 
             // ===== SAVE IMAGE TO PROJECT FOLDER =====
             string sourcePath = txtAnh.Text;
@@ -341,26 +342,30 @@ namespace Baitaplon.Forms
             // update image path to NEW path
             txtAnh.Text = targetPath;
 
-            // ===== INSERT PRODUCT =====
+            // ===== PREPARE VALUES AND CALL BLL =====
             string idate = Function.ConvertDateTime(mskNgaynhap.Text);
 
-            sql = "INSERT INTO SanPham " +
-                  "(sanpham_id, tensanpham, gianhap, giaban, soluong, chatlieu, mausac, doituong, trangthai, theloai_id, ngaynhap, mua, mota, url_anh) " +
-                  "VALUES (N'" + id + "', N'" + txtTensanpham.Text.Trim() + "', " +
-                  txtGianhap.Text.Trim() + ", " +
-                  txtGiaban.Text.Trim() + ", " +
-                  txtSoluong.Text.Trim() + ", N'" +
-                  txtChatlieu.Text.Trim() + "', N'" +
-                  txtMausac.Text.Trim() + "', N'" +
-                  txtDoituong.Text.Trim() + "', N'" +
-                  cboTrangthai.Text + "', N'" +
-                  cboMatheloai.SelectedValue + "', '" +
-                  idate + "', N'" +
-                  cboMua.Text + "', N'" +
-                  txtMota.Text.Trim() + "', N'" +
-                  targetPath + "')";
+            decimal gianhap = decimal.Parse(txtGianhap.Text.Trim());
+            decimal giaban = decimal.Parse(txtGiaban.Text.Trim());
+            int soluong = int.Parse(txtSoluong.Text.Trim());
+            string theloaiId = cboMatheloai.SelectedValue?.ToString() ?? "";
 
-            Function.RunSql(sql);
+            SanPhamBLL.ThemSanPham(
+                id,
+                txtTensanpham.Text.Trim(),
+                gianhap,
+                giaban,
+                soluong,
+                txtChatlieu.Text.Trim(),
+                txtMausac.Text.Trim(),
+                txtDoituong.Text.Trim(),
+                cboTrangthai.Text,
+                theloaiId,
+                idate,
+                cboMua.Text,
+                txtMota.Text.Trim(),
+                targetPath
+            );
 
             // ===== FINISH =====
             Load_DataGridViewSP();
@@ -372,6 +377,7 @@ namespace Baitaplon.Forms
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            // Same validation as insert
             if (txtTensanpham.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên sản phẩm!";
@@ -486,26 +492,30 @@ namespace Baitaplon.Forms
 
             txtAnh.Text = imagePath;
 
-            // ===== UPDATE PRODUCT =====
+            // ===== PREPARE VALUES AND CALL BLL UPDATE =====
             string idate = Function.ConvertDateTime(mskNgaynhap.Text);
 
-            string sql = "UPDATE SanPham SET " +
-                         "tensanpham = N'" + txtTensanpham.Text.Trim() + "', " +
-                         "gianhap = " + txtGianhap.Text.Trim() + ", " +
-                         "giaban = " + txtGiaban.Text.Trim() + ", " +
-                         "soluong = " + txtSoluong.Text.Trim() + ", " +
-                         "chatlieu = N'" + txtChatlieu.Text.Trim() + "', " +
-                         "mausac = N'" + txtMausac.Text.Trim() + "', " +
-                         "doituong = N'" + txtDoituong.Text.Trim() + "', " +
-                         "trangthai = N'" + cboTrangthai.Text + "', " +
-                         "theloai_id = N'" + cboMatheloai.SelectedValue + "', " +
-                         "ngaynhap = '" + idate + "', " +
-                         "mua = N'" + cboMua.Text + "', " +
-                         "mota = N'" + txtMota.Text.Trim() + "', " +
-                         "url_anh = N'" + imagePath + "' " +
-                         "WHERE sanpham_id = N'" + txtMasanpham.Text + "'";
+            decimal gianhap = decimal.Parse(txtGianhap.Text.Trim());
+            decimal giaban = decimal.Parse(txtGiaban.Text.Trim());
+            int soluong = int.Parse(txtSoluong.Text.Trim());
+            string theloaiId = cboMatheloai.SelectedValue?.ToString() ?? "";
 
-            Function.RunSql(sql);
+            SanPhamBLL.CapNhatSanPham(
+                txtMasanpham.Text.Trim(),
+                txtTensanpham.Text.Trim(),
+                gianhap,
+                giaban,
+                soluong,
+                txtChatlieu.Text.Trim(),
+                txtMausac.Text.Trim(),
+                txtDoituong.Text.Trim(),
+                cboTrangthai.Text,
+                theloaiId,
+                idate,
+                cboMua.Text,
+                txtMota.Text.Trim(),
+                imagePath
+            );
 
             Load_DataGridViewSP();
             resetValues();
@@ -516,7 +526,7 @@ namespace Baitaplon.Forms
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dtSanPham.Rows.Count == 0)
+            if (dtSanPham == null || dtSanPham.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -526,14 +536,17 @@ namespace Baitaplon.Forms
             if (result != DialogResult.Yes)
                 return;
 
-            // ===== GET IMAGE PATH BEFORE DELETE =====
-            string imagePath = Function.FirstRow(
-                "SELECT url_anh FROM SanPham WHERE sanpham_id = N'" + txtMasanpham.Text + "'"
-            );
+            // ===== GET IMAGE PATH FROM LOADED TABLE =====
+            string imagePath = "";
+            if (dtSanPham != null)
+            {
+                DataRow[] rows = dtSanPham.Select("sanpham_id = N'" + txtMasanpham.Text.Trim() + "'");
+                if (rows.Length > 0 && rows[0]["url_anh"] != DBNull.Value)
+                    imagePath = rows[0]["url_anh"].ToString();
+            }
 
-            // ===== DELETE FROM DATABASE =====
-            string sql = "DELETE FROM SanPham WHERE sanpham_id = N'" + txtMasanpham.Text + "'";
-            Function.RunSqlDel(sql);
+            // ===== DELETE FROM DATABASE VIA BLL =====
+            SanPhamBLL.XoaSanPham(txtMasanpham.Text.Trim());
 
             // ===== DELETE IMAGE FILE (if exists) =====
             if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))

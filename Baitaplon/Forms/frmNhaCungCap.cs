@@ -1,15 +1,8 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
-using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
@@ -37,7 +30,7 @@ namespace Baitaplon.Forms
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
         }
-        
+
         private void resetValues()
         {
             txtIDCungcap.Text = "";
@@ -48,12 +41,11 @@ namespace Baitaplon.Forms
             lblThongbao.Text = "";
             txtMoTa.Text = "";
             cboTrangthai.SelectedValue = -1;
-
         }
+
         private void Load_DataGridViewNCC()
         {
-            string sql = "Select nhacungcap_id, tennhacungcap, diachi, dienthoai, email, mota, trangthai from NhaCungCap";
-            dtNCC = Class.Function.GetDataToTable(sql);
+            dtNCC = NhaCungCapBLL.LayDanhSachNhaCungCap();
             DataGridView.DataSource = dtNCC;
             if (DataGridView.Rows.Count > 0)
             {
@@ -120,7 +112,7 @@ namespace Baitaplon.Forms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, id = "";
+            string id = "";
             if (txtTennhacungcap.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên nhà cung cấp";
@@ -151,16 +143,24 @@ namespace Baitaplon.Forms
             }
             if (txtEmail.Text.Trim().Length == 0 || !txtEmail.Text.Contains("@"))
             {
-                lblThongbao.Text = "Email không hợp lệ"; 
+                lblThongbao.Text = "Email không hợp lệ";
                 lblThongbao.ForeColor = Color.Red;
                 txtEmail.Focus();
                 return;
             }
-            string sql1 = "select top 1 right(nhacungcap_id,1) from NhaCungCap order by right(nhacungcap_id,1) desc";
-            float count = Function.FirstRowNumberSafe(sql1) + 1;
-            id = "NCC" + count;
-            sql = "INSERT INTO NhaCungCap(nhacungcap_id, tennhacungcap, diachi, dienthoai, email, mota, trangthai) VALUES('" + id + "',N'" + txtTennhacungcap.Text.Trim() + "',N'" + txtDiachi.Text.Trim() + "','" + mskDienthoai.Text.Trim() + "','" + txtEmail.Text.Trim() + "',N'" + txtMoTa.Text.Trim() + "',N'" + cboTrangthai.Text + "')";
-            Function.RunSql(sql);
+
+            id = NhaCungCapBLL.TaoMaMoi();
+
+            NhaCungCapBLL.ThemNhaCungCap(
+                id,
+                txtTennhacungcap.Text.Trim(),
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text.Trim(),
+                txtEmail.Text.Trim(),
+                txtMoTa.Text.Trim(),
+                cboTrangthai.Text
+            );
+
             Load_DataGridViewNCC();
             resetValues();
             btnThem.Enabled = true;
@@ -205,15 +205,17 @@ namespace Baitaplon.Forms
                 txtEmail.Focus();
                 return;
             }
-            string sql = "UPDATE NhaCungCap " +
-                         "SET tennhacungcap = N'" + txtTennhacungcap.Text.Trim() + "', " +
-                         "diachi = N'" + txtDiachi.Text.Trim() + "', " +
-                         "dienthoai = '" + mskDienthoai.Text.Trim() + "', " +
-                         "email = '" + txtEmail.Text.Trim() + "', " +
-                         "mota = N'" + txtMoTa.Text.Trim() + "', " +
-                         "trangthai = N'" + cboTrangthai.Text + "' " +
-                         "WHERE nhacungcap_id = N'" + txtIDCungcap.Text + "'";
-            Function.RunSql(sql);
+
+            NhaCungCapBLL.CapNhatNhaCungCap(
+                txtIDCungcap.Text,
+                txtTennhacungcap.Text.Trim(),
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text.Trim(),
+                txtEmail.Text.Trim(),
+                txtMoTa.Text.Trim(),
+                cboTrangthai.Text
+            );
+
             Load_DataGridViewNCC();
             resetValues();
             btnSua.Enabled = false;
@@ -224,7 +226,7 @@ namespace Baitaplon.Forms
         private void txtTennhacungcap_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                txtDiachi.Focus();      
+                txtDiachi.Focus();
         }
 
         private void txtDiachi_KeyUp(object sender, KeyEventArgs e)

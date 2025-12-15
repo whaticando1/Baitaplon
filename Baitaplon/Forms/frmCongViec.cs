@@ -1,15 +1,8 @@
 ﻿using Baitaplon.BLL;
 using Baitaplon.Class;
-using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
@@ -24,7 +17,6 @@ namespace Baitaplon.Forms
 
         private void frmCongViec_Load(object sender, EventArgs e)
         { 
-            
             btnBoqua.Enabled = false;
             txtIDCongViec.Enabled = false;
             txtTenCongViec.Enabled = false;
@@ -43,9 +35,7 @@ namespace Baitaplon.Forms
         }
         private void Load_DataGridViewCV()
         {
-            String sql;
-            sql = "SELECT congviec_id, tencongviec, mota, luongcoban FROM CongViec";
-            tblCongviec = Class.Function.GetDataToTable(sql);
+            tblCongviec = CongViecBLL.LayTatCaCongViec();
             dataGridViewCV.DataSource = tblCongviec;
 
             if (dataGridViewCV.Rows.Count > 0)
@@ -70,7 +60,6 @@ namespace Baitaplon.Forms
 
         private void dataGridViewCV_Click(object sender, EventArgs e)
         {
-            
             if (tblCongviec.Rows.Count == 0)
             {
                 MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,7 +74,6 @@ namespace Baitaplon.Forms
             btnBoqua.Enabled = true;
         }
 
-
         private void btnBoqua_Click(object sender, EventArgs e)
         {
             Resetvalues();
@@ -94,10 +82,8 @@ namespace Baitaplon.Forms
             txtIDCongViec.Enabled = false;
         }
 
-
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string sql;
             if (tblCongviec.Rows.Count == 0)
             {
                 MessageBox.Show("Không còn dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -136,8 +122,18 @@ namespace Baitaplon.Forms
                 txtLuongCoBan.Focus();
                 return;
             }
-            sql = "UPDATE CongViec SET tencongviec=N'" + txtTenCongViec.Text.Trim() + "', mota=N'" + txtMoTa.Text.Trim() + "', luongcoban=" + txtLuongCoBan.Text.Trim() + " WHERE congviec_id=N'" + txtIDCongViec.Text + "'";
-            Class.Function.RunSql(sql);
+
+            // parse salary (assumes Function.IsNumber validated format)
+            decimal luong;
+            if (!decimal.TryParse(txtLuongCoBan.Text.Trim(), out luong))
+            {
+                // try replacing comma with dot as a fallback
+                var normalized = txtLuongCoBan.Text.Trim().Replace(",", ".");
+                decimal.TryParse(normalized, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out luong);
+            }
+
+            CongViecBLL.CapNhatCongViec(txtIDCongViec.Text.Trim(), txtTenCongViec.Text.Trim(), txtMoTa.Text.Trim(), luong);
+
             Load_DataGridViewCV();
             Resetvalues();
             btnBoqua.Enabled = false;

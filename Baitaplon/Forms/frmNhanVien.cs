@@ -2,14 +2,8 @@
 using Baitaplon.Class;
 using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baitaplon.Forms
@@ -40,7 +34,8 @@ namespace Baitaplon.Forms
             Resetvalues();
             Load_DataGridView();
         }
-       private void Resetvalues()
+
+        private void Resetvalues()
         {
             lblwarning.Text = "";
             txtManhanvien.Text = "";
@@ -59,9 +54,7 @@ namespace Baitaplon.Forms
 
         private void Load_DataGridView()
         {
-            string sql;
-            sql = "SELECT nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email, trangthai FROM NhanVien";
-            tblNhanvien = Class.Function.GetDataToTable(sql);
+            tblNhanvien = NhanVienBLL.LayTatCaNhanVien();
             DataGridView.DataSource = tblNhanvien;
 
             if (DataGridView.Rows.Count > 0)
@@ -149,7 +142,7 @@ namespace Baitaplon.Forms
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql, gt, id="";
+            string sql, gt, id = "";
             if (txtTennhanvien.Text.Trim().Length == 0)
             {
                 lblThongbao.Text = "Phải nhập tên nhân viên!";
@@ -234,45 +227,31 @@ namespace Baitaplon.Forms
             else
                 gt = "Nữ";
 
-            if (cboCongviec.SelectedValue.ToString() == "Aa1")
-            {
-                string sql2 = "Select top 1 right(nhanvien_id,1) From NhanVien where congviec_id='Aa1' order by right(nhanvien_id,1) desc";
+            var selectedJob = cboCongviec.SelectedValue?.ToString();
+            id = NhanVienBLL.TaoMaMoi(selectedJob);
 
-                float count = Function.FirstRowNumberSafe(sql2) + 1;
-
-                id = "A" + count;
-
-            }
-            else if(cboCongviec.SelectedValue.ToString() == "Aa2")
-            {
-                string sql2 = "Select top 1 right(nhanvien_id,1) From NhanVien where congviec_id='Aa2' order by right(nhanvien_id,1) desc";
-
-                float count = Function.FirstRowNumberSafe(sql2) + 1;
-
-                id = "E" + count;
-            }
             string bdate = Class.Function.ConvertDateTime(mskNgaysinh.Text.Trim());
             string edate = Class.Function.ConvertDateTime(mskNgaytuyendung.Text.Trim());
 
-            sql = "INSERT INTO NhanVien(nhanvien_id, tennhanvien, gioitinh, diachi, dienthoai, ngaysinh, ngaytuyendung, congviec_id, email, trangthai) VALUES(" +
-                  "N'" + id + "', " +
-                  "N'" + txtTennhanvien.Text.Trim() + "', " +
-                  "N'" + gt + "', " +
-                  "N'" + txtDiachi.Text.Trim() + "', " +
-                  "N'" + mskDienthoai.Text.Trim() + "', " +
-                  "N'" + bdate + "', " +
-                  "N'" + edate + "', " +
-                  "N'" + cboCongviec.SelectedValue.ToString() + "', " +
-                  "N'" + txtEmail.Text.Trim() + "', " +
-                  "N'" + cboTrangthai.Text + "')";
-            Class.Function.RunSql(sql);
+            NhanVienBLL.ThemNhanVien(
+                id,
+                txtTennhanvien.Text.Trim(),
+                gt,
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text.Trim(),
+                bdate,
+                edate,
+                selectedJob ?? string.Empty,
+                txtEmail.Text.Trim(),
+                cboTrangthai.Text
+            );
+
             Load_DataGridView();
             Resetvalues();
             btnThem.Enabled = true;
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
             cboCongviec.Enabled = false;
-
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -368,25 +347,26 @@ namespace Baitaplon.Forms
 
             string bdate1 = Class.Function.ConvertDateTime(mskNgaysinh.Text.Trim());
             string edate1 = Class.Function.ConvertDateTime(mskNgaytuyendung.Text.Trim());
+            var jobValue = cboCongviec.SelectedValue?.ToString() ?? string.Empty;
 
-            sql = "UPDATE NhanVien SET " +
-                  "tennhanvien=N'" + txtTennhanvien.Text.Trim() + "', " +
-                  "gioitinh=N'" + gt + "', " +
-                  "diachi=N'" + txtDiachi.Text.Trim() + "', " +
-                  "dienthoai=N'" + mskDienthoai.Text.Trim() + "', " +
-                  "ngaysinh=N'" + bdate1 + "', " +
-                  "ngaytuyendung=N'" + edate1 + "', " +
-                  "congviec_id=N'" + cboCongviec.SelectedValue.ToString() + "', " +
-                  "email=N'" + txtEmail.Text.Trim() + "' " +
-                  ",trangthai=N'" + cboTrangthai.Text + "'  " +
-                  "WHERE nhanvien_id=N'" + txtManhanvien.Text.Trim() + "'";
-            Function.RunSql(sql);
+            NhanVienBLL.CapNhatNhanVien(
+                txtManhanvien.Text.Trim(),
+                txtTennhanvien.Text.Trim(),
+                gt,
+                txtDiachi.Text.Trim(),
+                mskDienthoai.Text.Trim(),
+                bdate1,
+                edate1,
+                jobValue,
+                txtEmail.Text.Trim(),
+                cboTrangthai.Text
+            );
+
             Load_DataGridView();
             Resetvalues();
             btnSua.Enabled = false;
             btnBoqua.Enabled = false;
             btnThem.Enabled = true;
-
         }
 
 
