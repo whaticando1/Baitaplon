@@ -59,6 +59,7 @@
             // 
             // txtTen
             // 
+            this.txtTen.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtTen.Location = new System.Drawing.Point(302, 125);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(380, 31);
@@ -128,7 +129,6 @@
             this.Controls.Add(this.txtTen);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDangNhap";
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);

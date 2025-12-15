@@ -308,7 +308,6 @@
             this.Controls.Add(this.lblTenkhach);
             this.Controls.Add(this.lblMakhach);
             this.Controls.Add(this.lblDMKH);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKhachHang";
             this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);

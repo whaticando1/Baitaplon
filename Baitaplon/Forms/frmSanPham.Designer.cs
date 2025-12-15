@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSanPham));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thểLoạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsTxtTimkiem = new System.Windows.Forms.ToolStripTextBox();
             this.txtMasanpham = new System.Windows.Forms.TextBox();
             this.cboMatheloai = new System.Windows.Forms.ComboBox();
             this.mskNgaynhap = new System.Windows.Forms.MaskedTextBox();
@@ -72,6 +70,8 @@
             this.lblThongbao = new System.Windows.Forms.Label();
             this.cboMua = new System.Windows.Forms.ComboBox();
             this.cboTrangthai = new System.Windows.Forms.ComboBox();
+            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsTxtTimkiem = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -97,20 +97,6 @@
             this.thểLoạiToolStripMenuItem.Size = new System.Drawing.Size(119, 39);
             this.thểLoạiToolStripMenuItem.Text = "Thể loại";
             this.thểLoạiToolStripMenuItem.Click += new System.EventHandler(this.thểLoạiToolStripMenuItem_Click);
-            // 
-            // tìmKiếmToolStripMenuItem
-            // 
-            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(133, 39);
-            this.tìmKiếmToolStripMenuItem.Text = "Tìm kiếm";
-            this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
-            // 
-            // tsTxtTimkiem
-            // 
-            this.tsTxtTimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tsTxtTimkiem.Name = "tsTxtTimkiem";
-            this.tsTxtTimkiem.Size = new System.Drawing.Size(100, 39);
-            this.tsTxtTimkiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tsTxtTimkiem_KeyUp);
             // 
             // txtMasanpham
             // 
@@ -461,6 +447,20 @@
             this.cboTrangthai.Size = new System.Drawing.Size(192, 33);
             this.cboTrangthai.TabIndex = 111;
             // 
+            // tìmKiếmToolStripMenuItem
+            // 
+            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
+            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(133, 39);
+            this.tìmKiếmToolStripMenuItem.Text = "Tìm kiếm";
+            this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
+            // 
+            // tsTxtTimkiem
+            // 
+            this.tsTxtTimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tsTxtTimkiem.Name = "tsTxtTimkiem";
+            this.tsTxtTimkiem.Size = new System.Drawing.Size(100, 44);
+            this.tsTxtTimkiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tsTxtTimkiem_KeyUp);
+            // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -509,7 +509,6 @@
             this.Controls.Add(this.txtMasanpham);
             this.Controls.Add(this.a);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmSanPham";
             this.Text = "Sản phẩm";

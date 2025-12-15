@@ -197,7 +197,6 @@
             this.Controls.Add(this.txtTen);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDangKy";
             this.Text = "Đăng ký";
             this.Load += new System.EventHandler(this.frmDangKy_Load);
