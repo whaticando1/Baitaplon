@@ -470,6 +470,36 @@ namespace Baitaplon.Forms
             return so.ToString("N0") + " đồng";
         }
 
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            if (tblHDBan.Rows.Count > 0)
+            {
+                DialogResult rs = MessageBox.Show(
+                    "Hóa đơn chưa được lưu.\nBạn có muốn hủy hóa đơn và đóng form không?",
+                    "Xác nhận",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (rs == DialogResult.No) return;
+                foreach (DataRow row in tblHDBan.Rows)
+                {
+                    int sanphamId = (int)row["sanpham_id"];
+                    int soLuong = (int)row["soluong"];
+
+                    foreach (DataGridViewRow spRow in dgvQuanao.Rows)
+                    {
+                        if (Convert.ToInt32(spRow.Cells["sanpham_id"].Value) == sanphamId)
+                        {
+                            spRow.Cells["soluong"].Value =
+                                Convert.ToInt32(spRow.Cells["soluong"].Value) + soLuong;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            this.Close();
+        }
     }
 }
 
