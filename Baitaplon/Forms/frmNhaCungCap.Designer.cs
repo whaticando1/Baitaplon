@@ -294,6 +294,7 @@
             this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.txtIDCungcap);
             this.Controls.Add(this.DataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNhaCungCap";
             this.Text = "Nhà cung cấp";
             this.Load += new System.EventHandler(this.frmNhaCungCap_Load);

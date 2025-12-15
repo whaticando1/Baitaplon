@@ -245,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Heart.jpg" />
+    <Content Include="Images\rat.ico" />
     <Content Include="Images\Shin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
