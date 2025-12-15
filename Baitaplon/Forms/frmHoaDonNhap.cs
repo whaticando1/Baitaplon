@@ -37,6 +37,13 @@ namespace Baitaplon.Forms
             LoadNhaCungCap();
             TaoBangGioNhap();
             LoadLoaiQuanAo();
+
+            txtMaHDN.Text = GenerateInvoiceCode();
+        }
+
+        string GenerateInvoiceCode()
+        {
+            return "MDH" + DateTime.Now.ToString("yyyyMMddHHmmss");
         }
         void LoadNhaCungCap()
         {
@@ -126,6 +133,7 @@ namespace Baitaplon.Forms
                 MessageBox.Show("Lập hóa đơn nhập thành công!");
                 tblHoaDonNhap.Clear();
                 lblTongTien.Text = "0";
+                txtMaHDN.Text = GenerateInvoiceCode();
             }
             else
             {
@@ -166,6 +174,9 @@ namespace Baitaplon.Forms
             tblHoaDonNhap.Rows.Add(newRow);
 
             CapNhatTongTien();
+
+            txtGiaTien.Clear();
+            txtSoLuong.Clear();
         }
         private void LoadLoaiQuanAo()
         {
@@ -757,6 +768,11 @@ namespace Baitaplon.Forms
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        private void lblTongTien_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }

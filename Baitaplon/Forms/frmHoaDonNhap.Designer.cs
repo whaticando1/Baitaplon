@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.colMaQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenQA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,8 +128,8 @@
             // colMaQA
             // 
             this.colMaQA.DataPropertyName = "MaQA";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.colMaQA.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.colMaQA.DefaultCellStyle = dataGridViewCellStyle13;
             this.colMaQA.HeaderText = "Mã quần áo";
             this.colMaQA.MinimumWidth = 6;
             this.colMaQA.Name = "colMaQA";
@@ -179,8 +179,8 @@
             // colGiaTienTC
             // 
             this.colGiaTienTC.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle10.Format = "#,## VNĐ";
-            this.colGiaTienTC.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Format = "#,## VNĐ";
+            this.colGiaTienTC.DefaultCellStyle = dataGridViewCellStyle14;
             this.colGiaTienTC.HeaderText = "Giá tiền";
             this.colGiaTienTC.MinimumWidth = 6;
             this.colGiaTienTC.Name = "colGiaTienTC";
@@ -387,6 +387,7 @@
             this.lblTongTien.Size = new System.Drawing.Size(18, 20);
             this.lblTongTien.TabIndex = 94;
             this.lblTongTien.Text = "0";
+            this.lblTongTien.Click += new System.EventHandler(this.lblTongTien_Click);
             // 
             // btnLapHD
             // 
@@ -476,8 +477,8 @@
             // colquanao
             // 
             this.colquanao.DataPropertyName = "MaQuanAo";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            this.colquanao.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            this.colquanao.DefaultCellStyle = dataGridViewCellStyle15;
             this.colquanao.HeaderText = "Mã quần áo";
             this.colquanao.MinimumWidth = 6;
             this.colquanao.Name = "colquanao";
@@ -527,8 +528,8 @@
             // colgiatien
             // 
             this.colgiatien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle12.Format = "#,## VNĐ";
-            this.colgiatien.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.Format = "#,## VNĐ";
+            this.colgiatien.DefaultCellStyle = dataGridViewCellStyle16;
             this.colgiatien.HeaderText = "Giá tiền";
             this.colgiatien.MinimumWidth = 6;
             this.colgiatien.Name = "colgiatien";
