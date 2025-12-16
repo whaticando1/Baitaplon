@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button btnIn;
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
@@ -59,9 +60,11 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtnhacungcap = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            btnIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -114,7 +117,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(761, 568);
+            this.btnHuy.Location = new System.Drawing.Point(842, 568);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 31;
@@ -323,6 +326,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtnhacungcap);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(34, 96);
@@ -331,6 +335,22 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm hóa đơn";
+            // 
+            // txtnhacungcap
+            // 
+            this.txtnhacungcap.Location = new System.Drawing.Point(143, 169);
+            this.txtnhacungcap.Name = "txtnhacungcap";
+            this.txtnhacungcap.Size = new System.Drawing.Size(200, 22);
+            this.txtnhacungcap.TabIndex = 37;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(40, 171);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 16);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Nhà cung cấp";
             // 
             // groupBox2
             // 
@@ -354,21 +374,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chi tiết hóa đơn nhập";
             // 
-            // label13
+            // btnIn
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(40, 171);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 16);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Nhà cung cấp";
+            btnIn.Location = new System.Drawing.Point(761, 568);
+            btnIn.Name = "btnIn";
+            btnIn.Size = new System.Drawing.Size(75, 23);
+            btnIn.TabIndex = 38;
+            btnIn.Text = "In";
+            btnIn.UseVisualStyleBackColor = true;
             // 
-            // txtnhacungcap
+            // button3
             // 
-            this.txtnhacungcap.Location = new System.Drawing.Point(143, 169);
-            this.txtnhacungcap.Name = "txtnhacungcap";
-            this.txtnhacungcap.Size = new System.Drawing.Size(200, 22);
-            this.txtnhacungcap.TabIndex = 37;
+            this.button3.Location = new System.Drawing.Point(21, 30);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(302, 84);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmCTHoaDonNhap
             // 
@@ -377,6 +399,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1268, 744);
             this.Controls.Add(this.btnSua);
+            this.Controls.Add(btnIn);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnHuy);
@@ -446,5 +469,6 @@
         private System.Windows.Forms.TextBox txtnhacungcap;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button3;
     }
 }
