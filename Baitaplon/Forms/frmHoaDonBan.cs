@@ -47,8 +47,6 @@ namespace Baitaplon.Forms
                 tblHDBan.Columns.Add("soluong", typeof(int));
                 tblHDBan.Columns.Add("thanhtien", typeof(decimal));
 
-                dgvGioHang.AutoGenerateColumns = false;
-                dgvGioHang.DataSource = tblHDBan;
             }
 
 
@@ -109,6 +107,7 @@ namespace Baitaplon.Forms
 
             object stockObj = row.Cells["soluong"]?.Value ?? row.Cells["SoLuong"]?.Value;
             lblSoLuongTonKho.Text = stockObj?.ToString() ?? "0";
+
         }
 
 
