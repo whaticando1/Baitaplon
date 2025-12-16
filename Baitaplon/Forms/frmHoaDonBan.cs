@@ -41,7 +41,7 @@ namespace Baitaplon.Forms
             {
                 tblHDBan = new DataTable();
 
-                tblHDBan.Columns.Add("sanpham_id", typeof(int));
+                tblHDBan.Columns.Add("sanpham_id", typeof(string)); // was typeof(int)
                 tblHDBan.Columns.Add("tensanpham", typeof(string));
                 tblHDBan.Columns.Add("giaban", typeof(decimal));
                 tblHDBan.Columns.Add("soluong", typeof(int));
@@ -106,19 +106,11 @@ namespace Baitaplon.Forms
             else
                 lblGiaTien.Text = "0";
 
-  
+
             object stockObj = row.Cells["soluong"]?.Value ?? row.Cells["SoLuong"]?.Value;
             lblSoLuongTonKho.Text = stockObj?.ToString() ?? "0";
-
-  
-            string tenAnh = (row.Cells["hinhanh"]?.Value ?? row.Cells["HinhAnh"]?.Value)?.ToString();
-            HienThiAnhSanPham(tenAnh);
-
-            txtSoLuongNhap.Focus();
-
-
-            HienThiAnhSanPham(tenAnh);
         }
+
 
         private void dgvGioHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -138,10 +130,9 @@ namespace Baitaplon.Forms
 
             DataGridViewRow spRow = dgvQuanao.CurrentRow;
 
-            int sanphamId = Convert.ToInt32(spRow.Cells["sanpham_id"].Value);
-            string ten = spRow.Cells["tensanpham"].Value.ToString();
-            decimal gia = Convert.ToDecimal(spRow.Cells["giaban"].Value);
             int tonKho = Convert.ToInt32(spRow.Cells["soluong"].Value);
+
+            string sanphamId = spRow.Cells["sanpham_id"].Value.ToString();
 
             // ❌ vượt tồn kho
             if (soLuongNhap > tonKho)
@@ -153,7 +144,8 @@ namespace Baitaplon.Forms
             // kiểm tra trong giỏ
             foreach (DataRow row in tblHDBan.Rows)
             {
-                if ((int)row["sanpham_id"] == sanphamId)
+                // compare as string
+                if ((string)row["sanpham_id"] == sanphamId)
                 {
                     int tongSoLuong = (int)row["soluong"] + soLuongNhap;
 
@@ -178,10 +170,10 @@ namespace Baitaplon.Forms
             // thêm mới
             DataRow newRow = tblHDBan.NewRow();
             newRow["sanpham_id"] = sanphamId;
-            newRow["tensanpham"] = ten;
-            newRow["giaban"] = gia;
+            newRow["tensanpham"] = spRow.Cells["tensanpham"].Value.ToString();
+            newRow["giaban"] = Convert.ToDecimal(spRow.Cells["giaban"].Value);
             newRow["soluong"] = soLuongNhap;
-            newRow["thanhtien"] = gia * soLuongNhap;
+            newRow["thanhtien"] = Convert.ToDecimal(spRow.Cells["giaban"].Value) * soLuongNhap;
 
             tblHDBan.Rows.Add(newRow);
 
@@ -557,9 +549,28 @@ namespace Baitaplon.Forms
         }
 
         private void label10_Click(object sender, EventArgs e)
+
         {
+
+        }
+
+        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.frmCTHoaDonBan f = new Forms.frmCTHoaDonBan();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tblSanPham = HoaDonBanBLL.LayDanhSachSanPham();
+            dgvQuanao.DataSource = tblSanPham;
+            txtTimTen.Clear();
+
 
         }
     }
 }
+
+
 

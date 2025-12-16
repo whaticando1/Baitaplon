@@ -30,15 +30,25 @@ namespace Baitaplon.Forms
 
         private void frmHoaDonNhap_Load(object sender, EventArgs e)
         {
-            tblSanPham = HoaDonNhapBLL.LaySanPham();
-            dgvQuanao.DataSource = tblSanPham;
+            try
+            {
+                tblSanPham = HoaDonNhapBLL.LaySanPham();
+                dgvQuanao.DataSource = tblSanPham;
 
+                LoadNhaCungCap();
+                TaoBangGioNhap();
+                LoadLoaiQuanAo();
 
-            LoadNhaCungCap();
-            TaoBangGioNhap();
-            LoadLoaiQuanAo();
-
-            txtMaHDN.Text = GenerateInvoiceCode();
+                txtMaHDN.Text = GenerateInvoiceCode();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error while loading frmHoaDonNhap:\n" + ex.Message + "\n\n" + ex.StackTrace,
+                    "Load error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         string GenerateInvoiceCode()
@@ -773,6 +783,13 @@ namespace Baitaplon.Forms
         private void lblTongTien_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.frmCTHoaDonNhap f = new Forms.frmCTHoaDonNhap();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
         }
     } 
 }

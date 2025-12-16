@@ -97,9 +97,23 @@ namespace Baitaplon
 
         private void hoáĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.frmHoaDonNhap f = new Forms.frmHoaDonNhap();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            try
+            {
+                // Ensure DB connection is available before opening the form
+                Class.Function.Connect();
+
+                var f = new Forms.frmHoaDonNhap();
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Cannot open frmHoaDonNhap:\n" + ex.Message + "\n\n" + ex.StackTrace,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)

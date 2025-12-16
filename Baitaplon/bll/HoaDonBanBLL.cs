@@ -1,18 +1,13 @@
 ﻿using Baitaplon.Class;
 using Baitaplon.DAL;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Baitaplon.BLL
 {
     internal class HoaDonBanBLL
     {
-
         public static int TaoHoaDon(int nhanvienId, int khachhangId, DataTable gioHang)
         {
             decimal tong = 0;
@@ -32,10 +27,12 @@ namespace Baitaplon.BLL
             }
             return hoadonId;
         }
+
         public static DataTable LayDanhSachSanPham()
         {
             return HoaDonBanDAL.GetAll();
         }
+
         public static bool TaoHoaDon(
            int nhanvienId,
            int khachhangId,
@@ -43,30 +40,29 @@ namespace Baitaplon.BLL
            decimal tongTien,
            int giamGia)
         {
-            using (SqlConnection conn = new SqlConnection())
+            // Ensure shared connection is initialized
+            Function.Connect();
+            SqlConnection conn = Function.Conn;
+
+            SqlTransaction tran = conn.BeginTransaction();
+            try
             {
-                conn.Open();
-                SqlTransaction tran = conn.BeginTransaction();
+                HoaDonBanDAL.InsertHoaDon(
+                    nhanvienId,
+                    khachhangId,
+                    tongTien,
+                    giamGia,
+                    tblHDBan,
+                    conn,
+                    tran);
 
-                try
-                {
-                    HoaDonBanDAL.InsertHoaDon(
-                        nhanvienId,
-                        khachhangId,
-                        tongTien,
-                        giamGia,
-                        tblHDBan,
-                        conn,
-                        tran);
-
-                    tran.Commit();
-                    return true;
-                }
-                catch
-                {
-                    tran.Rollback();
-                    return false;
-                }
+                tran.Commit();
+                return true;
+            }
+            catch
+            {
+                try { tran.Rollback(); } catch { /* ignore rollback errors */ }
+                return false;
             }
         }
     }

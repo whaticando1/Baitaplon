@@ -11,10 +11,15 @@ namespace Baitaplon.DAL
             return Function.GetDataToTable(sql);
         }
 
-        // Add this for LoaiQuanAo
+        // Fixed: use the actual table name and alias columns the form expects
         public static DataTable GetAllLoai()
         {
-            string sql = "SELECT loaiquanao_id, tenloai FROM LoaiQuanAo";
+            string sql = @"
+                SELECT 
+                    theloai_id AS loaiquanao_id,
+                    tentheloai AS tenloai
+                FROM TheLoai
+            ";
             return Function.GetDataToTable(sql);
         }
 
