@@ -91,22 +91,7 @@ namespace Baitaplon.Forms
 
         private void dgvQuanao_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            DataGridViewRow row = dgvQuanao.Rows[e.RowIndex];
-
-            string ten = (row.Cells["tensanpham"]?.Value ?? row.Cells["TenQA"]?.Value ?? row.Cells["colTenQA"]?.Value)?.ToString();
-            lblTenTraiCay.Text = ten ?? string.Empty;
-
-            object priceObj = row.Cells["giaban"]?.Value ?? row.Cells["GiaTien"]?.Value ?? row.Cells["gianhap"]?.Value;
-            decimal price = 0m;
-            if (priceObj != null && decimal.TryParse(priceObj.ToString(), out price))
-                lblGiaTien.Text = price.ToString("N0");
-            else
-                lblGiaTien.Text = "0";
-
-
-            object stockObj = row.Cells["soluong"]?.Value ?? row.Cells["SoLuong"]?.Value;
-            lblSoLuongTonKho.Text = stockObj?.ToString() ?? "0";
+           
 
         }
 
@@ -178,6 +163,8 @@ namespace Baitaplon.Forms
 
             // trừ tồn kho
             spRow.Cells["soluong"].Value = tonKho - soLuongNhap;
+            dgvGioHang.AutoGenerateColumns = true;
+            dgvGioHang.DataSource = tblHDBan;
 
             CapNhatTongTien();
             txtSoLuongNhap.Clear();
@@ -567,6 +554,26 @@ namespace Baitaplon.Forms
             txtTimTen.Clear();
 
 
+        }
+
+        private void dgvQuanao_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            DataGridViewRow row = dgvQuanao.Rows[e.RowIndex];
+
+            string ten = (row.Cells["tensanpham"]?.Value ?? row.Cells["TenQA"]?.Value ?? row.Cells["colTenQA"]?.Value)?.ToString();
+            lblTenTraiCay.Text = ten ?? string.Empty;
+
+            object priceObj = row.Cells["giaban"]?.Value ?? row.Cells["GiaTien"]?.Value ?? row.Cells["gianhap"]?.Value;
+            decimal price = 0m;
+            if (priceObj != null && decimal.TryParse(priceObj.ToString(), out price))
+                lblGiaTien.Text = price.ToString("N0");
+            else
+                lblGiaTien.Text = "0";
+
+
+            object stockObj = row.Cells["soluong"]?.Value ?? row.Cells["SoLuong"]?.Value;
+            lblSoLuongTonKho.Text = stockObj?.ToString() ?? "0";
         }
     }
 }
