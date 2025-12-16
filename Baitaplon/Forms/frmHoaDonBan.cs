@@ -54,11 +54,33 @@ namespace Baitaplon.Forms
 
         private void btnThemhoadon_Click(object sender, EventArgs e)
         {
-            int nhanvienId = 1;   // lấy từ đăng nhập
-            int khachhangId = 1;  // lấy từ combobox
+            // Delegate to the same save logic as the other handler
+            if (tblHDBan == null || tblHDBan.Rows.Count == 0)
+            {
+                MessageBox.Show("Giỏ hàng trống!");
+                return;
+            }
 
-            HoaDonBanBLL.TaoHoaDon(nhanvienId, khachhangId, tblHDBan);
-            MessageBox.Show("Tạo hóa đơn thành công!");
+            int nhanvienId = 1; // TODO: lấy từ đăng nhập
+            int khachhangId = Convert.ToInt32(cbbKhachHang.SelectedValue);
+            decimal tongTien = 0m;
+            foreach (DataRow row in tblHDBan.Rows)
+                tongTien += Convert.ToDecimal(row["thanhtien"]);
+
+            int giamGia = phanTramGiamGia;
+
+            bool ok = HoaDonBanBLL.TaoHoaDon(nhanvienId, khachhangId, tblHDBan, tongTien, giamGia);
+
+            if (ok)
+            {
+                MessageBox.Show("Lưu hóa đơn thành công!");
+                tblHDBan.Clear();
+                CapNhatTongTien();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi lưu hóa đơn!");
+            }
         }
 
         private void LoadDGV1()
@@ -116,7 +138,7 @@ namespace Baitaplon.Forms
 
             int tonKho = Convert.ToInt32(spRow.Cells["soluong"].Value);
 
-            string sanphamId = spRow.Cells["sanpham_id"].Value.ToString();
+            int sanphamId = Convert.ToInt32(spRow.Cells["sanpham_id"].Value);
 
             // ❌ vượt tồn kho
             if (soLuongNhap > tonKho)
@@ -128,8 +150,7 @@ namespace Baitaplon.Forms
             // kiểm tra trong giỏ
             foreach (DataRow row in tblHDBan.Rows)
             {
-                // compare as string
-                if ((string)row["sanpham_id"] == sanphamId)
+                if ((int)row["sanpham_id"] == sanphamId)
                 {
                     int tongSoLuong = (int)row["soluong"] + soLuongNhap;
 
