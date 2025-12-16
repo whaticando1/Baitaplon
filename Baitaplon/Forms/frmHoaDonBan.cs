@@ -40,8 +40,7 @@ namespace Baitaplon.Forms
             void TaoBangGioHang()
             {
                 tblHDBan = new DataTable();
-
-                tblHDBan.Columns.Add("sanpham_id", typeof(string)); // was typeof(int)
+                tblHDBan.Columns.Add("sanpham_id", typeof(int)); // changed to int
                 tblHDBan.Columns.Add("tensanpham", typeof(string));
                 tblHDBan.Columns.Add("giaban", typeof(decimal));
                 tblHDBan.Columns.Add("soluong", typeof(int));
@@ -135,10 +134,8 @@ namespace Baitaplon.Forms
                 return;
 
             DataGridViewRow spRow = dgvQuanao.CurrentRow;
-
             int tonKho = Convert.ToInt32(spRow.Cells["soluong"].Value);
-
-            int sanphamId = Convert.ToInt32(spRow.Cells["sanpham_id"].Value);
+            int spId = Convert.ToInt32(spRow.Cells["sanpham_id"].Value); // int id now
 
             // ❌ vượt tồn kho
             if (soLuongNhap > tonKho)
@@ -150,7 +147,7 @@ namespace Baitaplon.Forms
             // kiểm tra trong giỏ
             foreach (DataRow row in tblHDBan.Rows)
             {
-                if ((int)row["sanpham_id"] == sanphamId)
+                if (Convert.ToInt32(row["sanpham_id"]) == spId)
                 {
                     int tongSoLuong = (int)row["soluong"] + soLuongNhap;
 
@@ -174,7 +171,7 @@ namespace Baitaplon.Forms
 
             // thêm mới
             DataRow newRow = tblHDBan.NewRow();
-            newRow["sanpham_id"] = sanphamId;
+            newRow["sanpham_id"] = spId;
             newRow["tensanpham"] = spRow.Cells["tensanpham"].Value.ToString();
             newRow["giaban"] = Convert.ToDecimal(spRow.Cells["giaban"].Value);
             newRow["soluong"] = soLuongNhap;
@@ -598,6 +595,36 @@ namespace Baitaplon.Forms
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
