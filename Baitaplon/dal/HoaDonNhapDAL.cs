@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Baitaplon.DAL
 {
@@ -38,7 +39,7 @@ namespace Baitaplon.DAL
             {
                 string sql = @"
                 INSERT INTO ChiTietHoaDonNhap
-                (hoadonnhap_id, sanpham_id, soluong, gianhap)
+                (hoadonnhap_id, sanpham_id, soluong, dongia)
                 VALUES (@hdn, @sp, @sl, @gia)
             ";
 
@@ -52,6 +53,23 @@ namespace Baitaplon.DAL
 
                 Function.ExecuteNonQuery(sql, pr);
             }
+        public static DataTable GetAllHoaDonNhap()
+        {
+            string sql = @"
+        SELECT 
+            hdn.hoadonnhap_id,
+            hdn.ngaynhap,
+            ncc.tennhacungcap,
+            nv.tennhanvien,
+            hdn.tongtien
+        FROM HoaDonNhap hdn
+        JOIN NhaCungCap ncc ON hdn.nhacungcap_id = ncc.nhacungcap_id    
+        JOIN NhanVien nv ON hdn.nhanvien_id = nv.nhanvien_id
+        ORDER BY hdn.hoadonnhap_id DESC
+    ";
+
+            return Function.GetDataToTable(sql);
         }
+    }
     }
 

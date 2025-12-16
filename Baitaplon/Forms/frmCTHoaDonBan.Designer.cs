@@ -61,11 +61,22 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             btnIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnIn
+            // 
+            btnIn.Location = new System.Drawing.Point(739, 540);
+            btnIn.Name = "btnIn";
+            btnIn.Size = new System.Drawing.Size(75, 23);
+            btnIn.TabIndex = 39;
+            btnIn.Text = "In";
+            btnIn.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -189,6 +200,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label11);
@@ -354,14 +366,13 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             // 
-            // btnIn
+            // pictureBox1
             // 
-            btnIn.Location = new System.Drawing.Point(739, 540);
-            btnIn.Name = "btnIn";
-            btnIn.Size = new System.Drawing.Size(75, 23);
-            btnIn.TabIndex = 39;
-            btnIn.Text = "In";
-            btnIn.UseVisualStyleBackColor = true;
+            this.pictureBox1.Location = new System.Drawing.Point(287, 81);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(195, 115);
+            this.pictureBox1.TabIndex = 40;
+            this.pictureBox1.TabStop = false;
             // 
             // frmCTHoaDonBan
             // 
@@ -396,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,5 +447,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
